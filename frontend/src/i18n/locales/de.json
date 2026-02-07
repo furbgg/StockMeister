@@ -1,0 +1,558 @@
+{
+    "auth": {
+        "sign_in": "Anmelden",
+        "subtitle": "Greifen Sie mit Ihrer E-Mail und Ihrem Passcode auf das StockMeister-Panel zu.",
+        "username_email": "Benutzername / E-Mail",
+        "password": "Passwort",
+        "forgot_password": "Passwort vergessen?",
+        "signing_in": "Anmelden...",
+        "welcome_back": "Willkommen zurück!",
+        "redirecting": "Weiterleitung zum Dashboard...",
+        "access_denied": "Zugriff verweigert",
+        "check_credentials": "Bitte überprüfen Sie Ihre Anmeldedaten",
+        "try_again": "Erneut versuchen",
+        "forgot_password_title": "Passwort vergessen?",
+        "forgot_password_subtitle": "Wenn Sie Ihr Passwort vergessen haben, senden wir Ihnen Anweisungen zum Zurücksetzen per E-Mail.",
+        "email_address": "E-Mail-Adresse",
+        "send_reset_link": "Link zum Zurücksetzen senden",
+        "sending_link": "Link wird gesendet...",
+        "check_email": "Überprüfen Sie Ihre E-Mails!",
+        "email_sent_desc": "Wir haben Anweisungen zum Zurücksetzen des Passworts an <0>{{email}}</0> gesendet.",
+        "redirecting_login": "Weiterleitung zur Anmeldung...",
+        "return_login": "Zurück zur Anmeldung"
+    },
+    "header": {
+        "search_placeholder": "Rezepte, Zutaten suchen...",
+        "select_kitchen": "Küche wählen",
+        "quick_add": "Schnell hinzufügen",
+        "quick_actions": "Schnellaktionen",
+        "add_recipe": "Rezept hinzufügen",
+        "add_ingredient": "Zutat hinzufügen",
+        "add_user": "Benutzer hinzufügen",
+        "notifications": {
+            "title": "Benachrichtigungen",
+            "mark_read": "Als gelesen markieren",
+            "empty_title": "Keine neuen Benachrichtigungen",
+            "empty_desc": "Alles auf dem neuesten Stand!",
+            "view_all": "Alle Warnungen anzeigen"
+        },
+        "profile": {
+            "profile": "Profil",
+            "settings": "Einstellungen",
+            "logout": "Abmelden"
+        }
+    },
+    "dashboard": {
+        "welcome": "Willkommen, {{name}}",
+        "orders_today": "Du hast heute <1>+{{count}}</1> Bestellungen",
+        "total_revenue": "Gesamtumsatz",
+        "net_profit": "Reingewinn",
+        "low_stock_items": "Bestand Warnung",
+        "stock_value": "Lagerwert",
+        "top_selling": "Bestseller",
+        "recipes_by_category": "Rezepte (Kategorie)",
+        "this_week": "Diese Woche",
+        "last_week": "Letzte Woche",
+        "this_month": "Diesen Monat",
+        "revenue": "Einnahmen",
+        "from_last_year": "zum Vorjahr",
+        "critical_items": "Kritische Artikel",
+        "action_needed": "Handlung nötig",
+        "value_distribution": "Wertverteilung",
+        "last_month": "Letzten Monat",
+        "last_3_months": "Letzte 3 Monate",
+        "months": {
+            "jan": "Jan",
+            "feb": "Feb",
+            "mar": "Mär",
+            "apr": "Apr",
+            "may": "Mai",
+            "jun": "Jun",
+            "jul": "Jul",
+            "aug": "Aug",
+            "sep": "Sep",
+            "oct": "Okt",
+            "nov": "Nov",
+            "dec": "Dez"
+        },
+        "days": {
+            "mo": "Mo",
+            "tu": "Di",
+            "we": "Mi",
+            "th": "Do",
+            "fr": "Fr",
+            "sa": "Sa",
+            "su": "So"
+        },
+        "recent_sales": "Letzte Verkäufe",
+        "recent_stock_updates": "Neueste Lagerbestand-Updates",
+        "view_all": "Alle anzeigen",
+        "meat_poultry": "Fleisch & Geflügel",
+        "dairy": "Milchprodukte",
+        "produce": "Obst & Gemüse",
+        "canned_goods": "Konserven"
+    },
+    "sidebar": {
+        "main": "Hauptbereich",
+        "dashboard": "Dashboard",
+        "kitchen": "Küche & Menü",
+        "recipes": "Rezepte",
+        "ingredients": "Zutaten",
+        "low-stock": "Niedriger Bestand",
+        "inventory": "Bestandskontrolle",
+        "stock-count": "Inventur",
+        "waste": "Abfallmanagement",
+        "sales": "Verkauf",
+        "pos": "Kassensystem",
+        "users": "Benutzerverwaltung",
+        "staff": "Personal / Benutzer",
+        "settings": "System",
+        "logout": "Abmelden"
+    },
+    "common": {
+        "others": "Andere",
+        "name": "Name",
+        "category": "Kategorie",
+        "price": "Preis",
+        "unit": "Einheit",
+        "stock": "Bestand",
+        "current_stock": "Aktueller Bestand",
+        "minimum_stock": "Mindestbestand",
+        "image": "Bild",
+        "actions": "Aktionen",
+        "status": "Status",
+        "save": "Speichern",
+        "cancel": "Abbrechen",
+        "edit": "Bearbeiten",
+        "delete": "Löschen",
+        "add": "Hinzufügen",
+        "search": "Suchen...",
+        "searchPlaceholder": "Suchen...",
+        "close": "Schließen",
+        "confirm": "Bestätigen",
+        "date": "Datum",
+        "total": "Gesamt",
+        "quantity": "Menge",
+        "description": "Beschreibung",
+        "loading": "Laden...",
+        "error": "Fehler",
+        "success": "Erfolg",
+        "noData": "Keine Daten verfügbar",
+        "welcome": "Willkommen",
+        "supplier": "Lieferant",
+        "cost": "Kosten",
+        "kitchens": {
+            "main_kitchen": "Hauptküche",
+            "prep_kitchen": "Vorbereitungsküche",
+            "pastry_kitchen": "Patisserie"
+        }
+    },
+    "recipes": {
+        "title": "Rezepte",
+        "management_title": "Menüverwaltung",
+        "management_subtitle": "Verwalten Sie Ihren Rezept- und Getränkebestand",
+        "add_recipe": "+ Rezept hinzufügen",
+        "add_beverage": "+ Getränk hinzufügen",
+        "search_placeholder": "Rezepte suchen...",
+        "filter_category": "Nach Kategorie filtern",
+        "item_count": "{{count}} Artikel",
+        "tabs": {
+            "recipes": "Rezepte",
+            "beverages": "Getränke"
+        },
+        "table": {
+            "name": "Rezeptname",
+            "category": "Kategorie",
+            "price": "Verkaufspreis",
+            "stock_status": "Lagerstatus",
+            "ingredients": "Zutaten",
+            "actions": "Aktionen"
+        },
+        "form": {
+            "edit_title": "Rezept bearbeiten",
+            "create_title": "Neues Rezept",
+            "new_item": "Neuer Artikel",
+            "edit_item": "Artikel bearbeiten",
+            "new_recipe": "Neues Rezept",
+            "edit_recipe": "Rezept bearbeiten",
+            "name_label": "Rezeptname",
+            "description_label": "Beschreibung",
+            "category_label": "Kategorie",
+            "price_label": "Preis (€)",
+            "ingredients_label": "Zutaten",
+            "select_ingredients": "Zutaten auswählen...",
+            "save_btn": "Rezept speichern",
+            "cancel_btn": "Abbrechen",
+            "portal_title": "EXKLUSIVES MENÜ-MANAGEMENT-PORTAL",
+            "presentation_image": "PRÄSENTATIONSBILD",
+            "upload_masterpiece": "Produkt-Meisterwerk hochladen",
+            "upload_hint": "Bevorzugt hochauflösende Kinoaufnahmen (16:9)",
+            "section_specs": "HAUPTSPEZIFIKATIONEN",
+            "placeholder_name": "z.B. Kaiserlicher Wagyu-Genuss",
+            "placeholder_desc": "Erzählen Sie die Essenz dieser Kreation..."
+        },
+        "tooltips": {
+            "edit": "Bearbeiten",
+            "delete": "Löschen",
+            "view_details": "Details anzeigen",
+            "manage_ingredients": "Zutaten verwalten"
+        },
+        "messages": {
+            "no_recipes": "Keine Rezepte gefunden",
+            "loading": "Rezepte werden geladen...",
+            "delete_confirm": "Möchten Sie dieses Rezept wirklich löschen?",
+            "created_success": "Rezept erfolgreich erstellt!",
+            "updated_success": "Rezept erfolgreich aktualisiert!",
+            "deleted_success": "Rezept erfolgreich gelöscht!"
+        },
+        "calculator": {
+            "title": "Zutaten verwalten",
+            "subtitle": "Präzisions-Kostenkalkulation",
+            "optimizing_for": "Optimierung für",
+            "total_cost": "GESAMTPRODUKTIONSKOSTEN",
+            "component_count": "ANZAHL KOMPONENTEN",
+            "quick_add": "SCHNELL-HINZUFÜGEN",
+            "active_breakdown": "AKTIVE AUFSCHLÜSSELUNG",
+            "valuation": "BEWERTUNGS-ANALYSE",
+            "system_online": "SYSTEM ONLINE",
+            "exit": "TERMINAL SCHLIESSEN",
+            "select_placeholder": "Zutat wählen...",
+            "labels": {
+                "ingredient": "ZUTAT",
+                "quantity": "MENGE",
+                "details": "DETAILS",
+                "line_cost": "KOSTEN"
+            },
+            "tiers": {
+                "aggressive": "AGGRESSIV",
+                "balanced": "AUSGEGLICHEN",
+                "premium": "PREMIUM"
+            },
+            "tiers_labels": {
+                "max_volume": "MAX. VOLUMEN",
+                "standard": "STANDARD",
+                "high_margin": "HOHE MARGE"
+            }
+        }
+    },
+    "ingredients": {
+        "title": "Bestandsverwaltung",
+        "subtitle": "Verfolgen und verwalten Sie Ihre Restaurantzutaten",
+        "add_ingredient": "Neue Zutat hinzufügen",
+        "search_placeholder": "Zutaten suchen...",
+        "filter": {
+            "all_categories": "Alle Kategorien",
+            "low_stock_only": "Nur geringer Bestand"
+        },
+        "ingredient_name": "Zutatenname",
+        "unit": "Einheit",
+        "current_stock": "Aktueller Bestand",
+        "minimum_stock": "Mindestbestand",
+        "supplier": "Lieferant",
+        "cost_per_unit": "Kosten pro Einheit",
+        "reorder": "Nachbestellen",
+        "master_entry": {
+            "title": "Haupteintrag",
+            "edit_item": "Artikel verfeinern",
+            "subtitle": "EXKLUSIVE BESTANDSVERWALTUNG",
+            "upload_text": "Produktbild hochladen",
+            "section_specs": "HAUPTSPEZIFIKATIONEN",
+            "label_name": "BEZEICHNUNG",
+            "placeholder_name": "z.B. Premium Safran",
+            "label_category": "KATEGORIE",
+            "placeholder_category": "Kategorie wählen",
+            "label_valuation": "BEWERTUNG (EUR)",
+            "label_stock": "BESTAND",
+            "label_unit": "EINHEIT",
+            "label_threshold": "SCHWELLENWERT",
+            "section_nutrition": "NÄHRWERT-ANALYSE",
+            "nutrition_identify": "Produkt identifizieren...",
+            "nutrition_discover": "Entdecken",
+            "btn_discard": "VERWERFEN",
+            "btn_archive": "EINTRAG SPEICHERN"
+        },
+        "low_stock_stats": {
+            "parameters": "PARAMETER",
+            "threshold": "Schwelle x"
+        }
+    },
+    "stock_alerts": {
+        "title": "Bestandswarnungen",
+        "subtitle": "Überwachen Sie geringe Bestände und fehlende Artikel",
+        "tabs": {
+            "low_stock": "Geringer Bestand",
+            "out_of_stock": "Nicht vorrätig"
+        },
+        "search_placeholder": "Produkte suchen...",
+        "notifications": "Benachrichtigungen",
+        "table": {
+            "image": "Bild",
+            "product_name": "Produktname",
+            "category": "Kategorie",
+            "stock_level": "Bestand",
+            "min_req": "Min. Erf.",
+            "missing": "Fehlend",
+            "action": "Aktion"
+        },
+        "empty_state": {
+            "title": "Bestand optimal",
+            "desc": "Keine Artikel mit geringem Bestand gefunden.",
+            "out_title": "Alles vorrätig",
+            "out_desc": "Derzeit keine fehlenden Artikel."
+        },
+        "stats": {
+            "low_stock_items": "GERINGER BESTAND",
+            "out_of_stock": "NICHT VORRÄTIG",
+            "total_alerts": "GESAMTWARNUNGEN"
+        },
+        "actions": {
+            "refill_stock": "Bestand auffüllen",
+            "update_stock": "Bestand aktualisieren",
+            "update_now": "Jetzt aktualisieren",
+            "cancel": "Abbrechen"
+        },
+        "update_sheet": {
+            "title": "Bestand aktualisieren",
+            "desc_prefix": "Bestand anpassen für",
+            "current_status": "Aktueller Status",
+            "current_stock": "Aktueller Bestand",
+            "minimum_req": "Mindestmenge",
+            "new_quantity": "Neue Menge",
+            "placeholder": "0.00",
+            "hint": "Geben Sie die neue Gesamtmenge ein."
+        },
+        "loading": "Bestände werden überprüft..."
+    },
+    "stock_count": {
+        "title": "Bestandszählung",
+        "description": "Führen Sie physische Inventurprüfungen durch und synchronisieren Sie den Systembestand",
+        "session_progress": "SITZUNGSFORTSCHRITT",
+        "items": "Artikel",
+        "search_placeholder": "Nach Name, Zutat suchen...",
+        "all_categories": "Alle Kategorien",
+        "save_adjustments": "Anpassungen speichern",
+        "table": {
+            "image": "Bild",
+            "product_name": "Produktname",
+            "category": "Kategorie",
+            "system_stock": "Systembestand",
+            "physical_count": "Physische Zählung",
+            "variance": "Abweichung"
+        }
+    },
+    "staff": {
+        "title": "Personalverwaltung",
+        "description": "Verwalten Sie Ihr Team, Rollen und Zeitpläne",
+        "add_staff": "Neues Personal hinzufügen",
+        "team_members": "Teammitglieder",
+        "search_placeholder": "Personal suchen...",
+        "sort_by": "Sortieren nach",
+        "sort_options": {
+            "name": "Name",
+            "role": "Rolle",
+            "salary": "Gehalt"
+        },
+        "username": "Benutzername",
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "salary": "Gehalt",
+        "role": "Rolle",
+        "schedule": "Zeitplan",
+        "no_staff": "Kein Personal gefunden",
+        "try_adjusting": "Versuchen Sie, Ihre Suchbegriffe anzupassen",
+        "loading": "Personal wird geladen...",
+        "delete_confirm": "Sind Sie sicher, dass Sie diesen Mitarbeiter löschen möchten?",
+        "flexible": "Flexibel",
+        "no_phone": "Kein Telefon",
+        "toast": {
+            "load_fail": "Laden der Personalliste fehlgeschlagen.",
+            "delete_success": "Mitarbeiter gelöscht.",
+            "delete_fail": "Löschen des Mitarbeiters fehlgeschlagen.",
+            "save_success": "Mitarbeiter erfolgreich gespeichert",
+            "save_fail": "Speichern des Mitarbeiters fehlgeschlagen"
+        },
+        "form": {
+            "title_add": "Personal einstellen",
+            "title_edit": "Personal bearbeiten",
+            "subtitle": "Humankapital-Management",
+            "section_identity": "Identität & Rang",
+            "full_name": "Vollständiger Name",
+            "electronic_mail": "Elektronische Post",
+            "assigned_privilege": "Zugewiesenes Privileg",
+            "assign_role": "Master-Rolle zuweisen",
+            "section_logistics": "Logistik & Wert",
+            "duration": "Dauer",
+            "domain_address": "Domänenadresse",
+            "discard": "Verwerfen",
+            "authorize": "Eintrag autorisieren",
+            "roles": {
+                "ADMIN": "Master-Admin",
+                "CHEF": "Küchenchef",
+                "INVENTORY_MANAGER": "Lagermeister",
+                "WAITER": "Oberkellner"
+            }
+        }
+    },
+    "settings": {
+        "title": "Einstellungen",
+        "description": "Konfigurieren Sie Ihre Restaurantpräferenzen und Sicherheit",
+        "tabs": {
+            "general": "Allgemein",
+            "staff": "Personalverwaltung",
+            "security": "Sicherheit",
+            "localization": "Lokalisierung"
+        },
+        "general": {
+            "title": "Restaurantinformationen",
+            "description": "Aktualisieren Sie die grundlegenden Informationen Ihres Restaurants.",
+            "name": "Restaurantname",
+            "address": "Adresse",
+            "phone": "Kontakttelefon",
+            "email": "Kontakt-E-Mail",
+            "name_placeholder": "Restaurantnamen eingeben",
+            "address_placeholder": "Vollständige Adresse eingeben",
+            "phone_placeholder": "+43 1 512 1234",
+            "email_placeholder": "kontakt@restaurant.com",
+            "save": "Änderungen speichern",
+            "saving": "Speicher..."
+        },
+        "staff_portal": {
+            "title": "Personalverwaltungsportal",
+            "description": "Anzeigen, Bearbeiten und Verwalten aller Mitarbeiter im dedizierten Personalbereich.",
+            "action": "Zur Personalverwaltung"
+        },
+        "security": {
+            "title": "Sicherheitseinstellungen",
+            "description": "Verwalten Sie Ihr Passwort und Ihre Sicherheitseinstellungen.",
+            "change_password": "Passwort ändern",
+            "current_password": "Aktuelles Passwort",
+            "current_password_placeholder": "Geben Sie Ihr aktuelles Passwort ein",
+            "new_password": "Neues Passwort",
+            "new_password_placeholder": "Geben Sie Ihr neues Passwort ein",
+            "confirm_password": "Neues Passwort bestätigen",
+            "confirm_password_placeholder": "Bestätigen Sie Ihr neues Passwort",
+            "strength": "Passwortstärke",
+            "requirements": {
+                "min8": "Mindestens 8 Zeichen",
+                "uppercase": "Ein Großbuchstabe",
+                "lowercase": "Ein Kleinbuchstabe",
+                "number": "Eine Zahl"
+            },
+            "match": "Passwörter stimmen überein",
+            "no_match": "Passwörter stimmen nicht überein",
+            "weak": "Schwach",
+            "fair": "Mittel",
+            "good": "Gut",
+            "strong": "Stark",
+            "very_strong": "Sehr stark"
+        },
+        "localization": {
+            "title": "Lokalisierungseinstellungen",
+            "description": "Konfigurieren Sie Währungs- und Zeitzoneneinstellungen.",
+            "currency": "Währung",
+            "timezone": "Zeitzone",
+            "select_currency": "Währung wählen",
+            "select_timezone": "Zeitzone wählen",
+            "currency_help": "Wird für alle Preise und Berichte verwendet.",
+            "timezone_help": "Alle Zeiten werden in dieser Zeitzone angezeigt.",
+            "preview": "Vorschau",
+            "currency_example": "Währungsbeispiel",
+            "save": "Änderungen speichern",
+            "saving": "Speichern..."
+        }
+    },
+    "waste_management": {
+        "title": "Abfallverwaltung",
+        "subtitle": "Verfolgen Sie Abfälle und passen Sie Lagerbestände automatisch an",
+        "add_waste": "Abfall erfassen",
+        "ingredient": "Zutat",
+        "quantity": "Menge",
+        "reason": "Grund",
+        "date": "Datum",
+        "cost": "Kosten",
+        "total_waste": "Gesamtabfall",
+        "recorded_by": "Erfasst von",
+        "analysis_costs": "Analysekosten",
+        "analytics": {
+            "title": "Abfallanalyse",
+            "description": "Detaillierte Analyse von Lebensmittelabfall-Trends",
+            "total_cost": "Gesamtkosten",
+            "vs_last_week": "vs. letzte Woche",
+            "waste_items": "Abfallartikel",
+            "avg_per_day": "Durchschnitt pro Tag",
+            "top_category": "Top-Kategorie",
+            "high_priority": "Hohe Priorität"
+        },
+        "charts": {
+            "top_waste_costs": "Höchste Abfallkosten",
+            "product_by_cost": "PRODUKT NACH KOSTEN (EUR)",
+            "waste_categories": "Abfallkategorien",
+            "breakdown_by_reason": "AUFSCHLÜSSELUNG NACH GRUND"
+        },
+        "ai_recommendation": {
+            "title": "KI-Empfehlung",
+            "apply_action": "Aktion anwenden",
+            "text": "<0>{{product}}</0> macht <2>{{percent}}%</2> der gesamten Abfallkosten aus. Erwägen Sie die Überprüfung der Lagertemperatur und eine Reduzierung der Bestellmenge um <4>{{reduction}}%</4>."
+        },
+        "record_modal": {
+            "title": "Abfall Erfassen",
+            "subtitle": "Portal zur Bestandsanpassung",
+            "section_title": "Anpassungsdetails",
+            "product_label": "Ausgewähltes Produkt",
+            "product_placeholder": "Artikel für Abzug identifizieren...",
+            "quantity_label": "Menge",
+            "reason_label": "Kategorie / Grund",
+            "reason_placeholder": "z.B. Abgelaufen",
+            "submit_button": "Abfallbuchung Archivieren"
+        },
+        "history": {
+            "title": "Abfall-Verlaufsprotokoll",
+            "search_placeholder": "Protokolle durchsuchen...",
+            "table": {
+                "ingredient": "Zutat",
+                "category": "Kategorie",
+                "amount": "Menge",
+                "reason": "Grund",
+                "date": "Datum"
+            }
+        },
+        "categories": {
+            "expired": "Abgelaufen",
+            "damaged": "Beschädigt",
+            "quality_issue": "Qualitätsproblem",
+            "overproduction": "Überproduktion"
+        }
+    },
+    "language": {
+        "select": "Sprache wählen",
+        "english": "Englisch",
+        "german": "Deutsch",
+        "turkish": "Türkisch",
+        "croatian": "BHS"
+    },
+    "pos": {
+        "search_placeholder": "Menü durchsuchen...",
+        "all_items": "Alle Artikel",
+        "current_order": "Aktuelle Bestellung",
+        "customer_name": "Kundenname (Optional)",
+        "empty_cart_title": "Ihr Warenkorb ist leer",
+        "empty_cart_desc": "Wählen Sie Artikel aus dem Menü",
+        "subtotal": "Zwischensumme",
+        "tax": "Steuer",
+        "total": "Gesamt",
+        "kitchen": "Küche",
+        "charge": "Bezahlen",
+        "unit": "/ stück",
+        "payment_modal": {
+            "title": "Zahlung - Tisch",
+            "total_due": "Fälliger Betrag",
+            "tip_amount": "Trinkgeld (€)",
+            "payment_method": "Zahlungsmethode",
+            "cash": "Bar",
+            "card": "Karte",
+            "wallet": "E-Wallet",
+            "cancel": "Abbrechen",
+            "complete": "Bestellung abschließen"
+        }
+    }
+}

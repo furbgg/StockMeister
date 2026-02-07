@@ -1,0 +1,560 @@
+{
+    "auth": {
+        "sign_in": "Giriş Yap",
+        "subtitle": "E-posta ve şifrenizi kullanarak StockMeister paneline erişin.",
+        "username_email": "Kullanıcı Adı / E-posta",
+        "password": "Şifre",
+        "forgot_password": "Şifrenizi mi unuttunuz?",
+        "signing_in": "Giriş Yapılıyor...",
+        "welcome_back": "Tekrar Hoş Geldiniz!",
+        "redirecting": "Gösterge paneline yönlendiriliyorsunuz...",
+        "access_denied": "Erişim Reddedildi",
+        "check_credentials": "Lütfen bilgilerinizi kontrol edin",
+        "try_again": "Tekrar Dene",
+        "forgot_password_title": "Şifrenizi mi unuttunuz?",
+        "forgot_password_subtitle": "Şifrenizi unuttuysanız, size sıfırlama talimatlarını e-posta ile göndereceğiz.",
+        "email_address": "E-posta Adresi",
+        "send_reset_link": "Sıfırlama Bağlantısı Gönder",
+        "sending_link": "Bağlantı Gönderiliyor...",
+        "check_email": "E-postanızı kontrol edin!",
+        "email_sent_desc": "<0>{{email}}</0> adresine şifre sıfırlama talimatlarını gönderdik.",
+        "redirecting_login": "Giriş sayfasına yönlendiriliyorsunuz...",
+        "return_login": "Giriş Yap'a Dön"
+    },
+    "header": {
+        "search_placeholder": "Tarif, malzeme ara...",
+        "select_kitchen": "Mutfak Seç",
+        "quick_add": "Hızlı Ekle",
+        "quick_actions": "Hızlı İşlemler",
+        "add_recipe": "Tarif Ekle",
+        "add_ingredient": "Malzeme Ekle",
+        "add_user": "Kullanıcı Ekle",
+        "notifications": {
+            "title": "Bildirimler",
+            "mark_read": "Okundu işaretle",
+            "empty_title": "Yeni bildirim yok",
+            "empty_desc": "Her şey güncel!",
+            "view_all": "Tüm uyarıları gör"
+        },
+        "profile": {
+            "profile": "Profil",
+            "settings": "Ayarlar",
+            "logout": "Çıkış Yap"
+        }
+    },
+    "dashboard": {
+        "welcome": "Hoşgeldin, {{name}}",
+        "orders_today": "Bugün <1>+{{count}}</1> Siparişin Var",
+        "total_revenue": "Toplam Gelir",
+        "net_profit": "Net Kâr",
+        "low_stock_items": "Azalan Stok",
+        "stock_value": "Stok Değeri",
+        "top_selling": "En Çok Satanlar",
+        "recipes_by_category": "Tarifler (Kategori)",
+        "this_week": "Bu Hafta",
+        "last_week": "Geçen Hafta",
+        "this_month": "Bu Ay",
+        "last_month": "Geçen Ay",
+        "last_3_months": "Son 3 Ay",
+        "revenue": "Gelir",
+        "from_last_year": "geçen yıla göre",
+        "critical_items": "Kritik Ürünler",
+        "action_needed": "Eylem Gerekli",
+        "view_all_low_stock": "Tümünü gör",
+        "value_distribution": "Değer Dağılımı",
+        "months": {
+            "jan": "Oca",
+            "feb": "Şub",
+            "mar": "Mar",
+            "apr": "Nis",
+            "may": "May",
+            "jun": "Haz",
+            "jul": "Tem",
+            "aug": "Ağu",
+            "sep": "Eyl",
+            "oct": "Eki",
+            "nov": "Kas",
+            "dec": "Ara"
+        },
+        "days": {
+            "mo": "Pt",
+            "tu": "Sa",
+            "we": "Ça",
+            "th": "Pe",
+            "fr": "Cu",
+            "sa": "Ct",
+            "su": "Pa"
+        },
+        "recent_sales": "Son Satışlar",
+        "recent_stock_updates": "Son Stok Güncellemeleri",
+        "view_all": "Tümünü Gör",
+        "meat_poultry": "Et & Kümes Hayvanları",
+        "dairy": "Süt Ürünleri",
+        "produce": "Meyve & Sebze",
+        "canned_goods": "Konserve Ürünler"
+    },
+    "sidebar": {
+        "main": "Ana Sayfa",
+        "dashboard": "Gösterge Paneli",
+        "kitchen": "Mutfak & Menü",
+        "recipes": "Tarifler",
+        "ingredients": "Malzemeler",
+        "low-stock": "Düşük Stoklar",
+        "inventory": "Envanter Kontrolü",
+        "stock-count": "Stok Sayımı",
+        "waste": "Atık Yönetimi",
+        "sales": "Satışlar",
+        "pos": "POS Sistemi",
+        "users": "Kullanıcı Yönetimi",
+        "staff": "Personel / Kullanıcılar",
+        "settings": "Sistem",
+        "logout": "Çıkış Yap"
+    },
+    "common": {
+        "others": "Diğerleri",
+        "name": "İsim",
+        "category": "Kategori",
+        "price": "Fiyat",
+        "unit": "Birim",
+        "stock": "Stok",
+        "current_stock": "Mevcut Stok",
+        "minimum_stock": "Minimum Stok",
+        "image": "Görsel",
+        "actions": "İşlemler",
+        "status": "Durum",
+        "save": "Kaydet",
+        "cancel": "İptal",
+        "edit": "Düzenle",
+        "delete": "Sil",
+        "add": "Ekle",
+        "search": "Ara...",
+        "searchPlaceholder": "Ara...",
+        "close": "Kapat",
+        "confirm": "Onayla",
+        "date": "Tarih",
+        "total": "Toplam",
+        "quantity": "Miktar",
+        "description": "Açıklama",
+        "loading": "Yükleniyor...",
+        "error": "Hata",
+        "success": "Başarılı",
+        "noData": "Veri bulunamadı",
+        "welcome": "Hoş Geldiniz",
+        "supplier": "Tedarikçi",
+        "cost": "Maliyet",
+        "kitchens": {
+            "main_kitchen": "Ana Mutfak",
+            "prep_kitchen": "Hazırlık Mutfağı",
+            "pastry_kitchen": "Pastane"
+        }
+    },
+    "recipes": {
+        "title": "Tarifler",
+        "management_title": "Menü Yönetimi",
+        "management_subtitle": "Tarif ve içecek envanterinizi yönetin",
+        "add_recipe": "+ Tarif Ekle",
+        "add_beverage": "+ İçecek Ekle",
+        "search_placeholder": "Tarif ara...",
+        "filter_category": "Kategoriye göre filtrele",
+        "item_count": "{{count}} ürün",
+        "tabs": {
+            "recipes": "Tarifler",
+            "beverages": "İçecekler"
+        },
+        "table": {
+            "name": "Tarif Adı",
+            "category": "Kategori",
+            "price": "Satış Fiyatı",
+            "stock_status": "Stok Durumu",
+            "ingredients": "Malzemeler",
+            "actions": "İşlemler"
+        },
+        "form": {
+            "edit_title": "Tarifi Düzenle",
+            "create_title": "Yeni Tarif",
+            "new_item": "Yeni Öğe",
+            "edit_item": "Öğeyi Düzenle",
+            "new_recipe": "Yeni Tarif",
+            "edit_recipe": "Tarifi Düzenle",
+            "name_label": "Tarif Adı",
+            "description_label": "Açıklama",
+            "category_label": "Kategori",
+            "price_label": "Fiyat (€)",
+            "ingredients_label": "Malzemeler",
+            "select_ingredients": "Malzeme seç...",
+            "save_btn": "Tarifi Kaydet",
+            "cancel_btn": "İptal",
+            "portal_title": "GELİŞMİŞ MENÜ YÖNETİM PORTALI",
+            "presentation_image": "SUNUM GÖRSELİ",
+            "upload_masterpiece": "Ürün Şaheserini Yükle",
+            "upload_hint": "Yüksek çözünürlüklü sinematik kareler tercih edilir (16:9)",
+            "section_specs": "TEMEL ÖZELLİKLER",
+            "placeholder_name": "örn. İmparator Wagyu Lezzeti",
+            "placeholder_desc": "Bu yaratımın özünü anlatın..."
+        },
+        "tooltips": {
+            "edit": "Düzenle",
+            "delete": "Sil",
+            "view_details": "Detayları Gör",
+            "manage_ingredients": "Malzemeleri Yönet"
+        },
+        "messages": {
+            "no_recipes": "Tarif bulunamadı",
+            "loading": "Tarifler yükleniyor...",
+            "delete_confirm": "Bu tarifi silmek istediğinizden emin misiniz?",
+            "created_success": "Tarif başarıyla oluşturuldu!",
+            "updated_success": "Tarif başarıyla güncellendi!",
+            "deleted_success": "Tarif başarıyla silindi!"
+        },
+        "calculator": {
+            "title": "Malzemeleri Yönet",
+            "subtitle": "Hassas Maliyet & Ölçekleme Terminali",
+            "optimizing_for": "Optimize edilen ürün:",
+            "total_cost": "TOPLAM ÜRETİM MALİYETİ",
+            "component_count": "BİLEŞEN SAYISI",
+            "quick_add": "HIZLI EKLEME PANELİ",
+            "active_breakdown": "AKTİF DÖKÜM",
+            "valuation": "FİYATLANDIRMA ANALİZİ",
+            "system_online": "SİSTEM AKTİF",
+            "exit": "TERİNALİ KAPAT",
+            "select_placeholder": "Bir malzeme seç...",
+            "labels": {
+                "ingredient": "MALZEME",
+                "quantity": "MİKTAR",
+                "details": "DETAYLAR",
+                "line_cost": "SATIR MALİYETİ"
+            },
+            "tiers": {
+                "aggressive": "AGRESİF",
+                "balanced": "DENGELİ",
+                "premium": "PREMİUM"
+            },
+            "tiers_labels": {
+                "max_volume": "MAKS. HACİM",
+                "standard": "STANDART",
+                "high_margin": "YÜKSEK MARJ"
+            }
+        }
+    },
+    "ingredients": {
+        "title": "Envanter Yönetimi",
+        "subtitle": "Restoran malzemelerinizi takip edin ve yönetin",
+        "add_ingredient": "Yeni Malzeme Ekle",
+        "search_placeholder": "Malzeme ara...",
+        "filter": {
+            "all_categories": "Tüm Kategoriler",
+            "low_stock_only": "Sadece Azalan Stoklar"
+        },
+        "ingredient_name": "Malzeme Adı",
+        "unit": "Birim",
+        "current_stock": "Mevcut Stok",
+        "minimum_stock": "Minimum Stok",
+        "supplier": "Tedarikçi",
+        "cost_per_unit": "Birim Başına Maliyet",
+        "reorder": "Yeniden Sipariş",
+        "master_entry": {
+            "title": "Ürün Kartı",
+            "edit_item": "Ürün Düzenle",
+            "subtitle": "GELİŞMİŞ ENVANTER YÖNETİMİ",
+            "presentation_image": "ÜRÜN GÖRSELİ",
+            "upload_text": "Ürün Görseli Yükle",
+            "section_specs": "TEMEL ÖZELLİKLER",
+            "label_name": "ÜRÜN ADI",
+            "placeholder_name": "örn. Premium Safran",
+            "label_category": "KATEGORİ",
+            "placeholder_category": "Kategori seç",
+            "label_valuation": "BİRİM FİYAT (EUR)",
+            "label_stock": "STOK",
+            "label_unit": "BİRİM",
+            "label_threshold": "KRİTİK EŞİK",
+            "section_nutrition": "BESİN DEĞERLERİ",
+            "nutrition_identify": "Ürün tanımla...",
+            "nutrition_discover": "Araştır",
+            "btn_discard": "VAZGEÇ",
+            "btn_archive": "KAYDET"
+        },
+        "low_stock_stats": {
+            "parameters": "PARAMETRELER",
+            "threshold": "Eşik x"
+        }
+    },
+    "stock_alerts": {
+        "title": "Stok Alarmları",
+        "subtitle": "Düşük stok ve tükenen ürünleri takip edin",
+        "tabs": {
+            "low_stock": "Düşük Stoklar",
+            "out_of_stock": "Tükenenler"
+        },
+        "search_placeholder": "Ürün ara...",
+        "notifications": "Bildirimler",
+        "table": {
+            "image": "Görsel",
+            "product_name": "Ürün Adı",
+            "category": "Kategori",
+            "stock_level": "Stok Seviyesi",
+            "min_req": "Min. Grk.",
+            "missing": "Eksik",
+            "action": "İşlem"
+        },
+        "empty_state": {
+            "title": "Envanter Sağlıklı",
+            "desc": "Dikkat gerektiren düşük stoklu ürün bulunamadı.",
+            "out_title": "Her Şey Stokta",
+            "out_desc": "Şu an tükenen ürün yok."
+        },
+        "stats": {
+            "low_stock_items": "KRİTİK STOK",
+            "out_of_stock": "TÜKENENLER",
+            "total_alerts": "TOPLAM ALARM"
+        },
+        "actions": {
+            "refill_stock": "Stok Tamamla",
+            "update_stock": "Stok Güncelle",
+            "update_now": "Şimdi Güncelle",
+            "cancel": "İptal"
+        },
+        "update_sheet": {
+            "title": "Stok Güncelle",
+            "desc_prefix": "Envanter ayarlaması:",
+            "current_status": "Mevcut Durum",
+            "current_stock": "Mevcut Stok",
+            "minimum_req": "Minimum Gerekli",
+            "new_quantity": "Yeni Miktar",
+            "placeholder": "0.00",
+            "hint": "Yeni toplam fiziksel sayıyı girin."
+        },
+        "loading": "Stok seviyeleri kontrol ediliyor..."
+    },
+    "stock_count": {
+        "title": "Stok Sayımı",
+        "description": "Fiziksel envanter kontrolü yapın ve sistem stoğunu senkronize edin",
+        "session_progress": "OTURUM İLERLEMESİ",
+        "items": "ürün",
+        "search_placeholder": "İsim, malzeme ile ara...",
+        "all_categories": "Tüm Kategoriler",
+        "save_adjustments": "Düzeltmeleri Kaydet",
+        "table": {
+            "image": "Görsel",
+            "product_name": "Ürün Adı",
+            "category": "Kategori",
+            "system_stock": "Sistem Stoğu",
+            "physical_count": "Fiziksel Sayım",
+            "variance": "Fark"
+        }
+    },
+    "staff": {
+        "title": "Personel Yönetimi",
+        "description": "Ekibinizi, rolleri ve programları yönetin",
+        "add_staff": "Yeni Personel Ekle",
+        "team_members": "Ekip Üyeleri",
+        "search_placeholder": "Personel ara...",
+        "sort_by": "Sırala",
+        "sort_options": {
+            "name": "İsim",
+            "role": "Rol",
+            "salary": "Maaş"
+        },
+        "username": "Kullanıcı Adı",
+        "email": "E-posta",
+        "phone": "Telefon",
+        "salary": "Maaş",
+        "role": "Rol",
+        "schedule": "Program",
+        "no_staff": "Personel bulunamadı",
+        "try_adjusting": "Arama terimlerinizi değiştirmeyi deneyin",
+        "loading": "Personel yükleniyor...",
+        "delete_confirm": "Bu personeli silmek istediğinizden emin misiniz?",
+        "flexible": "Esnek",
+        "no_phone": "Telefon yok",
+        "toast": {
+            "load_fail": "Personel listesi yüklenemedi.",
+            "delete_success": "Personel silindi.",
+            "delete_fail": "Personel silinemedi.",
+            "save_success": "Personel başarıyla kaydedildi",
+            "save_fail": "Personel kaydedilemedi"
+        },
+        "form": {
+            "title_add": "Personel Kaydı",
+            "title_edit": "Personel Düzenle",
+            "subtitle": "İnsan Kaynakları Yönetimi",
+            "section_identity": "Kimlik & Rütbe",
+            "full_name": "Tam İsim",
+            "electronic_mail": "Elektronik Posta",
+            "assigned_privilege": "Atanan Yetki",
+            "assign_role": "Ana Rol Ata",
+            "section_logistics": "Lojistik & Değer",
+            "duration": "Süre",
+            "domain_address": "Alan Adresi",
+            "discard": "Vazgeç",
+            "authorize": "Girişi Onayla",
+            "roles": {
+                "ADMIN": "Ana Yönetici",
+                "CHEF": "Mutfak Şefi",
+                "INVENTORY_MANAGER": "Envanter Uzmanı",
+                "WAITER": "Baş Garson"
+            }
+        }
+    },
+    "settings": {
+        "title": "Ayarlar",
+        "description": "Restoran tercihlerinizi ve güvenliğinizi yapılandırın",
+        "tabs": {
+            "general": "Genel",
+            "staff": "Personel Yönetimi",
+            "security": "Güvenlik",
+            "localization": "Yerelleştirme"
+        },
+        "general": {
+            "title": "Restoran Bilgileri",
+            "description": "Restoranınızın temel bilgilerini güncelleyin.",
+            "name": "Restoran Adı",
+            "address": "Adres",
+            "phone": "İletişim Telefonu",
+            "email": "İletişim E-postası",
+            "name_placeholder": "Restoran adını giriniz",
+            "address_placeholder": "Tam adresi giriniz",
+            "phone_placeholder": "+90 555 123 4567",
+            "email_placeholder": "iletisim@restoran.com",
+            "save": "Değişiklikleri Kaydet",
+            "saving": "Kaydediliyor..."
+        },
+        "staff_portal": {
+            "title": "Personel Yönetim Portalı",
+            "description": "Özel personel yönetimi bölümünde tüm personeli görüntüleyin, düzenleyin ve yönetin.",
+            "action": "Personel Yönetimine Git"
+        },
+        "security": {
+            "title": "Güvenlik Ayarları",
+            "description": "Şifrenizi ve güvenlik tercihlerinizi yönetin.",
+            "change_password": "Şifre Değiştir",
+            "current_password": "Mevcut Şifre",
+            "current_password_placeholder": "Mevcut şifrenizi giriniz",
+            "new_password": "Yeni Şifre",
+            "new_password_placeholder": "Yeni şifrenizi giriniz",
+            "confirm_password": "Yeni Şifreyi Onayla",
+            "confirm_password_placeholder": "Yeni şifrenizi doğrulayın",
+            "strength": "Şifre Gücü",
+            "requirements": {
+                "min8": "En az 8 karakter",
+                "uppercase": "Bir büyük harf",
+                "lowercase": "Bir küçük harf",
+                "number": "Bir rakam"
+            },
+            "match": "Şifreler eşleşiyor",
+            "no_match": "Şifreler eşleşmiyor",
+            "weak": "Zayıf",
+            "fair": "Orta",
+            "good": "İyi",
+            "strong": "Güçlü",
+            "very_strong": "Çok Güçlü"
+        },
+        "localization": {
+            "title": "Yerelleştirme Ayarları",
+            "description": "Para birimi ve saat dilimi tercihlerini yapılandırın.",
+            "currency": "Para Birimi",
+            "timezone": "Saat Dilimi",
+            "select_currency": "Para birimi seç",
+            "select_timezone": "Saat dilimi seç",
+            "currency_help": "Tüm fiyatlar ve raporlar için kullanılır.",
+            "timezone_help": "Tüm zamanlar bu saat diliminde görüntülenir.",
+            "preview": "Önizleme",
+            "currency_example": "Para Birimi Örneği",
+            "save": "Değişiklikleri Kaydet",
+            "saving": "Kaydediliyor..."
+        }
+    },
+    "waste_management": {
+        "title": "Atık Yönetimi",
+        "subtitle": "Atık takibi yapın ve stok seviyelerini otomatik ayarlayın",
+        "add_waste": "Atık Kaydı Ekle",
+        "ingredient": "Malzeme",
+        "quantity": "Miktar",
+        "reason": "Sebep",
+        "date": "Tarih",
+        "cost": "Maliyet",
+        "total_waste": "Toplam Atık",
+        "recorded_by": "Kaydeden",
+        "analysis_costs": "Analiz Maliyetleri",
+        "analytics": {
+            "title": "Atık Analizi",
+            "description": "Gıda atığı trendleri detaylı analizi",
+            "total_cost": "Toplam Maliyet",
+            "vs_last_week": "geçen haftaya göre",
+            "waste_items": "Atık Kalemleri",
+            "avg_per_day": "Günlük Ortalama",
+            "top_category": "En Çok Atılan Kategori",
+            "high_priority": "Yüksek Öncelik"
+        },
+        "charts": {
+            "top_waste_costs": "En Yüksek Atık Maliyetleri",
+            "product_by_cost": "MALİYETE GÖRE ÜRÜN (EUR)",
+            "waste_categories": "Atık Kategorileri",
+            "breakdown_by_reason": "SEBEBE GÖRE DAĞILIM"
+        },
+        "ai_recommendation": {
+            "title": "Yapay Zeka Tavsiyesi",
+            "apply_action": "Eylemi Uygula",
+            "text": "<0>{{product}}</0>, toplam atık maliyetinin <2>%{{percent}}</2>'sini oluşturuyor. Depolama sıcaklığını kontrol etmeyi ve sipariş miktarını <4>%{{reduction}}</4> azaltmayı düşünün."
+        },
+        "record_modal": {
+            "title": "Atık Kaydı",
+            "subtitle": "Envanter Düzenleme Portalı",
+            "section_title": "Düzenleme Detayları",
+            "product_label": "Seçilen Ürün",
+            "product_placeholder": "Düşülecek ürünü belirleyin...",
+            "quantity_label": "Miktar",
+            "reason_label": "Kategori / Sebep",
+            "reason_placeholder": "örn. Son Kullanma Tarihi Geçmiş",
+            "submit_button": "Atık Kaydını Arşivle"
+        },
+        "history": {
+            "title": "Fire Geçmişi",
+            "search_placeholder": "Kayıtlarda ara...",
+            "table": {
+                "ingredient": "Malzeme",
+                "category": "Kategori",
+                "amount": "Miktar",
+                "reason": "Sebep",
+                "date": "Tarih"
+            }
+        },
+        "categories": {
+            "expired": "Son Kullanma Tarihi Geçmiş",
+            "damaged": "Hasarlı",
+            "quality_issue": "Kalite Sorunu",
+            "overproduction": "Fazla Üretim"
+        }
+    },
+    "language": {
+        "select": "Dil Seçin",
+        "english": "İngilizce",
+        "german": "Almanca",
+        "turkish": "Türkçe",
+        "croatian": "BHS"
+    },
+    "pos": {
+        "search_placeholder": "Menü ara...",
+        "all_items": "Tüm Ürünler",
+        "current_order": "Mevcut Sipariş",
+        "customer_name": "Müşteri Adı (İsteğe bağlı)",
+        "empty_cart_title": "Sepetiniz boş",
+        "empty_cart_desc": "Başlamak için menüden ürün seçin",
+        "subtotal": "Ara Toplam",
+        "tax": "Vergi",
+        "total": "Toplam",
+        "kitchen": "Mutfak",
+        "charge": "Ödeme",
+        "unit": "/ adet",
+        "payment_modal": {
+            "title": "Ödeme - Masa",
+            "total_due": "Ödenecek Toplam",
+            "tip_amount": "Bahşiş Miktarı (€)",
+            "payment_method": "Ödeme Yöntemi",
+            "cash": "Nakit",
+            "card": "Kart",
+            "wallet": "E-Cüzdan",
+            "cancel": "İptal",
+            "complete": "Siparişi Tamamla"
+        }
+    }
+}

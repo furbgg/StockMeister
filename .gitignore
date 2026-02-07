@@ -1,0 +1,18 @@
+﻿# --- ANA YASAKLI LISTESI ---
+node_modules/
+target/
+build/
+dist/
+.env
+.env.local
+.DS_Store
+Thumbs.db
+nul
+*.log
+*.class
+*.jar
+.idea/
+.vscode/
+.claude/
+.cursor/
+task.mb

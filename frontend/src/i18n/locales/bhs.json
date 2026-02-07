@@ -1,0 +1,551 @@
+{
+    "auth": {
+        "sign_in": "Prijava",
+        "subtitle": "Pristupite StockMeister ploči koristeći svoju e-poštu i lozinku.",
+        "username_email": "Korisničko ime / E-pošta",
+        "password": "Lozinka",
+        "forgot_password": "Zaboravili ste lozinku?",
+        "signing_in": "Prijava...",
+        "welcome_back": "Dobrodošli natrag!",
+        "redirecting": "Preusmjeravanje na nadzornu ploču...",
+        "access_denied": "Pristup odbijen",
+        "check_credentials": "Molimo provjerite svoje vjerodajnice",
+        "try_again": "Pokušajte ponovo",
+        "forgot_password_title": "Zaboravili ste lozinku?",
+        "forgot_password_subtitle": "Ako ste zaboravili lozinku, poslat ćemo vam upute za resetiranje na e-poštu.",
+        "email_address": "Adresa e-pošte",
+        "send_reset_link": "Pošalji vezu za resetiranje",
+        "sending_link": "Slanje veze...",
+        "check_email": "Provjerite svoju e-poštu!",
+        "email_sent_desc": "Poslali smo upute za resetiranje lozinke na <0>{{email}}</0>.",
+        "redirecting_login": "Preusmjeravanje na prijavu...",
+        "return_login": "Povratak na prijavu"
+    },
+    "header": {
+        "search_placeholder": "Pretraži recepte, sastojke...",
+        "select_kitchen": "Odaberi kuhinju",
+        "quick_add": "Brzo dodaj",
+        "quick_actions": "Brze radnje",
+        "add_recipe": "Dodaj recept",
+        "add_ingredient": "Dodaj sastojak",
+        "add_user": "Dodaj korisnika",
+        "notifications": {
+            "title": "Obavijesti",
+            "mark_read": "Označi kao pročitano",
+            "empty_title": "Nema novih obavijesti",
+            "empty_desc": "Sve je ažurirano!",
+            "view_all": "Prikaži sva upozorenja"
+        },
+        "profile": {
+            "profile": "Profil",
+            "settings": "Postavke",
+            "logout": "Odjava"
+        }
+    },
+    "dashboard": {
+        "welcome": "Dobrodošli, {{name}}",
+        "orders_today": "Imate <1>+{{count}}</1> narudžbi danas",
+        "total_revenue": "Ukupni prihod",
+        "net_profit": "Neto dobit",
+        "low_stock_items": "Artikli pri kraju",
+        "stock_value": "Vrijednost zaliha",
+        "top_selling": "Najprodavanije",
+        "recipes_by_category": "Recepti (Kategorija)",
+        "this_week": "Ovaj tjedan",
+        "last_week": "Prošli tjedan",
+        "this_month": "Ovaj mjesec",
+        "last_month": "Prošli mjesec",
+        "last_3_months": "Zadnja 3 mjeseca",
+        "revenue": "Prihod",
+        "from_last_year": "od prošle godine",
+        "critical_items": "Kritične stavke",
+        "action_needed": "Potrebna akcija",
+        "view_all_low_stock": "Prikaži sve",
+        "value_distribution": "Raspodjela vrijednosti",
+        "months": {
+            "jan": "Sij",
+            "feb": "Velj",
+            "mar": "Ožu",
+            "apr": "Tra",
+            "may": "Svi",
+            "jun": "Lip",
+            "jul": "Srp",
+            "aug": "Kol",
+            "sep": "Ruj",
+            "oct": "Lis",
+            "nov": "Stu",
+            "dec": "Pro"
+        },
+        "days": {
+            "mo": "Pon",
+            "tu": "Uto",
+            "we": "Sri",
+            "th": "Čet",
+            "fr": "Pet",
+            "sa": "Sub",
+            "su": "Ned"
+        },
+        "recent_sales": "Nedavne prodaje",
+        "recent_stock_updates": "Nedavna ažuriranja zaliha",
+        "view_all": "Prikaži sve",
+        "meat_poultry": "Meso i perad",
+        "dairy": "Mliječni proizvodi",
+        "produce": "Voće i povrće",
+        "canned_goods": "Konzervirano"
+    },
+    "sidebar": {
+        "main": "Glavno",
+        "dashboard": "Kontrolna ploča",
+        "kitchen": "Kuhinja & Jelovnik",
+        "recipes": "Recepti",
+        "ingredients": "Sastojci",
+        "low-stock": "Niska zaliha",
+        "inventory": "Kontrola zaliha",
+        "stock-count": "Popis zaliha",
+        "waste": "Upravljanje otpadom",
+        "pos": "POS sustav",
+        "users": "Upravljanje korisnicima",
+        "staff": "Osoblje / Korisnici",
+        "settings": "Sustav",
+        "logout": "Odjava"
+    },
+    "common": {
+        "others": "Ostalo",
+        "name": "Naziv",
+        "category": "Kategorija",
+        "price": "Cijena",
+        "unit": "Jedinica",
+        "stock": "Zaliha",
+        "current_stock": "Trenutna zaliha",
+        "minimum_stock": "Minimalna zaliha",
+        "image": "Slika",
+        "actions": "Akcije",
+        "status": "Status",
+        "save": "Spremi",
+        "cancel": "Odustani",
+        "edit": "Uredi",
+        "delete": "Obriši",
+        "add": "Dodaj",
+        "search": "Pretraži...",
+        "searchPlaceholder": "Pretraži...",
+        "close": "Zatvori",
+        "confirm": "Potvrdi",
+        "date": "Datum",
+        "total": "Ukupno",
+        "quantity": "Količina",
+        "description": "Opis",
+        "loading": "Učitavanje...",
+        "error": "Greška",
+        "success": "Uspjeh",
+        "noData": "Nema dostupnih podataka",
+        "welcome": "Dobrodošli",
+        "supplier": "Dobavljač",
+        "cost": "Trošak",
+        "kitchens": {
+            "main_kitchen": "Glavna kuhinja",
+            "prep_kitchen": "Pripremna kuhinja",
+            "pastry_kitchen": "Slastičarnica"
+        }
+    },
+    "recipes": {
+        "title": "Recepti",
+        "management_title": "Upravljanje jelovnikom",
+        "management_subtitle": "Upravljajte svojim receptima i pićima",
+        "add_recipe": "+ Dodaj recept",
+        "add_beverage": "+ Dodaj piće",
+        "search_placeholder": "Pretraži recepte...",
+        "filter_category": "Filtriraj po kategoriji",
+        "item_count": "{{count}} stavki",
+        "tabs": {
+            "recipes": "Recepti",
+            "beverages": "Pića"
+        },
+        "table": {
+            "name": "Naziv recepta",
+            "category": "Kategorija",
+            "price": "Prodajna cijena",
+            "stock_status": "Status zaliha",
+            "ingredients": "Sastojci",
+            "actions": "Radnje"
+        },
+        "form": {
+            "edit_title": "Uredi recept",
+            "create_title": "Novi recept",
+            "new_item": "Nova stavka",
+            "edit_item": "Uredi stavku",
+            "new_recipe": "Novi recept",
+            "edit_recipe": "Uredi recept",
+            "name_label": "Naziv recepta",
+            "description_label": "Opis",
+            "category_label": "Kategorija",
+            "price_label": "Cijena (€)",
+            "ingredients_label": "Sastojci",
+            "select_ingredients": "Odaberi sastojke...",
+            "save_btn": "Spremi recept",
+            "cancel_btn": "Odustani",
+            "portal_title": "EKSKLUZIVNI PORTAL ZA UPRAVLJANJE JELOVNIKOM",
+            "presentation_image": "PREZENTACIJSKA SLIKA",
+            "upload_masterpiece": "Prenesi remek-djelo proizvoda",
+            "upload_hint": "Preferiraju se kinematske snimke visoke rezolucije (16:9)",
+            "section_specs": "GLAVNE SPECIFIKACIJE",
+            "placeholder_name": "npr. Carski Wagyu užitak",
+            "placeholder_desc": "Ispričajte suštinu ove kreacije..."
+        },
+        "tooltips": {
+            "edit": "Uredi",
+            "delete": "Izbriši",
+            "view_details": "Pogledaj detalje",
+            "manage_ingredients": "Upravljaj sastojcima"
+        },
+        "messages": {
+            "no_recipes": "Nema pronađenih recepata",
+            "loading": "Učitavanje recepata...",
+            "delete_confirm": "Jeste li sigurni da želite izbrisati ovaj recept?",
+            "created_success": "Recept uspješno kreiran!",
+            "updated_success": "Recept uspješno ažuriran!",
+            "deleted_success": "Recept uspješno izbrisan!"
+        },
+        "calculator": {
+            "title": "Upravljanje sastojcima",
+            "subtitle": "Terminal za precizno troškovanje",
+            "optimizing_for": "Optimizacija za",
+            "total_cost": "UKUPNI TROŠKOVI PROIZVODNJE",
+            "component_count": "BROJ KOMPONENTI",
+            "quick_add": "BRZO DODAVANJE",
+            "active_breakdown": "AKTIVNI RAŠČLANJENI PRIKAZ",
+            "valuation": "ANALIZA VREDNOVANJA",
+            "system_online": "SUSTAV ON-LINE",
+            "exit": "IZLAZ IZ TERMINALA",
+            "select_placeholder": "Odaberi sastojak...",
+            "labels": {
+                "ingredient": "SASTOJAK",
+                "quantity": "KOLIČINA",
+                "details": "DETALJI",
+                "line_cost": "TROŠAK STAVKE"
+            },
+            "tiers": {
+                "aggressive": "AGRESIVNO",
+                "balanced": "URAVNOTEŽENO",
+                "premium": "PREMIUM"
+            },
+            "tiers_labels": {
+                "max_volume": "MAKS. VOLUMEN",
+                "standard": "STANDARD",
+                "high_margin": "VISOKA MARŽA"
+            }
+        }
+    },
+    "ingredients": {
+        "title": "Upravljanje zalihama",
+        "subtitle": "Pratite i upravljajte sastojcima restorana",
+        "add_ingredient": "Dodaj novi sastojak",
+        "search_placeholder": "Pretraži sastojke...",
+        "filter": {
+            "all_categories": "Sve kategorije",
+            "low_stock_only": "Samo niske zalihe"
+        },
+        "ingredient_name": "Naziv sastojka",
+        "unit": "Jedinica",
+        "current_stock": "Trenutna zaliha",
+        "minimum_stock": "Minimalna zaliha",
+        "supplier": "Dobavljač",
+        "cost_per_unit": "Cijena po jedinici",
+        "reorder": "Ponovno naruči",
+        "master_entry": {
+            "title": "Glavni unos",
+            "edit_item": "Uredi stavku",
+            "subtitle": "EKSKLUZIVNO UPRAVLJANJE ZALIHAMA",
+            "presentation_image": "PREZENTACIJSKA SLIKA",
+            "upload_text": "Prenesi sliku proizvoda",
+            "section_specs": "GLAVNE SPECIFIKACIJE",
+            "label_name": "NAZIV PROIZVODA",
+            "placeholder_name": "npr. Premium šafran",
+            "label_category": "KATEGORIJA",
+            "placeholder_category": "Odaberi kategoriju",
+            "label_valuation": "VREDNOVANJE (EUR)",
+            "label_stock": "ZALIHA",
+            "label_unit": "JEDINICA",
+            "label_threshold": "PRAG",
+            "section_nutrition": "PODACI O HRANJIVOSTI",
+            "nutrition_identify": "Identificiraj proizvod...",
+            "nutrition_discover": "Otkrij",
+            "btn_discard": "ODBACI",
+            "btn_archive": "SPREMI UNOS"
+        },
+        "low_stock_stats": {
+            "parameters": "PARAMETRI",
+            "threshold": "Prag x"
+        }
+    },
+    "stock_alerts": {
+        "title": "Upozorenja o zalihama",
+        "subtitle": "Pratite niske zalihe i artikle kojih nema na stanju",
+        "tabs": {
+            "low_stock": "Niske zalihe",
+            "out_of_stock": "Nema na stanju"
+        },
+        "search_placeholder": "Pretraži proizvode...",
+        "notifications": "Obavijesti",
+        "table": {
+            "image": "Slika",
+            "product_name": "Naziv proizvoda",
+            "category": "Kategorija",
+            "stock_level": "Razina zaliha",
+            "min_req": "Min. Potr.",
+            "missing": "Nedostaje",
+            "action": "Radnja"
+        },
+        "empty_state": {
+            "title": "Zalihe optimalne",
+            "desc": "Nisu pronađeni artikli s niskim zalihama.",
+            "out_title": "Sve na broju",
+            "out_desc": "Trenutno nema artikala koji nedostaju."
+        },
+        "stats": {
+            "low_stock_items": "NISKE ZALIHE",
+            "out_of_stock": "NEMA NA STANJU",
+            "total_alerts": "UKUPNO UPOZORENJA"
+        },
+        "actions": {
+            "refill_stock": "Dopuni zalihe",
+            "update_stock": "Ažuriraj zalihe",
+            "update_now": "Ažuriraj sada",
+            "cancel": "Odustani"
+        },
+        "update_sheet": {
+            "title": "Ažuriraj zalihe",
+            "desc_prefix": "Prilagodite zalihe za",
+            "current_status": "Trenutno stanje",
+            "current_stock": "Trenutne zalihe",
+            "minimum_req": "Minimalna potreba",
+            "new_quantity": "Nova količina",
+            "placeholder": "0.00",
+            "hint": "Unesite novi ukupni fizički broj."
+        },
+        "loading": "Provjera razina zaliha..."
+    },
+    "stock_count": {
+        "title": "Inventura",
+        "description": "Izvršite fizičku provjeru zaliha i sinkronizirajte sistemske zalihe",
+        "session_progress": "NAPREDAK SESIJE",
+        "items": "artikli",
+        "search_placeholder": "Pretraži po imenu, sastojku...",
+        "all_categories": "Sve kategorije",
+        "save_adjustments": "Spremi prilagodbe",
+        "table": {
+            "image": "Slika",
+            "product_name": "Naziv proizvoda",
+            "category": "Kategorija",
+            "system_stock": "Sistemske zalihe",
+            "physical_count": "Fizičko brojanje",
+            "variance": "Odstupanje"
+        }
+    },
+    "waste_management": {
+        "title": "Upravljanje otpadom",
+        "subtitle": "Pratite otpad i automatski prilagodite razine zaliha",
+        "add_waste": "Dodaj zapis otpada",
+        "analytics": {
+            "title": "Analitika otpada",
+            "description": "Detaljna analiza trendova otpada hrane",
+            "vs_last_week": "u odnosu na prošli tjedan",
+            "total_cost": "Ukupni trošak",
+            "waste_items": "Otpadni artikli",
+            "avg_per_day": "Prosječno dnevno",
+            "top_category": "Najveća kategorija",
+            "high_priority": "Visoki prioritet"
+        },
+        "charts": {
+            "top_waste_costs": "Najveći troškovi otpada",
+            "product_by_cost": "PROIZVOD PREMA TROŠKU (EUR)",
+            "waste_categories": "Kategorije otpada",
+            "breakdown_by_reason": "RAZRADA PREMA RAZLOGU"
+        },
+        "categories": {
+            "damaged": "Oštećeno",
+            "expired": "Isteklo",
+            "overproduction": "Prekomjerna proizvodnja",
+            "quality_issue": "Problem kvalitete"
+        },
+        "ai_recommendation": {
+            "title": "AI Preporuka",
+            "apply_action": "Primijeni akciju",
+            "text": "<0>{{product}}</0> čini <2>{{percent}}%</2> ukupnih troškova otpada. Razmislite o provjeri temperature skladištenja i smanjenju količine narudžbe za <4>{{reduction}}%</4>."
+        },
+        "record_modal": {
+            "title": "Zabilježi otpad",
+            "subtitle": "Portal za prilagodbu inventara",
+            "section_title": "Detalji prilagodbe",
+            "product_label": "Odabrani proizvod",
+            "product_placeholder": "Identificiraj stavku za odbitak...",
+            "quantity_label": "Količina",
+            "reason_label": "Kategorija / Razlog",
+            "reason_placeholder": "npr. Istekao rok trajanja",
+            "submit_button": "Arhiviraj unos otpada"
+        },
+        "history": {
+            "title": "Povijest otpada",
+            "search_placeholder": "Pretraži zapise...",
+            "table": {
+                "ingredient": "Sastojak",
+                "category": "Kategorija",
+                "amount": "Količina",
+                "reason": "Razlog",
+                "date": "Datum"
+            }
+        }
+    },
+    "staff": {
+        "title": "Upravljanje osobljem",
+        "description": "Upravljajte svojim timom, ulogama i rasporedima",
+        "add_staff": "Dodaj novo osoblje",
+        "team_members": "Članovi tima",
+        "search_placeholder": "Pretraži osoblje...",
+        "sort_by": "Sortiraj po",
+        "sort_options": {
+            "name": "Ime",
+            "role": "Uloga",
+            "salary": "Plaća"
+        },
+        "username": "Korisničko ime",
+        "email": "E-pošta",
+        "phone": "Telefon",
+        "salary": "Plaća",
+        "role": "Uloga",
+        "schedule": "Raspored",
+        "no_staff": "Nema pronađenog osoblja",
+        "try_adjusting": "Pokušajte prilagoditi pojmove za pretraživanje",
+        "loading": "Učitavanje osoblja...",
+        "delete_confirm": "Jeste li sigurni da želite obrisati ovog člana osoblja?",
+        "flexible": "Fleksibilno",
+        "no_phone": "Nema telefona",
+        "toast": {
+            "load_fail": "Neuspjelo učitavanje popisa osoblja.",
+            "delete_success": "Član osoblja obrisan.",
+            "delete_fail": "Neuspjelo brisanje člana osoblja.",
+            "save_success": "Član osoblja uspješno spremljen",
+            "save_fail": "Neuspjelo spremanje člana osoblja"
+        },
+        "form": {
+            "title_add": "Zaposli osoblje",
+            "title_edit": "Uredi osoblje",
+            "subtitle": "Upravljanje ljudskim kapitalom",
+            "section_identity": "Identitet & Rang",
+            "full_name": "Puno ime",
+            "electronic_mail": "Elektronička pošta",
+            "assigned_privilege": "Dodijeljena privilegija",
+            "assign_role": "Dodijeli glavnu ulogu",
+            "section_logistics": "Logistika & Vrijednost",
+            "duration": "Trajanje",
+            "domain_address": "Adresa domene",
+            "discard": "Odbaci",
+            "authorize": "Autoriziraj unos",
+            "roles": {
+                "ADMIN": "Glavni Admin",
+                "CHEF": "Kulinarski Šef",
+                "INVENTORY_MANAGER": "Voditelj zaliha",
+                "WAITER": "Glavni konobar"
+            }
+        }
+    },
+    "settings": {
+        "title": "Postavke",
+        "description": "Konfigurirajte postavke restorana i sigurnosti",
+        "tabs": {
+            "general": "Općenito",
+            "staff": "Upravljanje osobljem",
+            "security": "Sigurnost",
+            "localization": "Lokalizacija"
+        },
+        "general": {
+            "title": "Informacije o restoranu",
+            "description": "Ažurirajte osnovne informacije o svom restoranu.",
+            "name": "Naziv restorana",
+            "address": "Adresa",
+            "phone": "Kontakt telefon",
+            "email": "Kontakt e-pošta",
+            "name_placeholder": "Unesite naziv restorana",
+            "address_placeholder": "Unesite punu adresu",
+            "phone_placeholder": "+385 1 234 5678",
+            "email_placeholder": "kontakt@restoran.com",
+            "save": "Spremi promjene",
+            "saving": "Spremanje..."
+        },
+        "staff_portal": {
+            "title": "Portal za upravljanje osobljem",
+            "description": "Pregledajte, uredite i upravljajte svim članovima osoblja u posebnom odjeljku.",
+            "action": "Idi na upravljanje osobljem"
+        },
+        "security": {
+            "title": "Sigurnosne postavke",
+            "description": "Upravljajte svojom lozinkom i sigurnosnim postavkama.",
+            "change_password": "Promijeni lozinku",
+            "current_password": "Trenutna lozinka",
+            "current_password_placeholder": "Unesite trenutnu lozinku",
+            "new_password": "Nova lozinka",
+            "new_password_placeholder": "Unesite novu lozinku",
+            "confirm_password": "Potvrdi novu lozinku",
+            "confirm_password_placeholder": "Potvrdite novu lozinku",
+            "strength": "Jačina lozinke",
+            "requirements": {
+                "min8": "Najmanje 8 znakova",
+                "uppercase": "Jedno veliko slovo",
+                "lowercase": "Jedno malo slovo",
+                "number": "Jedan broj"
+            },
+            "match": "Lozinke se podudaraju",
+            "no_match": "Lozinke se ne podudaraju",
+            "weak": "Slabo",
+            "fair": "Srednje",
+            "good": "Dobro",
+            "strong": "Jako",
+            "very_strong": "Vrlo jako"
+        },
+        "localization": {
+            "title": "Postavke lokalizacije",
+            "description": "Konfigurirajte valutu i vremensku zonu.",
+            "currency": "Valuta",
+            "timezone": "Vremenska zona",
+            "select_currency": "Odaberi valutu",
+            "select_timezone": "Odaberi vremensku zonu",
+            "currency_help": "Koristi se za sve cijene i izvještaje.",
+            "timezone_help": "Sva vremena prikazana su u ovoj vremenskoj zoni.",
+            "preview": "Pregled",
+            "currency_example": "Primjer valute",
+            "save": "Spremi promjene",
+            "saving": "Spremanje..."
+        }
+    },
+    "language": {
+        "select": "Odaberi jezik",
+        "english": "Engleski",
+        "german": "Njemački",
+        "turkish": "Turski",
+        "croatian": "BHS"
+    },
+    "pos": {
+        "search_placeholder": "Pretraži jelovnik...",
+        "all_items": "Svi artikli",
+        "current_order": "Trenutna narudžba",
+        "customer_name": "Ime kupca (Neobavezno)",
+        "empty_cart_title": "Vaša košarica je prazna",
+        "empty_cart_desc": "Odaberite stavke iz menija",
+        "subtotal": "Podzbroj",
+        "tax": "Porez",
+        "total": "Ukupno",
+        "kitchen": "Kuhinja",
+        "charge": "Naplati",
+        "unit": "/ komad",
+        "payment_modal": {
+            "title": "Plaćanje - Stol",
+            "total_due": "Ukupan iznos",
+            "tip_amount": "Iznos napojnice (€)",
+            "payment_method": "Način plaćanja",
+            "cash": "Gotovina",
+            "card": "Kartica",
+            "wallet": "E-Novčanik",
+            "cancel": "Odustani",
+            "complete": "Završi narudžbu"
+        }
+    }
+}

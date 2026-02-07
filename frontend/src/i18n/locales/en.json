@@ -1,0 +1,560 @@
+{
+    "auth": {
+        "sign_in": "Sign In",
+        "subtitle": "Access the StockMeister panel using your email and passcode.",
+        "username_email": "Username / Email",
+        "password": "Password",
+        "forgot_password": "Forgot your password?",
+        "signing_in": "Signing In...",
+        "welcome_back": "Welcome Back!",
+        "redirecting": "Redirecting to your dashboard...",
+        "access_denied": "Access Denied",
+        "check_credentials": "Please check your credentials",
+        "try_again": "Try again",
+        "forgot_password_title": "Forgot password?",
+        "forgot_password_subtitle": "If you forgot your password, well, then we'll email you instructions to reset your password.",
+        "email_address": "Email Address",
+        "send_reset_link": "Send Reset Link",
+        "sending_link": "Sending Link...",
+        "check_email": "Check your email!",
+        "email_sent_desc": "We've sent password reset instructions to <0>{{email}}</0>.",
+        "redirecting_login": "Redirecting to login...",
+        "return_login": "Return to Login"
+    },
+    "header": {
+        "search_placeholder": "Search recipes, ingredients...",
+        "select_kitchen": "Select Kitchen",
+        "quick_add": "Quick Add",
+        "quick_actions": "Quick Actions",
+        "add_recipe": "Add Recipe",
+        "add_ingredient": "Add Ingredient",
+        "add_user": "Add User",
+        "notifications": {
+            "title": "Notifications",
+            "mark_read": "Mark read",
+            "empty_title": "No new notifications",
+            "empty_desc": "You're all caught up!",
+            "view_all": "View all alerts"
+        },
+        "profile": {
+            "profile": "Profile",
+            "settings": "Settings",
+            "logout": "Logout"
+        }
+    },
+    "dashboard": {
+        "welcome": "Welcome, {{name}}",
+        "orders_today": "You have <1>+{{count}}</1> Orders, Today",
+        "total_revenue": "Total Revenue",
+        "net_profit": "Net Profit",
+        "low_stock_items": "Low Stock Items",
+        "stock_value": "Stock Value",
+        "top_selling": "Top Selling",
+        "recipes_by_category": "Recipes (Category)",
+        "this_week": "This Week",
+        "last_week": "Last Week",
+        "this_month": "This Month",
+        "last_month": "Last Month",
+        "last_3_months": "Last 3 Months",
+        "revenue": "Revenue",
+        "from_last_year": "from last year",
+        "critical_items": "Critical Items",
+        "action_needed": "Action Needed",
+        "view_all_low_stock": "View all low stock",
+        "value_distribution": "Value Distribution",
+        "months": {
+            "jan": "Jan",
+            "feb": "Feb",
+            "mar": "Mar",
+            "apr": "Apr",
+            "may": "May",
+            "jun": "Jun",
+            "jul": "Jul",
+            "aug": "Aug",
+            "sep": "Sep",
+            "oct": "Oct",
+            "nov": "Nov",
+            "dec": "Dec"
+        },
+        "days": {
+            "mo": "Mo",
+            "tu": "Tu",
+            "we": "We",
+            "th": "Th",
+            "fr": "Fr",
+            "sa": "Sa",
+            "su": "Su"
+        },
+        "recent_sales": "Recent Sales",
+        "recent_stock_updates": "Recent Stock Updates",
+        "view_all": "View All",
+        "meat_poultry": "Meat & Poultry",
+        "dairy": "Dairy",
+        "produce": "Produce",
+        "canned_goods": "Canned Goods"
+    },
+    "sidebar": {
+        "main": "Main",
+        "dashboard": "Dashboard",
+        "kitchen": "Kitchen & Menu",
+        "recipes": "Recipes",
+        "ingredients": "Ingredients",
+        "low-stock": "Low Stocks",
+        "inventory": "Inventory Control",
+        "stock-count": "Stock Count",
+        "waste": "Waste Management",
+        "sales": "Sales",
+        "pos": "POS System",
+        "users": "User Management",
+        "staff": "Staff / Users",
+        "settings": "System",
+        "logout": "Logout"
+    },
+    "common": {
+        "others": "Others",
+        "name": "Name",
+        "category": "Category",
+        "price": "Price",
+        "unit": "Unit",
+        "stock": "Stock",
+        "current_stock": "Current Stock",
+        "minimum_stock": "Minimum Stock",
+        "image": "Image",
+        "actions": "Actions",
+        "status": "Status",
+        "save": "Save",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "delete": "Delete",
+        "add": "Add",
+        "search": "Search...",
+        "searchPlaceholder": "Search...",
+        "close": "Close",
+        "confirm": "Confirm",
+        "date": "Date",
+        "total": "Total",
+        "quantity": "Quantity",
+        "description": "Description",
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "noData": "No data available",
+        "welcome": "Welcome",
+        "supplier": "Supplier",
+        "cost": "Cost",
+        "kitchens": {
+            "main_kitchen": "Main Kitchen",
+            "prep_kitchen": "Prep Kitchen",
+            "pastry_kitchen": "Pastry Kitchen"
+        }
+    },
+    "recipes": {
+        "title": "Recipes",
+        "management_title": "Menu Management",
+        "management_subtitle": "Manage your recipes and beverages inventory",
+        "add_recipe": "+ Add Recipe",
+        "add_beverage": "+ Add Beverage",
+        "search_placeholder": "Search recipes...",
+        "filter_category": "Filter by Category",
+        "item_count": "{{count}} items",
+        "tabs": {
+            "recipes": "Recipes",
+            "beverages": "Beverages"
+        },
+        "table": {
+            "name": "Recipe Name",
+            "category": "Category",
+            "price": "Selling Price",
+            "stock_status": "Stock Status",
+            "ingredients": "Ingredients",
+            "actions": "Actions"
+        },
+        "form": {
+            "edit_title": "Edit Recipe",
+            "create_title": "New Recipe",
+            "new_item": "New Item",
+            "edit_item": "Edit Item",
+            "new_recipe": "New Recipe",
+            "edit_recipe": "Edit Recipe",
+            "name_label": "Recipe Name",
+            "description_label": "Description",
+            "category_label": "Category",
+            "price_label": "Price (€)",
+            "ingredients_label": "Ingredients",
+            "select_ingredients": "Select ingredients...",
+            "save_btn": "Save Recipe",
+            "cancel_btn": "Cancel",
+            "portal_title": "EXCLUSIVE MENU MANAGEMENT PORTAL",
+            "presentation_image": "PRESENTATION IMAGE",
+            "upload_masterpiece": "Upload Product Masterpiece",
+            "upload_hint": "Prefer high-resolution cinematic shots (16:9)",
+            "section_specs": "MASTER SPECIFICATIONS",
+            "placeholder_name": "e.g. Imperial Wagyu Delight",
+            "placeholder_desc": "Narrate the essence of this creation..."
+        },
+        "tooltips": {
+            "edit": "Edit Recipe",
+            "delete": "Delete Recipe",
+            "view_details": "View Details",
+            "manage_ingredients": "Manage Ingredients"
+        },
+        "messages": {
+            "no_recipes": "No recipes found",
+            "loading": "Loading recipes...",
+            "delete_confirm": "Are you sure you want to delete this recipe?",
+            "created_success": "Recipe created successfully!",
+            "updated_success": "Recipe updated successfully!",
+            "deleted_success": "Recipe deleted successfully!"
+        },
+        "calculator": {
+            "title": "Manage Ingredients",
+            "subtitle": "Precision Costing & Scaling Terminal",
+            "optimizing_for": "Optimizing components for",
+            "total_cost": "TOTAL PRODUCTION COST",
+            "component_count": "COMPONENT COUNT",
+            "quick_add": "QUICK ADD TERMINAL",
+            "active_breakdown": "ACTIVE BREAKDOWN",
+            "valuation": "VALUATION INTELLIGENCE",
+            "system_online": "SYSTEM ONLINE",
+            "exit": "EXIT TERMINAL",
+            "select_placeholder": "Choose an ingredient...",
+            "labels": {
+                "ingredient": "INGREDIENT",
+                "quantity": "QUANTITY",
+                "details": "DETAILS",
+                "line_cost": "LINE COST"
+            },
+            "tiers": {
+                "aggressive": "AGGRESSIVE",
+                "balanced": "BALANCED",
+                "premium": "PREMIUM"
+            },
+            "tiers_labels": {
+                "max_volume": "MAX VOLUME",
+                "standard": "STANDARD",
+                "high_margin": "HIGH MARGIN"
+            }
+        }
+    },
+    "ingredients": {
+        "title": "Inventory Management",
+        "subtitle": "Track and manage your restaurant ingredients",
+        "add_ingredient": "Add New Ingredient",
+        "search_placeholder": "Search ingredients...",
+        "filter": {
+            "all_categories": "All Categories",
+            "low_stock_only": "Low Stock Only"
+        },
+        "ingredient_name": "Ingredient Name",
+        "unit": "Unit",
+        "current_stock": "Current Stock",
+        "minimum_stock": "Minimum Stock",
+        "supplier": "Supplier",
+        "cost_per_unit": "Cost per Unit",
+        "reorder": "Reorder",
+        "master_entry": {
+            "title": "Master Entry",
+            "edit_item": "Refine Item",
+            "subtitle": "EXCLUSIVE INVENTORY MANAGEMENT",
+            "presentation_image": "PRESENTATION IMAGE",
+            "upload_text": "Upload Product Masterpiece",
+            "section_specs": "MASTER SPECIFICATIONS",
+            "label_name": "DISTINGUISHED NAME",
+            "placeholder_name": "e.g. Premium Saffron",
+            "label_category": "CATEGORY",
+            "placeholder_category": "Select category",
+            "label_valuation": "VALUATION (EUR)",
+            "label_stock": "STOCK",
+            "label_unit": "UNIT",
+            "label_threshold": "THRESHOLD",
+            "section_nutrition": "NUTRITION INTELLIGENCE",
+            "nutrition_identify": "Identify product...",
+            "nutrition_discover": "Discover",
+            "btn_discard": "DISCARD",
+            "btn_archive": "ARCHIVE ENTRY"
+        },
+        "low_stock_stats": {
+            "parameters": "PARAMETERS",
+            "threshold": "Threshold x"
+        }
+    },
+    "stock_alerts": {
+        "title": "Stock Alerts",
+        "subtitle": "Monitor low stock and out-of-stock items",
+        "tabs": {
+            "low_stock": "Low Stocks",
+            "out_of_stock": "Out of Stock"
+        },
+        "search_placeholder": "Search products...",
+        "notifications": "Notifications",
+        "table": {
+            "image": "Image",
+            "product_name": "Product Name",
+            "category": "Category",
+            "stock_level": "Stock Level",
+            "min_req": "Min. Req.",
+            "missing": "Missing",
+            "action": "Action"
+        },
+        "empty_state": {
+            "title": "Inventory Healthy",
+            "desc": "No low stock items found requiring attention.",
+            "out_title": "Zero Outages",
+            "out_desc": "All products are currently in stock."
+        },
+        "stats": {
+            "low_stock_items": "LOW STOCK ITEMS",
+            "out_of_stock": "OUT OF STOCK",
+            "total_alerts": "TOTAL ALERTS"
+        },
+        "actions": {
+            "refill_stock": "Refill Stock",
+            "update_stock": "Update Stock",
+            "update_now": "Update Now",
+            "cancel": "Cancel"
+        },
+        "update_sheet": {
+            "title": "Update Stock",
+            "desc_prefix": "Adjust inventory for",
+            "current_status": "Current Status",
+            "current_stock": "Current Stock",
+            "minimum_req": "Minimum Req.",
+            "new_quantity": "New Quantity",
+            "placeholder": "0.00",
+            "hint": "Enter the new total physical count."
+        },
+        "loading": "Checking stock levels..."
+    },
+    "stock_count": {
+        "title": "Stock Count",
+        "description": "Perform physical inventory checks and sync system stock",
+        "session_progress": "SESSION PROGRESS",
+        "items": "items",
+        "search_placeholder": "Search by name, ingredient...",
+        "all_categories": "All Categories",
+        "save_adjustments": "Save Adjustments",
+        "table": {
+            "image": "Image",
+            "product_name": "Product Name",
+            "category": "Category",
+            "system_stock": "System Stock",
+            "physical_count": "Physical Count",
+            "variance": "Variance"
+        }
+    },
+    "staff": {
+        "title": "Staff Management",
+        "description": "Manage your team, roles, and schedules",
+        "add_staff": "Add New Staff",
+        "team_members": "Team Members",
+        "search_placeholder": "Search staff...",
+        "sort_by": "Sort by",
+        "sort_options": {
+            "name": "Name",
+            "role": "Role",
+            "salary": "Salary"
+        },
+        "username": "Username",
+        "email": "Email",
+        "phone": "Phone",
+        "salary": "Salary",
+        "role": "Role",
+        "schedule": "Schedule",
+        "no_staff": "No staff members found",
+        "try_adjusting": "Try adjusting your search terms",
+        "loading": "Loading staff members...",
+        "delete_confirm": "Are you sure you want to delete this staff member?",
+        "flexible": "Flexible",
+        "no_phone": "No phone",
+        "toast": {
+            "load_fail": "Failed to load staff list.",
+            "delete_success": "Staff member deleted.",
+            "delete_fail": "Failed to delete staff member.",
+            "save_success": "Staff member saved successfully",
+            "save_fail": "Failed to save staff member"
+        },
+        "form": {
+            "title_add": "Enlist Staff",
+            "title_edit": "Refine Staff",
+            "subtitle": "Human Capital Management",
+            "section_identity": "Identity & Rank",
+            "full_name": "Full Name",
+            "electronic_mail": "Electronic Mail",
+            "assigned_privilege": "Assigned Privilege",
+            "assign_role": "Assign Master Role",
+            "section_logistics": "Logistics & Value",
+            "duration": "Duration",
+            "domain_address": "Domain Address",
+            "discard": "Discard",
+            "authorize": "Authorize Entry",
+            "roles": {
+                "ADMIN": "Master Admin",
+                "CHEF": "Culinary Chef",
+                "INVENTORY_MANAGER": "Inventory Master",
+                "WAITER": "Head Waiter"
+            }
+        }
+    },
+    "settings": {
+        "title": "Settings",
+        "description": "Configure your restaurant preferences and security",
+        "tabs": {
+            "general": "General",
+            "staff": "Staff Management",
+            "security": "Security",
+            "localization": "Localization"
+        },
+        "general": {
+            "title": "Restaurant Information",
+            "description": "Update your restaurant's basic information.",
+            "name": "Restaurant Name",
+            "address": "Address",
+            "phone": "Contact Phone",
+            "email": "Contact Email",
+            "name_placeholder": "Enter restaurant name",
+            "address_placeholder": "Enter full address",
+            "phone_placeholder": "+43 1 512 1234",
+            "email_placeholder": "contact@restaurant.com",
+            "save": "Save Changes",
+            "saving": "Saving..."
+        },
+        "staff_portal": {
+            "title": "Staff Management Portal",
+            "description": "View, edit, and manage all staff members in the dedicated staff management section.",
+            "action": "Go to Staff Management"
+        },
+        "security": {
+            "title": "Security Settings",
+            "description": "Manage your password and security preferences.",
+            "change_password": "Change Password",
+            "current_password": "Current Password",
+            "current_password_placeholder": "Enter your current password",
+            "new_password": "New Password",
+            "new_password_placeholder": "Enter your new password",
+            "confirm_password": "Confirm New Password",
+            "confirm_password_placeholder": "Confirm your new password",
+            "strength": "Password Strength",
+            "requirements": {
+                "min8": "At least 8 characters",
+                "uppercase": "One uppercase letter",
+                "lowercase": "One lowercase letter",
+                "number": "One number"
+            },
+            "match": "Passwords match",
+            "no_match": "Passwords do not match",
+            "weak": "Weak",
+            "fair": "Fair",
+            "good": "Good",
+            "strong": "Strong",
+            "very_strong": "Very Strong"
+        },
+        "localization": {
+            "title": "Localization Settings",
+            "description": "Configure currency and timezone preferences.",
+            "currency": "Currency",
+            "timezone": "Timezone",
+            "select_currency": "Select currency",
+            "select_timezone": "Select timezone",
+            "currency_help": "Used for all prices and reports.",
+            "timezone_help": "All times displayed in this timezone.",
+            "preview": "Preview",
+            "currency_example": "Currency Example",
+            "save": "Save Changes",
+            "saving": "Saving..."
+        }
+    },
+    "waste_management": {
+        "title": "Waste Management",
+        "subtitle": "Track waste and automatically adjust stock levels",
+        "add_waste": "Add Waste Record",
+        "ingredient": "Ingredient",
+        "quantity": "Quantity",
+        "reason": "Reason",
+        "date": "Date",
+        "cost": "Cost",
+        "total_waste": "Total Waste",
+        "recorded_by": "Recorded By",
+        "analysis_costs": "Analysis Costs",
+        "analytics": {
+            "title": "Waste Analytics",
+            "description": "Detailed analysis of food waste trends",
+            "total_cost": "Total Cost",
+            "vs_last_week": "vs last week",
+            "waste_items": "Waste Items",
+            "avg_per_day": "Avg per Day",
+            "top_category": "Top Category",
+            "high_priority": "High Priority"
+        },
+        "charts": {
+            "top_waste_costs": "Highest Waste Costs",
+            "product_by_cost": "PRODUCT BY COST (EUR)",
+            "waste_categories": "Waste Categories",
+            "breakdown_by_reason": "BREAKDOWN BY REASON"
+        },
+        "ai_recommendation": {
+            "title": "AI Recommendation",
+            "text": "<0>{{product}}</0> accounts for <1>{{percent}}%</1> of total waste costs. Consider checking storage temperature and reducing order quantity by <2>{{reduction}}%</2>.",
+            "apply_action": "Apply Action"
+        },
+        "record_modal": {
+            "title": "Record Waste",
+            "subtitle": "Inventory Adjustment Portal",
+            "section_title": "Adjustment Details",
+            "product_label": "Distinguished Product",
+            "product_placeholder": "Identify item for deduction...",
+            "quantity_label": "Quantity",
+            "reason_label": "Category / Reason",
+            "reason_placeholder": "e.g. Expired",
+            "submit_button": "Archive Waste Entry"
+        },
+        "history": {
+            "title": "Waste History Log",
+            "search_placeholder": "Search logs...",
+            "table": {
+                "ingredient": "Ingredient",
+                "category": "Category",
+                "amount": "Amount",
+                "reason": "Reason",
+                "date": "Date"
+            }
+        },
+        "categories": {
+            "expired": "Expired",
+            "damaged": "Damaged",
+            "quality_issue": "Quality Issue",
+            "overproduction": "Overproduction"
+        }
+    },
+    "language": {
+        "select": "Select Language",
+        "english": "English",
+        "german": "German",
+        "turkish": "Turkish",
+        "croatian": "BHS"
+    },
+    "pos": {
+        "search_placeholder": "Search menu...",
+        "all_items": "All Items",
+        "current_order": "Current Order",
+        "customer_name": "Customer Name (Optional)",
+        "empty_cart_title": "Your cart is empty",
+        "empty_cart_desc": "Select items from the menu to start",
+        "subtotal": "Subtotal",
+        "tax": "Tax",
+        "total": "Total",
+        "kitchen": "Kitchen",
+        "charge": "Charge",
+        "unit": "/ unit",
+        "payment_modal": {
+            "title": "Payment - Table",
+            "total_due": "Total Due",
+            "tip_amount": "Tip Amount (€)",
+            "payment_method": "Payment Method",
+            "cash": "Cash",
+            "card": "Card",
+            "wallet": "E-Wallet",
+            "cancel": "Cancel",
+            "complete": "Complete Order"
+        }
+    }
+}
