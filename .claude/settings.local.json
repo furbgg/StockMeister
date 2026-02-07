@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(npx vite build:*)",
+      "Bash(\"C:/Users/Furkan Berkay/.m2/wrapper/dists/apache-maven-3.9.6-bin/439sdfsg2nbdob9ciift5h5nse/apache-maven-3.9.6/bin/mvn.cmd\" test -f \"C:/Users/Furkan Berkay/Desktop/StockMeister/backend/pom.xml\" -Dspring.profiles.active=test)",
+      "Bash(cmd /c:*)"
+    ]
+  }
+}

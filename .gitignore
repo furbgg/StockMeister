@@ -1,4 +1,4 @@
-﻿# --- ANA YASAKLI LISTESI ---
+﻿# --- YASAKLI DOSYALAR ---
 node_modules/
 target/
 build/
@@ -13,6 +13,3 @@ nul
 *.jar
 .idea/
 .vscode/
-.claude/
-.cursor/
-task.mb
