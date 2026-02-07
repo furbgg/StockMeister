@@ -28,7 +28,7 @@ public class DataSeeder implements CommandLineRunner {
         private final PasswordEncoder passwordEncoder;
         private final EntityManager entityManager;
 
-        @Value("${SEED_PASSWORD:changeme}")
+        @Value("${app.seed.password:changeme}")
         private String seedPassword;
 
         private final Map<String, Ingredient> ingredientMap = new HashMap<>();
