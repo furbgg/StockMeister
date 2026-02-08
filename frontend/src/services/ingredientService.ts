@@ -16,6 +16,8 @@ export interface Ingredient {
 }
 
 // Convert relative imagePath to full URL
+const UPLOADS_BASE = import.meta.env.VITE_UPLOADS_BASE || '';
+
 export const getImageUrl = (imagePath: string | undefined | null): string | null => {
   if (!imagePath) return null;
 
@@ -24,7 +26,7 @@ export const getImageUrl = (imagePath: string | undefined | null): string | null
   }
 
   const cleanPath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
-  return cleanPath;
+  return `${UPLOADS_BASE}${cleanPath}`;
 };
 
 export const ingredientService = {

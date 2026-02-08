@@ -105,11 +105,13 @@ export interface StockShortage {
 /**
  * Converts a relative image path to a full URL.
  */
+const UPLOADS_BASE = import.meta.env.VITE_UPLOADS_BASE || '';
+
 export const getImageUrl = (path?: string | null): string | null => {
   if (!path) return null;
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  return cleanPath;
+  return `${UPLOADS_BASE}${cleanPath}`;
 };
 
 // ==================== API SERVICE ====================

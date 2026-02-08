@@ -6,7 +6,8 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
-RUN echo "cache-bust-v2" && npm run build
+ENV VITE_UPLOADS_BASE=https://stockmeister-production.up.railway.app
+RUN npm run build
 
 # ============================================
 # Stage 2: Serve
