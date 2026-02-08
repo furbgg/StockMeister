@@ -11,8 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         String[] locations = {
                 "file:./uploads/",
-                "file:./backend/uploads/",
-                "file:///C:/Users/Furkan Berkay/Desktop/StockMeister/backend/uploads/"
+                "file:./backend/uploads/"
         };
 
         registry.addResourceHandler("/uploads/**")
