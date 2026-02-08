@@ -40,6 +40,8 @@ services:
   frontend:
     build: ./frontend
     container_name: stockmeister-frontend
+    environment:
+      BACKEND_URL: http://backend:8080
     ports:
       - "80:80"
     depends_on:
