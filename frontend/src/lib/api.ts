@@ -27,7 +27,7 @@ export class ApiError extends Error {
 }
 
 const API_CONFIG = {
-  baseURL: import.meta.env.VITE_API_URL || '/api',
+  baseURL: '/api',
 };
 
 // Instance Definitions
