@@ -1,16 +1,15 @@
 # ============================================
-# Stage 1: Build (npm ile derleme)
+# Stage 1: Build
 # ============================================
 FROM node:20-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
-ARG CACHEBUST=1
-RUN npm run build
+RUN echo "cache-bust-v2" && npm run build
 
 # ============================================
-# Stage 2: Serve (Nginx ile static dosya sun)
+# Stage 2: Serve
 # ============================================
 FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
