@@ -52,9 +52,8 @@ export interface RecipeIngredientRequest {
 export const getImageUrl = (path?: string | null): string | null => {
   if (!path) return null;
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
-  const baseURL = (import.meta.env.VITE_API_URL || 'http://localhost:8080/api').replace('/api', '');
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  return `${baseURL}${cleanPath}`;
+  return cleanPath;
 };
 
 export const recipeService = {

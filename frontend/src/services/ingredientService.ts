@@ -23,9 +23,8 @@ export const getImageUrl = (imagePath: string | undefined | null): string | null
     return imagePath;
   }
 
-  const baseURL = (import.meta.env.VITE_API_URL || 'http://localhost:8080/api').replace('/api', '');
-  const cleanPath = imagePath.startsWith('/') ? imagePath.substring(1) : imagePath;
-  return `${baseURL}/${cleanPath}`;
+  const cleanPath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
+  return cleanPath;
 };
 
 export const ingredientService = {

@@ -109,7 +109,7 @@ export const getImageUrl = (path?: string | null): string | null => {
   if (!path) return null;
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  return `http://localhost:8080${cleanPath}`;
+  return cleanPath;
 };
 
 // ==================== API SERVICE ====================
