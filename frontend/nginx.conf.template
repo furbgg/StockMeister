@@ -13,6 +13,16 @@ server {
         proxy_ssl_server_name on;
     }
 
+    # Upload edilen gorselleri backend'e yonlendir
+    location /uploads/ {
+        proxy_pass ${BACKEND_URL}/uploads/;
+        proxy_set_header Host stockmeister-production.up.railway.app;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_ssl_server_name on;
+    }
+
     # React Router: tum route'lari index.html'e yonlendir
     location / {
         try_files $uri $uri/ /index.html;
