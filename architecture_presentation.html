@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockMeister Architecture - Presentation Mode</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --secondary: #7000ff;
+            --accent: #ff003c;
+            --bg-dark: #050510;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg-dark);
+            color: white;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Scanline effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2));
+            background-size: 100% 4px;
+            z-index: 50;
+            opacity: 0.15;
+            animation: scanline 0.5s linear infinite;
+        }
+
+        /* Glass Panel */
+        .cyber-glass {
+            background: rgba(10, 10, 30, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.1), inset 0 0 20px rgba(0, 240, 255, 0.05);
+            position: relative;
+        }
+
+        /* Cyberpunk Corners */
+        .cyber-glass::before,
+        .cyber-glass::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .cyber-glass::before {
+            top: -1px;
+            left: -1px;
+            border-right: 0;
+            border-bottom: 0;
+        }
+
+        .cyber-glass::after {
+            bottom: -1px;
+            right: -1px;
+            border-left: 0;
+            border-top: 0;
+        }
+
+        .node-hover:hover .cyber-glass::before,
+        .node-hover:hover .cyber-glass::after {
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+        }
+
+        /* Animated connection lines */
+        .connection-path {
+            fill: none;
+            stroke: rgba(0, 240, 255, 0.15);
+            stroke-width: 2;
+        }
+
+        .data-packet {
+            fill: var(--primary);
+            filter: drop-shadow(0 0 5px var(--primary));
+            opacity: 0;
+        }
+
+        /* Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .delay-100 {
+            animation-delay: 1s;
+        }
+
+        .delay-200 {
+            animation-delay: 2s;
+        }
+
+        .delay-300 {
+            animation-delay: 3s;
+        }
+
+        /* Neon Text */
+        .neon-text {
+            color: #fff;
+            text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 20px var(--primary);
+        }
+
+        .neon-text-purple {
+            color: #fff;
+            text-shadow: 0 0 5px var(--secondary), 0 0 10px var(--secondary), 0 0 20px var(--secondary);
+        }
+    </style>
+</head>
+
+<body class="w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+
+    <div class="scanlines"></div>
+
+    <!-- Background Grid -->
+    <div
+        style="position: absolute; width: 200%; height: 200%; background-image: linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px); background-size: 40px 40px; transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px); animation: gridMove 20s linear infinite; z-index: -1;">
+    </div>
+
+    <style>
+        @keyframes gridMove {
+            0% {
+                transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px);
+            }
+
+            100% {
+                transform: perspective(500px) rotateX(60deg) translateY(40px) translateZ(-200px);
+            }
+        }
+    </style>
+
+    <!-- Header -->
+    <div class="absolute top-10 left-10 z-20">
+        <h1 class="text-5xl font-bold font-['Orbitron'] tracking-widest neon-text mb-2">STOCK<span
+                class="text-white">MEISTER</span></h1>
+        <p class="text-cyan-300 tracking-[0.5em] text-sm uppercase opacity-70">System Architecture v1.0</p>
+    </div>
+
+    <!-- Controls -->
+    <div class="absolute bottom-10 right-10 z-20 flex gap-4">
+        <button onclick="toggleFullScreen()"
+            class="cyber-glass px-6 py-3 text-cyan-300 hover:bg-cyan-500/20 transition-all uppercase tracking-wider text-sm font-bold flex items-center gap-2 group">
+            <i class="fas fa-expand"></i> Full Screen Mode
+        </button>
+        <button onclick="simulateTraffic()"
+            class="cyber-glass px-6 py-3 text-purple-300 hover:bg-purple-500/20 transition-all uppercase tracking-wider text-sm font-bold flex items-center gap-2 group border-purple-500/50">
+            <i class="fas fa-play"></i> Simulate Traffic
+        </button>
+    </div>
+
+    <!-- Main Diagram Container -->
+    <div
+        class="relative w-full max-w-7xl h-[600px] flex items-center justify-between px-20 z-10 scale-90 md:scale-100 transition-transform">
+
+        <!-- SVG Connections Layer -->
+        <svg id="connections" class="absolute inset-0 w-full h-full pointer-events-none overflow-visible">
+            <!-- Definitions for gradients/filters -->
+            <defs>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+                    <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- Paths will be injected by JS -->
+        </svg>
+
+        <!-- 1. Client Node -->
+        <div id="node-client"
+            class="node-hover cyber-glass p-8 rounded-xl w-64 text-center animate-float group cursor-pointer relative z-20">
+            <div
+                class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-2 text-cyan-500 text-[10px] tracking-widest border border-cyan-900">
+                CLIENT_INTERFACE</div>
+            <div
+                class="w-20 h-20 mx-auto bg-cyan-500/10 rounded-full flex items-center justify-center mb-4 border border-cyan-500/30 group-hover:border-cyan-400 transition-all shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+                <i class="fas fa-laptop-code text-4xl text-cyan-400"></i>
+            </div>
+            <h3 class="font-['Orbitron'] text-xl mb-1 text-white">Browser App</h3>
+            <div class="flex justify-center gap-2 mt-3">
+                <span
+                    class="text-[10px] bg-cyan-900/50 border border-cyan-700 text-cyan-200 px-2 py-1 rounded">React</span>
+                <span
+                    class="text-[10px] bg-blue-900/50 border border-blue-700 text-blue-200 px-2 py-1 rounded">Tailwind</span>
+            </div>
+        </div>
+
+        <!-- 2. Frontend Server -->
+        <div id="node-frontend"
+            class="node-hover cyber-glass p-8 rounded-xl w-64 text-center animate-float delay-100 group cursor-pointer relative z-20 border-purple-500/30">
+            <div
+                class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-2 text-purple-500 text-[10px] tracking-widest border border-purple-900">
+                HOSTING_LAYER</div>
+            <div
+                class="w-20 h-20 mx-auto bg-purple-500/10 rounded-full flex items-center justify-center mb-4 border border-purple-500/30 group-hover:border-purple-400 transition-all shadow-[0_0_15px_rgba(112,0,255,0.2)]">
+                <i class="fab fa-docker text-4xl text-purple-400"></i>
+            </div>
+            <h3 class="font-['Orbitron'] text-xl mb-1 text-white">Vite Server</h3>
+            <p class="text-xs text-purple-300 font-mono mb-2">Port: 5173</p>
+            <div class="flex justify-center gap-2 mt-3">
+                <span
+                    class="text-[10px] bg-purple-900/50 border border-purple-700 text-purple-200 px-2 py-1 rounded">Railway</span>
+            </div>
+        </div>
+
+        <!-- 3. Backend API -->
+        <div id="node-backend"
+            class="node-hover cyber-glass p-8 rounded-xl w-64 text-center animate-float delay-200 group cursor-pointer relative z-20 border-green-500/30">
+            <div
+                class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-2 text-green-500 text-[10px] tracking-widest border border-green-900">
+                CORE_LOGIC</div>
+            <div
+                class="w-20 h-20 mx-auto bg-green-500/10 rounded-full flex items-center justify-center mb-4 border border-green-500/30 group-hover:border-green-400 transition-all shadow-[0_0_15px_rgba(0,255,60,0.2)]">
+                <i class="fas fa-server text-4xl text-green-400"></i>
+            </div>
+            <h3 class="font-['Orbitron'] text-xl mb-1 text-white">Spring Boot</h3>
+            <p class="text-xs text-green-300 font-mono mb-2">Port: 8080</p>
+            <div class="flex justify-center gap-2 mt-3">
+                <span class="text-[10px] bg-green-900/50 border border-green-700 text-green-200 px-2 py-1 rounded">Java
+                    17</span>
+                <span
+                    class="text-[10px] bg-green-900/50 border border-green-700 text-green-200 px-2 py-1 rounded">Security</span>
+            </div>
+        </div>
+
+        <!-- 4. Database -->
+        <div id="node-db"
+            class="node-hover cyber-glass p-8 rounded-xl w-64 text-center animate-float delay-300 group cursor-pointer relative z-20 border-blue-500/30">
+            <div
+                class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black px-2 text-blue-500 text-[10px] tracking-widest border border-blue-900">
+                PERSISTENCE</div>
+            <div
+                class="w-20 h-20 mx-auto bg-blue-500/10 rounded-full flex items-center justify-center mb-4 border border-blue-500/30 group-hover:border-blue-400 transition-all shadow-[0_0_15px_rgba(0,100,255,0.2)]">
+                <i class="fas fa-database text-4xl text-blue-400"></i>
+            </div>
+            <h3 class="font-['Orbitron'] text-xl mb-1 text-white">PostgreSQL</h3>
+            <p class="text-xs text-blue-300 font-mono mb-2">Port: 5432</p>
+            <div class="flex justify-center gap-2 mt-3">
+                <span
+                    class="text-[10px] bg-blue-900/50 border border-blue-700 text-blue-200 px-2 py-1 rounded">JPA</span>
+                <span
+                    class="text-[10px] bg-blue-900/50 border border-blue-700 text-blue-200 px-2 py-1 rounded">Hibernate</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Instructions -->
+    <div class="absolute bottom-10 left-10 text-slate-500 text-xs font-mono">
+        <p>FOR PRESENTATION: Press F11 for browser fullscreen using browser controls.</p>
+        <p>ANIMATION: Click 'Simulate Traffic' to visualize data flow.</p>
+    </div>
+
+    <script>
+        // Draw Curved Lines between nodes
+        function drawLine(startId, endId, color = '#00f0ff') {
+            const start = document.getElementById(startId).getBoundingClientRect();
+            const end = document.getElementById(endId).getBoundingClientRect();
+            const container = document.getElementById('connections').getBoundingClientRect();
+
+            // Calculate relative coordinates
+            const x1 = start.right - container.left;
+            const y1 = start.top + start.height / 2 - container.top;
+            const x2 = end.left - container.left;
+            const y2 = end.top + end.height / 2 - container.top;
+
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+            // Bezier curve
+            const cx1 = x1 + (x2 - x1) / 2;
+            const cx2 = x1 + (x2 - x1) / 2;
+
+            const d = `M ${x1} ${y1} C ${cx1} ${y1}, ${cx2} ${y2}, ${x2} ${y2}`;
+
+            path.setAttribute('d', d);
+            path.setAttribute('class', 'connection-path');
+            path.style.stroke = color;
+            path.id = `path-${startId}-${endId}`;
+
+            document.getElementById('connections').appendChild(path);
+
+            // Create circular packet for animation (hidden initially)
+            const packet = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            packet.setAttribute('r', '6');
+            packet.setAttribute('class', 'data-packet');
+            packet.setAttribute('id', `packet-${startId}-${endId}`);
+
+            // Motion path animation
+            const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
+            animate.setAttribute('href', `#packet-${startId}-${endId}`);
+            animate.setAttribute('dur', '1.5s'); // Speed
+            animate.setAttribute('begin', 'indefinite');
+            animate.setAttribute('fill', 'freeze');
+
+            const mpath = document.createElementNS('http://www.w3.org/2000/svg', 'mpath');
+            mpath.setAttribute('href', `#path-${startId}-${endId}`);
+
+            animate.appendChild(mpath);
+            document.getElementById('connections').appendChild(packet);
+            document.getElementById('connections').appendChild(animate);
+
+            return animate;
+        }
+
+        // Initialize Lines
+        let animations = [];
+        window.onload = () => {
+            animations.push(drawLine('node-client', 'node-frontend', '#00f0ff'));
+            animations.push(drawLine('node-frontend', 'node-backend', '#a855f7'));
+            animations.push(drawLine('node-backend', 'node-db', '#22c55e'));
+        };
+
+        // Redraw on resize
+        window.onresize = () => {
+            document.getElementById('connections').innerHTML = '<defs><filter id="glow"><feGaussianBlur stdDeviation="2.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>';
+            animations = [];
+            animations.push(drawLine('node-client', 'node-frontend', '#00f0ff'));
+            animations.push(drawLine('node-frontend', 'node-backend', '#a855f7'));
+            animations.push(drawLine('node-backend', 'node-db', '#22c55e'));
+        };
+
+        function simulateTraffic() {
+            // Sequential animation
+            const packet1 = document.getElementById('packet-node-client-node-frontend');
+            const anim1 = packet1.nextElementSibling; // The animateMotion element
+
+            const packet2 = document.getElementById('packet-node-frontend-node-backend');
+            const anim2 = packet2.nextElementSibling;
+
+            const packet3 = document.getElementById('packet-node-backend-node-db');
+            const anim3 = packet3.nextElementSibling;
+
+            // Reset and trigger
+            [packet1, packet2, packet3].forEach(p => p.style.opacity = '1');
+
+            anim1.beginElement();
+
+            setTimeout(() => {
+                anim2.beginElement();
+            }, 1400); // Trigger next adjusting for overlap
+
+            setTimeout(() => {
+                anim3.beginElement();
+            }, 2800);
+
+            // Fade out after done
+            setTimeout(() => {
+                [packet1, packet2, packet3].forEach(p => p.style.opacity = '0');
+            }, 4500);
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

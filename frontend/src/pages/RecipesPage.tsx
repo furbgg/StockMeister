@@ -189,7 +189,7 @@ const RecipesPage = () => {
               setFormOpen(true);
             }}
             variant="outline"
-            className="border-blue-100 text-[#16213e] hover:bg-blue-50/50 hover:border-blue-200 shadow-sm transition-all duration-300"
+            className="border-blue-100 text-[#16213e] hover:bg-blue-50/50 hover:border-blue-200 dark:border-slate-600 dark:text-blue-300 dark:hover:bg-slate-800/50 dark:hover:border-slate-500 shadow-sm transition-all duration-300"
           >
             <Plus className="mr-2 h-4 w-4" />
             {t('recipes.add_beverage')}
@@ -199,25 +199,25 @@ const RecipesPage = () => {
 
       <div className="grid gap-6">
         {/* Controls & Stats */}
-        <div className="relative flex flex-col sm:flex-row gap-4 justify-between items-center bg-purple-50/60 backdrop-blur-md p-4 rounded-xl border border-purple-100/50 shadow-sm overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+        <div className="relative flex flex-col sm:flex-row gap-4 justify-between items-center bg-purple-50/60 dark:bg-slate-800/60 backdrop-blur-md p-4 rounded-xl border border-purple-100/50 dark:border-slate-700/50 shadow-sm overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
 
           {/* Tabs - Pill Style */}
-          <div className="relative flex gap-1 p-1 bg-slate-100/50 backdrop-blur-sm rounded-lg overflow-hidden self-start sm:self-auto border border-slate-200/50">
+          <div className="relative flex gap-1 p-1 bg-slate-100/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg overflow-hidden self-start sm:self-auto border border-slate-200/50 dark:border-slate-700/50">
             <button
               onClick={() => setActiveTab('recipes')}
               className={cn(
                 'px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 flex items-center gap-2',
                 activeTab === 'recipes'
-                  ? 'bg-white text-[#7c3176] shadow-sm ring-1 ring-[#7c3176]/10'
-                  : 'text-slate-500 hover:text-slate-700 hover:bg-white/50'
+                  ? 'bg-white text-[#7c3176] dark:bg-slate-700 dark:text-purple-300 shadow-sm ring-1 ring-[#7c3176]/10'
+                  : 'text-slate-500 hover:text-slate-700 hover:bg-white/50 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:bg-slate-700/50'
               )}
             >
               <Utensils className="h-4 w-4" />
               {t('recipes.tabs.recipes')}
               <span className={cn(
                 "ml-1 text-xs py-0.5 px-1.5 rounded-full",
-                activeTab === 'recipes' ? "bg-[#7c3176]/10 text-[#7c3176]" : "bg-slate-200"
+                activeTab === 'recipes' ? "bg-[#7c3176]/10 text-[#7c3176]" : "bg-slate-200 dark:bg-slate-700"
               )}>
                 {kitchenRecipes.length}
               </span>
@@ -227,15 +227,15 @@ const RecipesPage = () => {
               className={cn(
                 'px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 flex items-center gap-2',
                 activeTab === 'beverages'
-                  ? 'bg-white text-[#16213e] shadow-sm ring-1 ring-[#16213e]/10'
-                  : 'text-slate-500 hover:text-slate-700 hover:bg-white/50'
+                  ? 'bg-white text-[#16213e] dark:bg-slate-700 dark:text-blue-300 shadow-sm ring-1 ring-[#16213e]/10'
+                  : 'text-slate-500 hover:text-slate-700 hover:bg-white/50 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:bg-slate-700/50'
               )}
             >
               <div className="h-4 w-4 text-[#16213e]">🥤</div>
               {t('recipes.tabs.beverages')}
               <span className={cn(
                 "ml-1 text-xs py-0.5 px-1.5 rounded-full",
-                activeTab === 'beverages' ? "bg-blue-50 text-[#16213e] border border-blue-100/50" : "bg-slate-200"
+                activeTab === 'beverages' ? "bg-blue-50 text-[#16213e] border border-blue-100/50" : "bg-slate-200 dark:bg-slate-700"
               )}>
                 {beverageRecipes.length}
               </span>
@@ -248,17 +248,17 @@ const RecipesPage = () => {
               placeholder={t('recipes.search_placeholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="bg-white/60 backdrop-blur-sm border-slate-200 focus:bg-white focus:ring-2 focus:ring-[#7c3176]/20 transition-all rounded-lg pl-9"
+              className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-700 focus:bg-white focus:ring-2 focus:ring-[#7c3176]/20 transition-all rounded-lg pl-9"
             />
           </div>
         </div>
 
         {/* Modern Table Card */}
         <Card className={cn(
-          "relative border border-purple-100/50 bg-purple-50/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500",
+          "relative border border-purple-100/50 dark:border-slate-700/50 bg-purple-50/60 dark:bg-slate-800/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500",
           activeTab === 'recipes' ? 'shadow-[#7c3176]/5' : 'shadow-emerald-500/5'
         )}>
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
           {/* Table Header Decoration */}
           <div className={cn(
             "h-1 w-full bg-gradient-to-r",
@@ -271,16 +271,16 @@ const RecipesPage = () => {
             <ScrollArea className="h-[calc(100vh-320px)] min-h-[500px]">
               <Table>
                 <TableHeader className={cn(
-                  "sticky top-0 z-10 relative bg-white/40 backdrop-blur-sm",
-                  activeTab === 'recipes' ? "bg-white/40" : "bg-white/40"
+                  "sticky top-0 z-10 relative bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm",
+                  activeTab === 'recipes' ? "bg-white/40 dark:bg-slate-900/40" : "bg-white/40 dark:bg-slate-900/40"
                 )}>
                   <TableRow className="border-b border-slate-100 hover:bg-transparent">
-                    <TableHead className="w-24 pl-6 font-semibold text-slate-700">{t('common.image')}</TableHead>
-                    <TableHead className="font-semibold text-slate-700">{t('common.name')}</TableHead>
-                    <TableHead className="font-semibold text-slate-700 hidden md:table-cell">{t('common.description')}</TableHead>
-                    <TableHead className="font-semibold text-slate-700">{t('common.price')}</TableHead>
-                    <TableHead className="font-semibold text-slate-700">{t('recipes.table.ingredients')}</TableHead>
-                    <TableHead className="w-40 text-center font-semibold text-slate-700 pr-6">{t('common.actions')}</TableHead>
+                    <TableHead className="w-24 pl-6 font-semibold text-slate-700 dark:text-slate-300">{t('common.image')}</TableHead>
+                    <TableHead className="font-semibold text-slate-700 dark:text-slate-300">{t('common.name')}</TableHead>
+                    <TableHead className="font-semibold text-slate-700 dark:text-slate-300 hidden md:table-cell">{t('common.description')}</TableHead>
+                    <TableHead className="font-semibold text-slate-700 dark:text-slate-300">{t('common.price')}</TableHead>
+                    <TableHead className="font-semibold text-slate-700 dark:text-slate-300">{t('recipes.table.ingredients')}</TableHead>
+                    <TableHead className="w-40 text-center font-semibold text-slate-700 dark:text-slate-300 pr-6">{t('common.actions')}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -314,13 +314,13 @@ const RecipesPage = () => {
                       return (
                         <TableRow
                           key={recipe.id}
-                          className="group border-b border-slate-50 hover:bg-slate-50/50 transition-colors"
+                          className="group border-b border-slate-50 dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors"
                         >
                           {/* Image */}
                           <TableCell className="pl-6 py-4">
                             <div className={cn(
                               "w-14 h-14 rounded-xl overflow-hidden flex items-center justify-center shadow-sm border transition-all duration-300 group-hover:scale-105 group-hover:shadow-md",
-                              activeTab === 'recipes' ? "bg-blue-50 border-blue-100" : "bg-blue-50 border-blue-100"
+                              activeTab === 'recipes' ? "bg-blue-50 border-blue-100 dark:bg-slate-800 dark:border-slate-700" : "bg-blue-50 border-blue-100 dark:bg-slate-800 dark:border-slate-700"
                             )}>
                               {imageUrl ? (
                                 <img
@@ -347,14 +347,14 @@ const RecipesPage = () => {
                           </TableCell>
 
                           <TableCell>
-                            <div className="font-semibold text-slate-800 text-base">{recipe.name}</div>
+                            <div className="font-semibold text-slate-800 dark:text-slate-200 text-base">{recipe.name}</div>
                             {recipe.category && (
                               <div className="text-xs text-slate-400 mt-0.5">{recipe.category}</div>
                             )}
                           </TableCell>
 
                           <TableCell className="max-w-[200px] hidden md:table-cell">
-                            <div className="truncate text-slate-500 text-sm" title={recipe.description}>
+                            <div className="truncate text-slate-500 dark:text-slate-400 text-sm" title={recipe.description}>
                               {recipe.description || '-'}
                             </div>
                           </TableCell>
@@ -365,8 +365,8 @@ const RecipesPage = () => {
                               className={cn(
                                 "border-0 font-medium px-2.5 py-1",
                                 activeTab === 'recipes'
-                                  ? "bg-blue-50 text-[#16213e] border border-blue-100"
-                                  : "bg-blue-50 text-[#16213e] border border-blue-100"
+                                  ? "bg-blue-50 text-[#16213e] border border-blue-100 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800"
+                                  : "bg-blue-50 text-[#16213e] border border-blue-100 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800"
                               )}
                             >
                               <DollarSign className="h-3 w-3 mr-1 opacity-70" />
@@ -377,7 +377,7 @@ const RecipesPage = () => {
                           <TableCell>
                             <div className="flex items-center gap-2">
                               {ingredientCount > 0 ? (
-                                <Badge variant="secondary" className="bg-slate-100 text-slate-600 hover:bg-slate-200">
+                                <Badge variant="secondary" className="bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300 hover:bg-slate-200">
                                   {t('recipes.item_count', { count: ingredientCount })}
                                 </Badge>
                               ) : (
@@ -393,7 +393,7 @@ const RecipesPage = () => {
                               <Button
                                 variant="ghost"
                                 size="icon"
-                                className="h-9 w-9 hover:bg-white hover:shadow-sm hover:text-blue-600 rounded-lg transition-all"
+                                className="h-9 w-9 hover:bg-white dark:hover:bg-slate-700 hover:shadow-sm hover:text-blue-600 rounded-lg transition-all"
                                 title={t('recipes.tooltips.edit')}
                                 onClick={() => {
                                   setEditingRecipe(recipe);
@@ -408,7 +408,7 @@ const RecipesPage = () => {
                                 <Button
                                   variant="ghost"
                                   size="icon"
-                                  className="h-9 w-9 hover:bg-white hover:shadow-sm hover:text-[#7c3176] rounded-lg transition-all"
+                                  className="h-9 w-9 hover:bg-white dark:hover:bg-slate-700 hover:shadow-sm hover:text-[#7c3176] rounded-lg transition-all"
                                   title={t('recipes.tooltips.manage_ingredients')}
                                   onClick={() => handleOpenIngredientsModal(recipe)}
                                 >
@@ -420,7 +420,7 @@ const RecipesPage = () => {
                               <Button
                                 variant="ghost"
                                 size="icon"
-                                className="h-9 w-9 hover:bg-white hover:shadow-sm hover:text-red-600 rounded-lg transition-all"
+                                className="h-9 w-9 hover:bg-white dark:hover:bg-slate-700 hover:shadow-sm hover:text-red-600 rounded-lg transition-all"
                                 title={t('recipes.tooltips.delete')}
                                 onClick={() => {
                                   setRecipeToDelete(recipe.id ?? null);

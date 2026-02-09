@@ -13,3 +13,4 @@ nul
 *.jar
 .idea/
 .vscode/
+.claude/

@@ -179,8 +179,8 @@ const IngredientsPage = () => {
 
       <div className="grid gap-6">
         {/* Controls Bar */}
-        <div className="relative flex flex-col xl:flex-row gap-4 justify-between items-start xl:items-center bg-purple-50/60 backdrop-blur-md p-4 rounded-xl border border-purple-100/50 shadow-sm overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+        <div className="relative flex flex-col xl:flex-row gap-4 justify-between items-start xl:items-center bg-purple-50/60 dark:bg-slate-800/60 backdrop-blur-md p-4 rounded-xl border border-purple-100/50 dark:border-slate-700/50 shadow-sm overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
 
           {/* Filters Group */}
           <div className="relative flex flex-col sm:flex-row gap-3 w-full xl:w-auto">
@@ -190,13 +190,13 @@ const IngredientsPage = () => {
                 placeholder={t('ingredients.search_placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="bg-white/60 backdrop-blur-sm border-slate-200 focus:bg-white focus:ring-2 focus:ring-[#16213e]/20 transition-all rounded-lg"
+                className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-700 focus:bg-white focus:ring-2 focus:ring-[#16213e]/20 transition-all rounded-lg"
               />
             </div>
 
             {/* Category Filter */}
             <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-              <SelectTrigger className="w-full sm:w-[180px] bg-slate-50 border-slate-200 rounded-lg">
+              <SelectTrigger className="w-full sm:w-[180px] bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg">
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
               <SelectContent>
@@ -215,7 +215,7 @@ const IngredientsPage = () => {
                 "w-full sm:w-auto transition-all duration-300 border-slate-200",
                 showLowStock
                   ? "bg-amber-500 hover:bg-amber-600 text-white border-amber-600 shadow-md ring-2 ring-amber-500/20"
-                  : "bg-white text-slate-600 hover:bg-amber-50 hover:text-amber-600 hover:border-amber-200"
+                  : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-amber-50 hover:text-amber-600 hover:border-amber-200"
               )}
             >
               <AlertTriangle className={cn("mr-2 h-4 w-4", showLowStock ? "fill-current" : "")} />
@@ -225,7 +225,7 @@ const IngredientsPage = () => {
 
           {/* Low Stock Stats (conditionally visible in extended mode) */}
           {showLowStock && (
-            <div className="flex items-center gap-2 w-full xl:w-auto bg-amber-50 px-3 py-2 rounded-lg border border-amber-100 animate-in fade-in slide-in-from-right-4">
+            <div className="flex items-center gap-2 w-full xl:w-auto bg-amber-50 dark:bg-amber-900/20 px-3 py-2 rounded-lg border border-amber-100 dark:border-amber-800/50 animate-in fade-in slide-in-from-right-4">
               <span className="text-xs font-semibold text-amber-800 uppercase tracking-wider">{t('ingredients.low_stock_stats.parameters')}:</span>
               <div className="flex items-center gap-2">
                 <Label htmlFor="threshold" className="text-xs text-amber-700 whitespace-nowrap">{t('ingredients.low_stock_stats.threshold')}</Label>
@@ -252,7 +252,7 @@ const IngredientsPage = () => {
 
         {/* Low Stock Alert Card (Only if active and has items) */}
         {showLowStock && lowStockIngredients.length > 0 && (
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 shadow-sm animate-in fade-in zoom-in-95 duration-300">
+          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 rounded-xl p-4 shadow-sm animate-in fade-in zoom-in-95 duration-300">
             <div className="flex items-center gap-2 mb-3">
               <div className="p-1.5 bg-amber-100 rounded-full">
                 <AlertTriangle className="h-4 w-4 text-amber-600" />
@@ -277,22 +277,22 @@ const IngredientsPage = () => {
         )}
 
         {/* Main Table Card */}
-        <Card className="relative border border-purple-100/50 bg-purple-50/60 shadow-lg overflow-hidden rounded-xl ring-1 ring-slate-900/5">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+        <Card className="relative border border-purple-100/50 dark:border-slate-700/50 bg-purple-50/60 dark:bg-slate-800/60 shadow-lg overflow-hidden rounded-xl ring-1 ring-slate-900/5">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
           {/* Table Header Decoration */}
           <div className="h-1 w-full bg-gradient-to-r from-[#16213e] via-[#2c3e6d] to-[#16213e]" />
 
           <CardContent className="p-0">
             <ScrollArea className="h-[calc(100vh-320px)] min-h-[500px]">
               <Table>
-                <TableHeader className="sticky top-0 z-10 bg-white/40 backdrop-blur-sm border-b border-purple-100/20">
+                <TableHeader className="sticky top-0 z-10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm border-b border-purple-100/20">
                   <TableRow className="hover:bg-transparent border-none">
-                    <TableHead className="w-24 pl-6 font-semibold text-[#16213e]">{t('common.image')}</TableHead>
-                    <TableHead className="font-semibold text-[#16213e]">{t('common.name')}</TableHead>
-                    <TableHead className="font-semibold text-[#16213e]">{t('common.category')}</TableHead>
-                    <TableHead className="font-semibold text-[#16213e]">{t('common.stock')}</TableHead>
-                    <TableHead className="font-semibold text-[#16213e]">{t('common.price')}</TableHead>
-                    <TableHead className="w-32 text-center font-semibold text-[#16213e] pr-6">{t('common.actions')}</TableHead>
+                    <TableHead className="w-24 pl-6 font-semibold text-[#16213e] dark:text-slate-300">{t('common.image')}</TableHead>
+                    <TableHead className="font-semibold text-[#16213e] dark:text-slate-300">{t('common.name')}</TableHead>
+                    <TableHead className="font-semibold text-[#16213e] dark:text-slate-300">{t('common.category')}</TableHead>
+                    <TableHead className="font-semibold text-[#16213e] dark:text-slate-300">{t('common.stock')}</TableHead>
+                    <TableHead className="font-semibold text-[#16213e] dark:text-slate-300">{t('common.price')}</TableHead>
+                    <TableHead className="w-32 text-center font-semibold text-[#16213e] dark:text-slate-300 pr-6">{t('common.actions')}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -323,14 +323,14 @@ const IngredientsPage = () => {
                         <TableRow
                           key={ing.id}
                           className={cn(
-                            "group border-b border-slate-50 transition-colors",
-                            isLow ? "bg-amber-50/30 hover:bg-amber-50/60" : "hover:bg-slate-50/60"
+                            "group border-b border-slate-50 dark:border-slate-800 transition-colors",
+                            isLow ? "bg-amber-50/30 dark:bg-amber-900/20 hover:bg-amber-50/60 dark:hover:bg-amber-900/30" : "hover:bg-slate-50/60 dark:hover:bg-slate-800/60"
                           )}
                         >
                           <TableCell className="pl-6 py-4">
                             <div className={cn(
                               "w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center shadow-sm border transition-all duration-300",
-                              isLow ? "bg-amber-50 border-amber-200" : "bg-white border-slate-100"
+                              isLow ? "bg-amber-50 dark:bg-amber-900/30 border-amber-200 dark:border-amber-800" : "bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-700"
                             )}>
                               {ing.imagePath ? (
                                 <img
@@ -343,11 +343,11 @@ const IngredientsPage = () => {
                           </TableCell>
 
                           <TableCell>
-                            <div className="font-semibold text-slate-800 text-base">{ing.name}</div>
+                            <div className="font-semibold text-slate-800 dark:text-slate-200 text-base">{ing.name}</div>
                           </TableCell>
 
                           <TableCell>
-                            <Badge variant="secondary" className="bg-slate-100 text-slate-600 font-normal">
+                            <Badge variant="secondary" className="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-normal">
                               {ing.category}
                             </Badge>
                           </TableCell>
@@ -357,8 +357,8 @@ const IngredientsPage = () => {
                               <div className={cn(
                                 "font-bold text-sm px-2.5 py-1 rounded-md border",
                                 isLow
-                                  ? "bg-red-50 text-red-700 border-red-100"
-                                  : "bg-blue-50 text-[#16213e] border-blue-100"
+                                  ? "bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 border-red-100 dark:border-red-800"
+                                  : "bg-blue-50 dark:bg-blue-900/30 text-[#16213e] dark:text-blue-300 border-blue-100 dark:border-blue-800"
                               )}>
                                 {ing.currentStock} <span className="text-xs font-normal opacity-70 ml-0.5">{ing.unit}</span>
                               </div>
@@ -371,7 +371,7 @@ const IngredientsPage = () => {
                           </TableCell>
 
                           <TableCell>
-                            <Badge variant="outline" className="font-medium text-slate-600 bg-transparent border-slate-200 tabular-nums">
+                            <Badge variant="outline" className="font-medium text-slate-600 dark:text-slate-300 bg-transparent border-slate-200 dark:border-slate-700 tabular-nums">
                               ${Number(ing.unitPrice).toFixed(2)}
                             </Badge>
                           </TableCell>
@@ -381,7 +381,7 @@ const IngredientsPage = () => {
                               <Button
                                 variant="ghost"
                                 size="icon"
-                                className="h-8 w-8 hover:bg-white hover:shadow-sm hover:text-blue-600 rounded-md transition-all"
+                                className="h-8 w-8 hover:bg-white dark:hover:bg-slate-700 hover:shadow-sm hover:text-blue-600 rounded-md transition-all"
                                 onClick={() => { setEditingIngredient(ing); setFormOpen(true); }}
                               >
                                 <Pencil className="h-4 w-4" />
@@ -389,7 +389,7 @@ const IngredientsPage = () => {
                               <Button
                                 variant="ghost"
                                 size="icon"
-                                className="h-8 w-8 hover:bg-white hover:shadow-sm hover:text-red-600 rounded-md transition-all"
+                                className="h-8 w-8 hover:bg-white dark:hover:bg-slate-700 hover:shadow-sm hover:text-red-600 rounded-md transition-all"
                                 onClick={() => { setIngredientToDelete(ing.id!); setDeleteConfirmOpen(true); }}
                               >
                                 <Trash2 className="h-4 w-4" />

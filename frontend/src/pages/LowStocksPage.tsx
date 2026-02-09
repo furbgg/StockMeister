@@ -156,18 +156,18 @@ const LowStocksPage = () => {
       <div className="grid gap-6">
 
         {/* Controls Bar */}
-        <div className="relative flex flex-col xl:flex-row gap-4 justify-between items-center bg-purple-50/60 backdrop-blur-md p-4 rounded-xl border border-purple-100/50 shadow-sm overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+        <div className="relative flex flex-col xl:flex-row gap-4 justify-between items-center bg-purple-50/60 dark:bg-slate-800/60 backdrop-blur-md p-4 rounded-xl border border-purple-100/50 dark:border-slate-700/50 shadow-sm overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
 
           {/* Tabs - Pill Style */}
-          <div className="relative flex gap-1 p-1 bg-slate-100/50 backdrop-blur-sm rounded-lg overflow-hidden self-start sm:self-auto border border-slate-200/50">
+          <div className="relative flex gap-1 p-1 bg-slate-100/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg overflow-hidden self-start sm:self-auto border border-slate-200/50 dark:border-slate-700/50">
             <button
               onClick={() => setActiveTab('low-stock')}
               className={cn(
                 'flex-1 xl:flex-none px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 flex items-center justify-center gap-2',
                 activeTab === 'low-stock'
-                  ? 'bg-white text-[#7c3176] shadow-sm ring-1 ring-[#7c3176]/10'
-                  : 'text-slate-500 hover:text-slate-700 hover:bg-white/50'
+                  ? 'bg-white dark:bg-slate-700 text-[#7c3176] dark:text-purple-300 shadow-sm ring-1 ring-[#7c3176]/10'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-700/50'
               )}
             >
               <AlertTriangle className="h-4 w-4" />
@@ -175,7 +175,7 @@ const LowStocksPage = () => {
               {lowStockIngredients.length > 0 && (
                 <span className={cn(
                   "ml-1 text-xs py-0.5 px-1.5 rounded-full",
-                  activeTab === 'low-stock' ? "bg-[#7c3176]/10 text-[#7c3176]" : "bg-slate-200 text-slate-600"
+                  activeTab === 'low-stock' ? "bg-[#7c3176]/10 text-[#7c3176]" : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
                 )}>
                   {lowStockIngredients.length}
                 </span>
@@ -186,8 +186,8 @@ const LowStocksPage = () => {
               className={cn(
                 'flex-1 xl:flex-none px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 flex items-center justify-center gap-2',
                 activeTab === 'out-of-stock'
-                  ? 'bg-white text-[#7c3176] shadow-sm ring-1 ring-[#7c3176]/10'
-                  : 'text-slate-500 hover:text-slate-700 hover:bg-white/50'
+                  ? 'bg-white dark:bg-slate-700 text-[#7c3176] dark:text-purple-300 shadow-sm ring-1 ring-[#7c3176]/10'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-700/50'
               )}
             >
               <PackageX className="h-4 w-4" />
@@ -195,7 +195,7 @@ const LowStocksPage = () => {
               {outOfStockIngredients.length > 0 && (
                 <span className={cn(
                   "ml-1 text-xs py-0.5 px-1.5 rounded-full",
-                  activeTab === 'out-of-stock' ? "bg-[#7c3176]/10 text-[#7c3176]" : "bg-slate-200 text-slate-600"
+                  activeTab === 'out-of-stock' ? "bg-[#7c3176]/10 text-[#7c3176]" : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
                 )}>
                   {outOfStockIngredients.length}
                 </span>
@@ -210,7 +210,7 @@ const LowStocksPage = () => {
                 placeholder={t('stock_alerts.search_placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="bg-white/60 backdrop-blur-sm border-slate-200 focus:bg-white focus:ring-2 focus:ring-[#7c3176]/20 transition-all rounded-lg"
+                className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-700 focus:bg-white focus:ring-2 focus:ring-[#7c3176]/20 transition-all rounded-lg"
               />
             </div>
 
@@ -218,12 +218,12 @@ const LowStocksPage = () => {
             <div className={cn(
               "relative flex items-center gap-3 px-4 py-2 rounded-lg border transition-all duration-300 w-full sm:w-auto justify-between sm:justify-start",
               lowStockNotifyEnabled
-                ? "bg-white/60 backdrop-blur-sm border-[#7c3176]/20 shadow-sm"
-                : "bg-white/40 backdrop-blur-sm border-slate-200"
+                ? "bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-[#7c3176]/20 shadow-sm"
+                : "bg-white/40 dark:bg-slate-800/40 backdrop-blur-sm border-slate-200 dark:border-slate-700"
             )}>
               <div className="flex items-center gap-2">
                 <Bell className={cn("h-4 w-4", lowStockNotifyEnabled ? "text-[#7c3176]" : "text-slate-400")} />
-                <span className={cn("text-sm font-medium", lowStockNotifyEnabled ? "text-[#7c3176]" : "text-slate-500")}>
+                <span className={cn("text-sm font-medium", lowStockNotifyEnabled ? "text-[#7c3176]" : "text-slate-500 dark:text-slate-400")}>
                   {t('stock_alerts.notifications')}
                 </span>
               </div>
@@ -237,26 +237,26 @@ const LowStocksPage = () => {
         </div>
 
         {/* Main Table Card - Lacivert Theme */}
-        <Card className="relative border border-purple-100/50 bg-purple-50/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500 ring-1 ring-slate-900/5 shadow-[#16213e]/5">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+        <Card className="relative border border-purple-100/50 dark:border-slate-700/50 bg-purple-50/60 dark:bg-slate-800/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500 ring-1 ring-slate-900/5 shadow-[#16213e]/5">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
           {/* Table Header Decoration */}
           <div className="h-1 w-full bg-gradient-to-r from-[#16213e] via-[#2a3a5f] to-[#16213e]" />
 
           <CardContent className="p-0">
             <ScrollArea className="h-[calc(100vh-420px)] min-h-[400px]">
               <Table>
-                <TableHeader className="sticky top-0 z-10 bg-white/40 backdrop-blur-sm border-b border-purple-100/20">
+                <TableHeader className="sticky top-0 z-10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm border-b border-purple-100/20">
                   <TableRow className="hover:bg-transparent border-none">
                     <TableHead className="w-12 pl-4">
                       <input type="checkbox" className="rounded border-slate-300 text-[#7c3176] focus:ring-[#7c3176]" />
                     </TableHead>
                     <TableHead className="w-20 font-semibold text-slate-700">{t('stock_alerts.table.image')}</TableHead>
-                    <TableHead className="font-semibold text-slate-700">{t('stock_alerts.table.product_name')}</TableHead>
-                    <TableHead className="font-semibold text-slate-700">{t('stock_alerts.table.category')}</TableHead>
-                    <TableHead className="font-semibold text-slate-700">{t('stock_alerts.table.stock_level')}</TableHead>
-                    <TableHead className="font-semibold text-slate-700">{t('stock_alerts.table.min_req')}</TableHead>
-                    <TableHead className="font-semibold text-slate-700">{t('stock_alerts.table.missing')}</TableHead>
-                    <TableHead className="w-36 text-center font-semibold text-slate-700 pr-6">{t('stock_alerts.table.action')}</TableHead>
+                    <TableHead className="font-semibold text-slate-700 dark:text-slate-300">{t('stock_alerts.table.product_name')}</TableHead>
+                    <TableHead className="font-semibold text-slate-700 dark:text-slate-300">{t('stock_alerts.table.category')}</TableHead>
+                    <TableHead className="font-semibold text-slate-700 dark:text-slate-300">{t('stock_alerts.table.stock_level')}</TableHead>
+                    <TableHead className="font-semibold text-slate-700 dark:text-slate-300">{t('stock_alerts.table.min_req')}</TableHead>
+                    <TableHead className="font-semibold text-slate-700 dark:text-slate-300">{t('stock_alerts.table.missing')}</TableHead>
+                    <TableHead className="w-36 text-center font-semibold text-slate-700 dark:text-slate-300 pr-6">{t('stock_alerts.table.action')}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -305,14 +305,14 @@ const LowStocksPage = () => {
                       return (
                         <TableRow
                           key={ingredient.id}
-                          className="group border-b border-slate-50 transition-colors hover:bg-[#16213e]/5"
+                          className="group border-b border-slate-50 dark:border-slate-800 transition-colors hover:bg-[#16213e]/5 dark:hover:bg-slate-800/50"
                         >
                           <TableCell className="pl-4">
                             <input type="checkbox" className="rounded border-slate-300 text-[#7c3176] focus:ring-[#7c3176]" />
                           </TableCell>
 
                           <TableCell className="py-3">
-                            <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center shadow-sm border border-slate-100 transition-all duration-300 group-hover:scale-105 group-hover:border-[#16213e]/20 bg-white">
+                            <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center shadow-sm border border-slate-100 dark:border-slate-700 transition-all duration-300 group-hover:scale-105 group-hover:border-[#16213e]/20 bg-white dark:bg-slate-800">
                               {imageUrl ? (
                                 <img
                                   src={imageUrl}

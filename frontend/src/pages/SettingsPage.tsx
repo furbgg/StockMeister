@@ -95,7 +95,7 @@ const PasswordStrengthBar = ({ password }: PasswordStrengthBarProps) => {
     return (
         <div className="space-y-1.5 mt-2">
             <div className="flex justify-between items-center">
-                <span className="text-xs text-gray-500">Password Strength</span>
+                <span className="text-xs text-gray-500 dark:text-gray-400">Password Strength</span>
                 <span className={`text-xs font-medium ${strength <= 2 ? 'text-red-500' : strength <= 3 ? 'text-yellow-600' : 'text-green-600'}`}>
                     {getLabel()}
                 </span>

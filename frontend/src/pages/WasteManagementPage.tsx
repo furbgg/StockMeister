@@ -245,9 +245,9 @@ const WasteManagementPage = () => {
       {/* Main Content Grid */}
       <div className="grid gap-6">
         {/* Controls Bar */}
-        <div className="relative flex flex-col sm:flex-row gap-4 justify-between items-center bg-purple-50/60 backdrop-blur-md p-4 rounded-xl border border-purple-100/50 shadow-sm overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
-          <div className="relative flex items-center gap-2 text-slate-500">
+        <div className="relative flex flex-col sm:flex-row gap-4 justify-between items-center bg-purple-50/60 dark:bg-slate-800/60 backdrop-blur-md p-4 rounded-xl border border-purple-100/50 dark:border-slate-700/50 shadow-sm overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
+          <div className="relative flex items-center gap-2 text-slate-500 dark:text-slate-400">
             <Trash2 className="h-4 w-4" />
             <span className="text-sm font-medium">{t('waste_management.history.title')}</span>
           </div>
@@ -257,51 +257,51 @@ const WasteManagementPage = () => {
               placeholder={t('waste_management.history.search_placeholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="bg-white/60 backdrop-blur-sm border-slate-200 focus:bg-white focus:ring-2 focus:ring-[#7c3176]/20 transition-all rounded-lg"
+              className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-700 focus:bg-white focus:ring-2 focus:ring-[#7c3176]/20 transition-all rounded-lg"
             />
           </div>
         </div>
 
         {/* Table Card */}
-        <Card className="relative border border-purple-100/50 bg-purple-50/60 shadow-lg overflow-hidden rounded-xl ring-1 ring-slate-900/5 shadow-purple-900/5">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+        <Card className="relative border border-purple-100/50 dark:border-slate-700/50 bg-purple-50/60 dark:bg-slate-800/60 shadow-lg overflow-hidden rounded-xl ring-1 ring-slate-900/5 shadow-purple-900/5">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
           <div className="h-1 w-full bg-gradient-to-r from-[#7c3176] via-[#9b4d94] to-[#7c3176]" />
           <CardContent className="p-0">
             <Table>
-              <TableHeader className="sticky top-0 z-10 bg-white/40 backdrop-blur-sm border-b border-purple-100/20">
+              <TableHeader className="sticky top-0 z-10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm border-b border-purple-100/20">
                 <TableRow className="hover:bg-transparent border-none">
-                  <TableHead className="w-1/4 font-semibold text-[#7c3176]">{t('waste_management.history.table.ingredient')}</TableHead>
-                  <TableHead className="font-semibold text-[#7c3176]">{t('waste_management.history.table.category')}</TableHead>
-                  <TableHead className="font-semibold text-[#7c3176]">{t('waste_management.history.table.amount')}</TableHead>
-                  <TableHead className="w-1/3 font-semibold text-[#7c3176]">{t('waste_management.history.table.reason')}</TableHead>
-                  <TableHead className="font-semibold text-[#7c3176]">{t('waste_management.history.table.date')}</TableHead>
+                  <TableHead className="w-1/4 font-semibold text-[#7c3176] dark:text-purple-300">{t('waste_management.history.table.ingredient')}</TableHead>
+                  <TableHead className="font-semibold text-[#7c3176] dark:text-purple-300">{t('waste_management.history.table.category')}</TableHead>
+                  <TableHead className="font-semibold text-[#7c3176] dark:text-purple-300">{t('waste_management.history.table.amount')}</TableHead>
+                  <TableHead className="w-1/3 font-semibold text-[#7c3176] dark:text-purple-300">{t('waste_management.history.table.reason')}</TableHead>
+                  <TableHead className="font-semibold text-[#7c3176] dark:text-purple-300">{t('waste_management.history.table.date')}</TableHead>
                   <TableHead className="w-[50px]"></TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {filteredLogs.length > 0 ? (
                   filteredLogs.map((log) => (
-                    <TableRow key={log.id} className="group hover:bg-purple-50/20 border-b border-purple-50/40 transition-colors">
-                      <TableCell className="font-medium text-slate-700">{log.ingredientName || 'Unknown'}</TableCell>
+                    <TableRow key={log.id} className="group hover:bg-purple-50/20 dark:hover:bg-slate-800/40 border-b border-purple-50/40 dark:border-slate-800 transition-colors">
+                      <TableCell className="font-medium text-slate-700 dark:text-slate-200">{log.ingredientName || 'Unknown'}</TableCell>
                       <TableCell>
-                        <span className="px-2 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-medium border border-slate-200">
+                        <span className="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 rounded-md text-xs font-medium border border-slate-200 dark:border-slate-600">
                           {log.ingredientCategory || '-'}
                         </span>
                       </TableCell>
                       <TableCell>
-                        <span className="font-bold text-[#7c3176] bg-purple-50 px-2 py-1 rounded-md border border-purple-100 text-xs">
+                        <span className="font-bold text-[#7c3176] dark:text-purple-300 bg-purple-50 dark:bg-purple-900/30 px-2 py-1 rounded-md border border-purple-100 dark:border-purple-800 text-xs">
                           -{log.quantity} {log.ingredientUnit}
                         </span>
                       </TableCell>
-                      <TableCell className="text-slate-600">{log.reason}</TableCell>
-                      <TableCell className="text-slate-500 text-sm tabular-nums">
+                      <TableCell className="text-slate-600 dark:text-slate-300">{log.reason}</TableCell>
+                      <TableCell className="text-slate-500 dark:text-slate-400 text-sm tabular-nums">
                         {log.date ? new Date(log.date).toLocaleDateString() : '-'}
                       </TableCell>
                       <TableCell>
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-8 w-8 text-slate-400 hover:text-red-600 hover:bg-red-50 opacity-0 group-hover:opacity-100 transition-all duration-200"
+                          className="h-8 w-8 text-slate-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 opacity-0 group-hover:opacity-100 transition-all duration-200"
                           onClick={() => handleDelete(log.id)}
                           disabled={deleteMutation.isPending}
                         >
@@ -314,7 +314,7 @@ const WasteManagementPage = () => {
                   <TableRow>
                     <TableCell colSpan={6} className="text-center py-16 text-muted-foreground">
                       <div className="flex flex-col items-center gap-3 opacity-50">
-                        <div className="p-4 bg-slate-100 rounded-full">
+                        <div className="p-4 bg-slate-100 dark:bg-slate-800 rounded-full">
                           <Trash2 className="h-8 w-8 text-slate-400" />
                         </div>
                         <p>No waste records found.</p>

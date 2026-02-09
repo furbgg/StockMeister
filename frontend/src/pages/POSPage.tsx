@@ -108,10 +108,10 @@ const ProductCard = ({
 
   return (
     <div
-      className="group relative bg-purple-50/60 backdrop-blur-md rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-purple-900/10 transition-all duration-500 cursor-pointer border border-purple-100/50 hover:border-purple-300/50 flex flex-col h-full"
+      className="group relative bg-purple-50/60 dark:bg-slate-800/60 backdrop-blur-md rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-purple-900/10 transition-all duration-500 cursor-pointer border border-purple-100/50 dark:border-slate-700/50 hover:border-purple-300/50 dark:hover:border-slate-600/50 flex flex-col h-full"
       onClick={onAddToCart}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/30 to-purple-100/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/30 to-purple-100/20 dark:from-slate-800/60 dark:via-slate-800/30 dark:to-slate-700/20 pointer-events-none" />
       <div className="relative aspect-[4/3] overflow-hidden">
         {imageUrl ? (
           <img
@@ -125,11 +125,11 @@ const ProductCard = ({
             }}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-slate-50 text-4xl">
+          <div className="w-full h-full flex items-center justify-center bg-slate-50 dark:bg-slate-700 text-4xl">
             🍽️
           </div>
         )}
-        <div className="hidden w-full h-full absolute inset-0 flex items-center justify-center bg-slate-50 text-4xl">
+        <div className="hidden w-full h-full absolute inset-0 flex items-center justify-center bg-slate-50 dark:bg-slate-700 text-4xl">
           🍽️
         </div>
 
@@ -139,11 +139,11 @@ const ProductCard = ({
         {/* Type Badge */}
         <div className="absolute top-3 right-3 shadow-lg">
           {product.sendToKitchen ? (
-            <span className="flex items-center gap-1 text-[10px] font-bold text-orange-700 bg-white/95 backdrop-blur-md px-2 py-1 rounded-full shadow-sm">
+            <span className="flex items-center gap-1 text-[10px] font-bold text-orange-700 dark:text-orange-400 bg-white/95 dark:bg-slate-900/90 backdrop-blur-md px-2 py-1 rounded-full shadow-sm">
               <ChefHat className="w-3 h-3" /> {t('pos.kitchen')}
             </span>
           ) : (
-            <span className="flex items-center gap-1 text-[10px] font-bold text-blue-700 bg-white/95 backdrop-blur-md px-2 py-1 rounded-full shadow-sm">
+            <span className="flex items-center gap-1 text-[10px] font-bold text-blue-700 dark:text-blue-400 bg-white/95 dark:bg-slate-900/90 backdrop-blur-md px-2 py-1 rounded-full shadow-sm">
               <User className="w-3 h-3" /> Bar
             </span>
           )}
@@ -151,12 +151,12 @@ const ProductCard = ({
       </div>
 
       <div className="p-4 flex flex-col flex-1 gap-3 relative z-10">
-        <h3 className="font-bold text-slate-700 line-clamp-2 text-sm leading-snug min-h-[2.5rem] group-hover:text-[#16213e] transition-colors">
+        <h3 className="font-bold text-slate-700 dark:text-slate-200 line-clamp-2 text-sm leading-snug min-h-[2.5rem] group-hover:text-[#16213e] dark:group-hover:text-purple-300 transition-colors">
           {product.name}
         </h3>
 
-        <div className="flex items-center justify-between mt-auto pt-2 border-t border-purple-100/10">
-          <span className="font-extrabold text-[#16213e] text-lg">
+        <div className="flex items-center justify-between mt-auto pt-2 border-t border-purple-100/10 dark:border-slate-700/30">
+          <span className="font-extrabold text-[#16213e] dark:text-purple-300 text-lg">
             €{Number(product.sellingPrice).toFixed(2)}
           </span>
           <div className="h-8 w-8 rounded-full bg-[#16213e] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-md hover:bg-[#1c2b50]">
@@ -183,19 +183,19 @@ const CartItemRow = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <div className="group relative flex items-center gap-3 py-3 px-3 bg-purple-50/60 backdrop-blur-md hover:bg-white/80 rounded-xl border border-purple-100/40 hover:border-purple-200/50 transition-all mb-2 shadow-sm hover:shadow overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-purple-100/10 pointer-events-none" />
-      <div className="relative z-10 w-8 h-8 rounded-full bg-white shadow-sm text-[#7c3176] flex items-center justify-center text-xs font-bold shrink-0">
+    <div className="group relative flex items-center gap-3 py-3 px-3 bg-purple-50/60 dark:bg-slate-800/60 backdrop-blur-md hover:bg-white/80 dark:hover:bg-slate-700/80 rounded-xl border border-purple-100/40 dark:border-slate-700/40 hover:border-purple-200/50 dark:hover:border-slate-600/50 transition-all mb-2 shadow-sm hover:shadow overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-purple-100/10 dark:from-slate-800/40 dark:to-slate-700/10 pointer-events-none" />
+      <div className="relative z-10 w-8 h-8 rounded-full bg-white dark:bg-slate-700 shadow-sm text-[#7c3176] dark:text-purple-300 flex items-center justify-center text-xs font-bold shrink-0">
         {item.quantity}x
       </div>
       <div className="relative z-10 flex-1 min-w-0">
-        <p className="font-bold text-slate-700 text-sm truncate">{item.recipeName}</p>
-        <div className="flex items-center gap-1 text-xs text-slate-400 mt-0.5">
+        <p className="font-bold text-slate-700 dark:text-slate-200 text-sm truncate">{item.recipeName}</p>
+        <div className="flex items-center gap-1 text-xs text-slate-400 dark:text-slate-500 mt-0.5">
           <span>€{item.unitPrice.toFixed(2)} {t('pos.unit')}</span>
         </div>
       </div>
       <div className="relative z-10 flex items-center gap-2">
-        <p className="font-bold text-[#7c3176] text-sm mr-2 w-16 text-right">
+        <p className="font-bold text-[#7c3176] dark:text-purple-300 text-sm mr-2 w-16 text-right">
           €{(item.unitPrice * item.quantity).toFixed(2)}
         </p>
 
@@ -204,7 +204,7 @@ const CartItemRow = ({
             variant="ghost"
             size="icon-xs"
             onClick={onDecrease}
-            className="h-6 w-6 rounded-full border border-slate-200 text-slate-400 hover:text-[#16213e] hover:border-[#16213e] bg-white"
+            className="h-6 w-6 rounded-full border border-slate-200 dark:border-slate-600 text-slate-400 hover:text-[#16213e] hover:border-[#16213e] bg-white dark:bg-slate-700 dark:text-slate-400 dark:hover:text-purple-300 dark:hover:border-purple-400"
           >
             <Minus className="h-3 w-3" />
           </Button>
@@ -212,7 +212,7 @@ const CartItemRow = ({
             variant="ghost"
             size="icon-xs"
             onClick={onIncrease}
-            className="h-6 w-6 rounded-full border border-slate-200 text-slate-400 hover:text-[#16213e] hover:border-[#16213e] bg-white"
+            className="h-6 w-6 rounded-full border border-slate-200 dark:border-slate-600 text-slate-400 hover:text-[#16213e] hover:border-[#16213e] bg-white dark:bg-slate-700 dark:text-slate-400 dark:hover:text-purple-300 dark:hover:border-purple-400"
           >
             <Plus className="h-3 w-3" />
           </Button>
@@ -220,7 +220,7 @@ const CartItemRow = ({
             variant="ghost"
             size="icon-xs"
             onClick={onRemove}
-            className="h-6 w-6 ml-1 rounded-full text-slate-300 hover:text-red-500 hover:bg-red-50"
+            className="h-6 w-6 ml-1 rounded-full text-slate-300 dark:text-slate-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20"
           >
             <X className="h-3 w-3" />
           </Button>
@@ -258,7 +258,7 @@ const Numpad = ({
           key={key}
           variant="outline"
           onClick={() => handleClick(key)}
-          className="h-14 text-xl font-medium rounded-xl border-slate-200 text-slate-700 hover:border-[#16213e] hover:text-[#16213e]"
+          className="h-14 text-xl font-medium rounded-xl border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-[#16213e] hover:text-[#16213e] dark:hover:text-purple-300 dark:hover:border-purple-400"
         >
           {key}
         </Button>
@@ -266,7 +266,7 @@ const Numpad = ({
       <Button
         variant="outline"
         onClick={() => handleClick('x')}
-        className="h-14 text-xl font-medium rounded-xl border-red-100 text-red-500 hover:bg-red-50 hover:border-red-200"
+        className="h-14 text-xl font-medium rounded-xl border-red-100 dark:border-red-900/50 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 hover:border-red-200 dark:hover:border-red-800"
       >
         ⌫
       </Button>
@@ -450,19 +450,19 @@ const POSPage = () => {
   const total = getTotal(TAX_RATE);
 
   const orderPanelContent = (
-    <div className="flex flex-col h-full bg-purple-50/40 backdrop-blur-md relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+    <div className="flex flex-col h-full bg-purple-50/40 dark:bg-slate-900/40 backdrop-blur-md relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-900/40 dark:via-slate-900/20 dark:to-slate-800/20 pointer-events-none" />
 
       {/* Header */}
-      <div className="relative p-5 border-b border-purple-100/30 bg-white/40 backdrop-blur-md z-10 shrink-0 shadow-sm">
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-purple-100/50 to-transparent" />
+      <div className="relative p-5 border-b border-purple-100/30 dark:border-slate-700/30 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md z-10 shrink-0 shadow-sm">
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-purple-100/50 dark:via-slate-700/50 to-transparent" />
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-[#16213e]/10 text-[#16213e]">
+            <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-[#16213e]/10 dark:bg-purple-500/10 text-[#16213e] dark:text-purple-300">
               <ReceiptEuro className="h-6 w-6" />
             </div>
             <div>
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{t('pos.current_order')}</p>
+              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">{t('pos.current_order')}</p>
               <div className="flex items-center gap-2 group cursor-pointer" onClick={() => setTableEditMode(!tableEditMode)}>
                 {tableEditMode ? (
                   <Input
@@ -474,7 +474,7 @@ const POSPage = () => {
                     autoFocus
                   />
                 ) : (
-                  <h2 className="text-lg font-bold text-slate-800">{tableNumber}</h2>
+                  <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{tableNumber}</h2>
                 )}
                 <Pencil className="h-3 w-3 text-slate-300 group-hover:text-[#16213e] transition-colors" />
               </div>
@@ -487,7 +487,7 @@ const POSPage = () => {
             placeholder={t('pos.customer_name')}
             value={customerName}
             onChange={(e) => setCustomerName(e.target.value)}
-            className="h-9 bg-white/60 backdrop-blur-sm border-slate-200 focus:bg-white transition-all text-sm rounded-lg"
+            className="h-9 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-800 transition-all text-sm rounded-lg"
           />
         </div>
       </div>
@@ -495,11 +495,11 @@ const POSPage = () => {
       {/* Cart Items */}
       <ScrollArea className="flex-1 px-4 py-4 relative z-10">
         {cartItems.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-[50vh] text-slate-300">
-            <div className="p-6 bg-purple-100/30 rounded-full mb-4 backdrop-blur-sm border border-purple-100/20">
-              <ShoppingCart className="h-10 w-10 text-purple-300" />
+          <div className="flex flex-col items-center justify-center h-[50vh] text-slate-300 dark:text-slate-600">
+            <div className="p-6 bg-purple-100/30 dark:bg-slate-800/30 rounded-full mb-4 backdrop-blur-sm border border-purple-100/20 dark:border-slate-700/20">
+              <ShoppingCart className="h-10 w-10 text-purple-300 dark:text-slate-600" />
             </div>
-            <p className="font-bold text-slate-400">{t('pos.empty_cart_title')}</p>
+            <p className="font-bold text-slate-400 dark:text-slate-500">{t('pos.empty_cart_title')}</p>
             <p className="text-sm">{t('pos.empty_cart_desc')}</p>
           </div>
         ) : (
@@ -519,20 +519,20 @@ const POSPage = () => {
       </ScrollArea>
 
       {/* Footer - Totals & Actions */}
-      <div className="relative p-5 bg-white/60 backdrop-blur-md border-t border-purple-200/30 shadow-[0_-4px_30px_-5px_rgba(124,49,118,0.1)] z-20 shrink-0 space-y-4">
-        <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent pointer-events-none" />
+      <div className="relative p-5 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border-t border-purple-200/30 dark:border-slate-700/30 shadow-[0_-4px_30px_-5px_rgba(124,49,118,0.1)] z-20 shrink-0 space-y-4">
+        <div className="absolute inset-0 bg-gradient-to-t from-white/40 dark:from-slate-900/40 via-transparent to-transparent pointer-events-none" />
         <div className="relative z-10 space-y-2">
-          <div className="flex justify-between text-slate-500 text-sm">
+          <div className="flex justify-between text-slate-500 dark:text-slate-400 text-sm">
             <span>{t('pos.subtotal')}</span>
-            <span className="font-medium text-slate-700">€{subtotal.toFixed(2)}</span>
+            <span className="font-medium text-slate-700 dark:text-slate-200">€{subtotal.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between text-slate-500 text-sm">
+          <div className="flex justify-between text-slate-500 dark:text-slate-400 text-sm">
             <span>{t('pos.tax')} {(TAX_RATE * 100).toFixed(0)}%</span>
-            <span className="font-medium text-slate-700">€{taxAmount.toFixed(2)}</span>
+            <span className="font-medium text-slate-700 dark:text-slate-200">€{taxAmount.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between items-end pt-3 border-t border-dashed border-slate-200">
-            <span className="font-bold text-slate-800 text-lg">{t('pos.total')}</span>
-            <span className="font-extrabold text-[#16213e] text-3xl">€{total.toFixed(2)}</span>
+          <div className="flex justify-between items-end pt-3 border-t border-dashed border-slate-200 dark:border-slate-700">
+            <span className="font-bold text-slate-800 dark:text-slate-100 text-lg">{t('pos.total')}</span>
+            <span className="font-extrabold text-[#16213e] dark:text-purple-300 text-3xl">€{total.toFixed(2)}</span>
           </div>
         </div>
 
@@ -540,7 +540,7 @@ const POSPage = () => {
         <div className="grid grid-cols-2 gap-3">
           <Button
             variant="outline"
-            className="h-12 text-sm font-bold border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-[#16213e] hover:text-[#16213e] rounded-xl transition-all"
+            className="h-12 text-sm font-bold border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-[#16213e] hover:text-[#16213e] dark:hover:text-purple-300 rounded-xl transition-all"
             onClick={handleSendToKitchen}
             disabled={cartItems.length === 0 || isSubmitting}
           >
@@ -563,7 +563,7 @@ const POSPage = () => {
 
   if (isLoading) {
     return (
-      <div className="h-full flex items-center justify-center bg-slate-50">
+      <div className="h-full flex items-center justify-center bg-slate-50 dark:bg-slate-900">
         <Loader2 className="h-8 w-8 animate-spin text-[#16213e]" />
       </div>
     );
@@ -575,8 +575,8 @@ const POSPage = () => {
       <div className="flex-1 flex flex-col min-w-0 min-h-0 p-3 sm:p-4 lg:p-6 gap-3 sm:gap-4 lg:gap-6">
 
         {/* Top Section with Cinematic Style */}
-        <div className="relative rounded-xl bg-purple-50/60 backdrop-blur-md border border-purple-100/50 shadow-sm overflow-hidden ring-1 ring-slate-900/5 shrink-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+        <div className="relative rounded-xl bg-purple-50/60 dark:bg-slate-800/60 backdrop-blur-md border border-purple-100/50 dark:border-slate-700/50 shadow-sm overflow-hidden ring-1 ring-slate-900/5 dark:ring-slate-700/20 shrink-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
           <div className="h-1 w-full bg-gradient-to-r from-purple-400 via-fuchsia-500 to-indigo-600 opacity-80" />
           <div className="relative p-3 sm:p-4 space-y-3">
 
@@ -587,14 +587,14 @@ const POSPage = () => {
                   placeholder={t('pos.search_placeholder')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="h-10 bg-white/60 backdrop-blur-sm border-slate-200 focus:bg-white focus:ring-1 focus:ring-[#16213e] transition-all rounded-lg pl-9"
+                  className="h-10 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-800 focus:ring-1 focus:ring-[#16213e] transition-all rounded-lg pl-9"
                 />
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 z-10" />
               </div>
 
               {/* Numbered Pagination */}
               {filteredProducts.length > 0 && totalPages > 1 && (
-                <div className="flex items-center gap-1 bg-slate-50 p-1 rounded-lg border border-slate-200 shrink-0">
+                <div className="flex items-center gap-1 bg-slate-50 dark:bg-slate-800 p-1 rounded-lg border border-slate-200 dark:border-slate-700 shrink-0">
                   <Button
                     variant="ghost"
                     size="icon-xs"
@@ -616,7 +616,7 @@ const POSPage = () => {
                           "h-8 w-8 p-0 font-bold text-xs transition-all",
                           currentPage === page
                             ? "bg-[#16213e] hover:bg-[#1c2b50] text-white shadow-md shadow-blue-900/20"
-                            : "text-slate-500 hover:bg-white hover:text-[#16213e]"
+                            : "text-slate-500 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-700 hover:text-[#16213e] dark:hover:text-purple-300"
                         )}
                       >
                         {page}
@@ -625,7 +625,7 @@ const POSPage = () => {
                   </div>
 
                   {/* Mobile: show current/total */}
-                  <span className="sm:hidden text-xs font-bold text-slate-600 px-1">{currentPage}/{totalPages}</span>
+                  <span className="sm:hidden text-xs font-bold text-slate-600 dark:text-slate-300 px-1">{currentPage}/{totalPages}</span>
 
                   <Button
                     variant="ghost"
@@ -649,7 +649,7 @@ const POSPage = () => {
                     'flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all border text-sm font-bold whitespace-nowrap',
                     activeCategory === 'all'
                       ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                      : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
+                      : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
                   )}
                 >
                   <span>🍽️</span>
@@ -664,12 +664,12 @@ const POSPage = () => {
                       'flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all border text-sm font-bold whitespace-nowrap',
                       activeCategory === cat.category
                         ? 'bg-[#16213e] text-white border-[#16213e] shadow-md shadow-blue-900/20'
-                        : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-blue-200'
+                        : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-blue-200 dark:hover:border-slate-600'
                     )}
                   >
                     <span>{cat.icon}</span>
                     <span>{cat.category}</span>
-                    <span className={cn("ml-1 text-[10px] py-0.5 px-1.5 rounded-full", activeCategory === cat.category ? "bg-white/20 text-white" : "bg-slate-100 text-slate-400")}>{cat.products.length}</span>
+                    <span className={cn("ml-1 text-[10px] py-0.5 px-1.5 rounded-full", activeCategory === cat.category ? "bg-white/20 text-white" : "bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500")}>{cat.products.length}</span>
                   </button>
                 ))}
               </div>
@@ -689,8 +689,8 @@ const POSPage = () => {
             ))}
           </div>
           {paginatedProducts.length === 0 && (
-            <div className="flex flex-col items-center justify-center py-20 text-slate-400">
-              <div className="bg-slate-100 p-4 rounded-full mb-3">
+            <div className="flex flex-col items-center justify-center py-20 text-slate-400 dark:text-slate-500">
+              <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-full mb-3">
                 <Search className="h-8 w-8 opacity-50" />
               </div>
               <p className="font-medium">{t('pos.empty_cart_title')}</p>
@@ -701,8 +701,8 @@ const POSPage = () => {
       </div>
 
       {/* RIGHT SIDE - Desktop Sidebar */}
-      <div className="hidden lg:flex w-[380px] border-l border-purple-100/50 flex-col shadow-2xl bg-purple-50/60 backdrop-blur-md h-full overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+      <div className="hidden lg:flex w-[380px] border-l border-purple-100/50 dark:border-slate-700/50 flex-col shadow-2xl bg-purple-50/60 dark:bg-slate-900/60 backdrop-blur-md h-full overflow-hidden relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-900/40 dark:via-slate-900/20 dark:to-slate-800/20 pointer-events-none" />
         {orderPanelContent}
       </div>
 
@@ -721,7 +721,7 @@ const POSPage = () => {
               )}
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[85vw] sm:w-[400px] p-0 flex flex-col h-[100dvh] bg-purple-50/90 border-l border-purple-200/50 backdrop-blur-xl">
+          <SheetContent side="right" className="w-[85vw] sm:w-[400px] p-0 flex flex-col h-[100dvh] bg-purple-50/90 dark:bg-slate-900/90 border-l border-purple-200/50 dark:border-slate-700/50 backdrop-blur-xl">
             <SheetHeader>
               <SheetTitle className="sr-only">Order Cart</SheetTitle>
               <SheetDescription className="sr-only">Items in your cart</SheetDescription>
@@ -742,7 +742,7 @@ const POSPage = () => {
 
           <div className="space-y-4">
             {/* Order Summary in Modal */}
-            <div className="bg-gray-50 rounded-lg p-4 space-y-2">
+            <div className="bg-gray-50 dark:bg-slate-800 rounded-lg p-4 space-y-2">
               <div className="flex justify-between font-bold text-lg border-b pb-2">
                 <span>{t('pos.payment_modal.total_due')}</span>
                 <span>€{(total + Number(tipAmount)).toFixed(2)}</span>
@@ -767,7 +767,7 @@ const POSPage = () => {
 
             {/* Payment Methods */}
             <div>
-              <p className="text-sm text-gray-500 mb-2">{t('pos.payment_modal.payment_method')}</p>
+              <p className="text-sm text-gray-500 dark:text-slate-400 mb-2">{t('pos.payment_modal.payment_method')}</p>
               <div className="grid grid-cols-3 gap-2">
                 <Button
                   variant={selectedPaymentMethod === 'CASH' ? 'default' : 'outline'}
