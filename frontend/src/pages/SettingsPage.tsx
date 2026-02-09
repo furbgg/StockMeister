@@ -100,7 +100,7 @@ const PasswordStrengthBar = ({ password }: PasswordStrengthBarProps) => {
                     {getLabel()}
                 </span>
             </div>
-            <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+            <div className="h-2 w-full bg-gray-200 dark:bg-slate-700 rounded-full overflow-hidden">
                 <div
                     className={`h-full transition-all duration-500 ease-out ${getColor()}`}
                     style={{ width: `${percentage}%` }}
@@ -313,11 +313,11 @@ const SettingsPage = () => {
         return (
             <div className="space-y-6 pb-20">
                 <div className="animate-pulse">
-                    <div className="h-8 w-48 bg-slate-200 rounded mb-4" />
+                    <div className="h-8 w-48 bg-slate-200 dark:bg-slate-700 rounded mb-4" />
                 </div>
                 <div className="grid gap-6">
-                    <div className="h-20 bg-slate-100 rounded-xl"></div>
-                    <div className="h-96 bg-white rounded-xl border border-slate-100"></div>
+                    <div className="h-20 bg-slate-100 dark:bg-slate-800 rounded-xl"></div>
+                    <div className="h-96 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-700"></div>
                 </div>
             </div>
         );
@@ -334,18 +334,18 @@ const SettingsPage = () => {
             {/* Main Content Grid */}
             <div className="grid gap-6">
                 {/* Navigation Tabs Bar */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
-                    <div className="flex gap-1 p-1 bg-slate-100/80 rounded-lg overflow-x-auto w-full sm:w-auto scrollbar-hide">
+                <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+                    <div className="flex gap-1 p-1 bg-slate-100/80 dark:bg-slate-800/80 rounded-lg overflow-x-auto w-full sm:w-auto scrollbar-hide">
                         {visibleTabs.map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id as TabId)}
                                 className={`flex items-center gap-2 px-4 py-2 rounded-md whitespace-nowrap transition-all duration-300 text-sm font-medium ${activeTab === tab.id
-                                    ? 'bg-white text-[#16213e] shadow-sm ring-1 ring-[#16213e]/20'
-                                    : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'
+                                    ? 'bg-white dark:bg-slate-700 text-[#16213e] dark:text-white shadow-sm ring-1 ring-[#16213e]/20 dark:ring-slate-600'
+                                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-700/50'
                                     }`}
                             >
-                                <tab.icon className={`h-4 w-4 ${activeTab === tab.id ? 'text-[#16213e]' : 'text-slate-400'}`} />
+                                <tab.icon className={`h-4 w-4 ${activeTab === tab.id ? 'text-[#16213e] dark:text-white' : 'text-slate-400 dark:text-slate-500'}`} />
                                 {tab.label}
                             </button>
                         ))}
@@ -373,24 +373,24 @@ const GeneralTab = ({ settings, onChange, onSave, isSaving }: GeneralTabProps) =
     const [focusedField, setFocusedField] = useState<string | null>(null);
 
     return (
-        <Card className="relative border border-purple-100/50 bg-purple-50/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500 ring-1 ring-slate-900/5 shadow-[#16213e]/5">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+        <Card className="relative border border-purple-100/50 dark:border-slate-700 bg-purple-50/60 dark:bg-slate-900/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500 ring-1 ring-slate-900/5 shadow-[#16213e]/5">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
             <div className="h-1 w-full bg-gradient-to-r from-[#16213e] via-[#1c2b50] to-[#16213e] relative z-20" />
-            <CardHeader className="relative z-10 border-b border-slate-100 bg-white/40 backdrop-blur-sm">
-                <CardTitle className="flex items-center gap-2 text-slate-800">
-                    <div className="p-2 bg-blue-50/50 rounded-lg">
+            <CardHeader className="relative z-10 border-b border-slate-100 dark:border-slate-700 bg-white/40 dark:bg-slate-800/40 backdrop-blur-sm">
+                <CardTitle className="flex items-center gap-2 text-slate-800 dark:text-slate-200">
+                    <div className="p-2 bg-blue-50/50 dark:bg-slate-700/50 rounded-lg">
                         <Building2 className="h-5 w-5 text-[#16213e]" />
                     </div>
                     {t('settings.general.title')}
                 </CardTitle>
-                <CardDescription className="text-slate-500">
+                <CardDescription className="text-slate-500 dark:text-slate-400">
                     {t('settings.general.description')}
                 </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6 pt-6 relative z-10">
                 <div className="grid gap-6 sm:grid-cols-2">
                     <div className="sm:col-span-2 space-y-2 relative z-10">
-                        <Label htmlFor="name" className="text-slate-700 font-medium">{t('settings.general.name')}</Label>
+                        <Label htmlFor="name" className="text-slate-700 dark:text-slate-300 font-medium">{t('settings.general.name')}</Label>
                         <div className={`relative transition-all duration-300 transform ${focusedField === 'name' ? 'scale-[1.01]' : ''}`}>
                             <Input
                                 id="name"
@@ -399,14 +399,14 @@ const GeneralTab = ({ settings, onChange, onSave, isSaving }: GeneralTabProps) =
                                 onFocus={() => setFocusedField('name')}
                                 onBlur={() => setFocusedField(null)}
                                 placeholder={t('settings.general.name_placeholder')}
-                                className="h-11 bg-white/60 backdrop-blur-sm border-slate-200 transition-all duration-300 focus:bg-white focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
+                                className="h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 transition-all duration-300 focus:bg-white dark:focus:bg-slate-800 focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
                             />
                         </div>
                     </div>
 
                     {/* Address */}
                     <div className="sm:col-span-2 space-y-2 relative z-10">
-                        <Label htmlFor="address" className="text-slate-700 font-medium">{t('settings.general.address')}</Label>
+                        <Label htmlFor="address" className="text-slate-700 dark:text-slate-300 font-medium">{t('settings.general.address')}</Label>
                         <div className={`relative transition-all duration-300 transform ${focusedField === 'address' ? 'scale-[1.01]' : ''}`}>
                             <Input
                                 id="address"
@@ -415,14 +415,14 @@ const GeneralTab = ({ settings, onChange, onSave, isSaving }: GeneralTabProps) =
                                 onFocus={() => setFocusedField('address')}
                                 onBlur={() => setFocusedField(null)}
                                 placeholder={t('settings.general.address_placeholder')}
-                                className="h-11 bg-white/60 backdrop-blur-sm border-slate-200 transition-all duration-300 focus:bg-white focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
+                                className="h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 transition-all duration-300 focus:bg-white dark:focus:bg-slate-800 focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
                             />
                         </div>
                     </div>
 
                     {/* Phone */}
                     <div className="space-y-2 relative z-10">
-                        <Label htmlFor="phone" className="text-slate-700 font-medium">{t('settings.general.phone')}</Label>
+                        <Label htmlFor="phone" className="text-slate-700 dark:text-slate-300 font-medium">{t('settings.general.phone')}</Label>
                         <div className={`relative transition-all duration-300 transform ${focusedField === 'phone' ? 'scale-[1.01]' : ''}`}>
                             <Input
                                 id="phone"
@@ -432,14 +432,14 @@ const GeneralTab = ({ settings, onChange, onSave, isSaving }: GeneralTabProps) =
                                 onFocus={() => setFocusedField('phone')}
                                 onBlur={() => setFocusedField(null)}
                                 placeholder={t('settings.general.phone_placeholder')}
-                                className="h-11 bg-white/60 backdrop-blur-sm border-slate-200 transition-all duration-300 focus:bg-white focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
+                                className="h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 transition-all duration-300 focus:bg-white dark:focus:bg-slate-800 focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
                             />
                         </div>
                     </div>
 
                     {/* Email */}
                     <div className="space-y-2 relative z-10">
-                        <Label htmlFor="email" className="text-slate-700 font-medium">{t('settings.general.email')}</Label>
+                        <Label htmlFor="email" className="text-slate-700 dark:text-slate-300 font-medium">{t('settings.general.email')}</Label>
                         <div className={`relative transition-all duration-300 transform ${focusedField === 'email' ? 'scale-[1.01]' : ''}`}>
                             <Input
                                 id="email"
@@ -449,13 +449,13 @@ const GeneralTab = ({ settings, onChange, onSave, isSaving }: GeneralTabProps) =
                                 onFocus={() => setFocusedField('email')}
                                 onBlur={() => setFocusedField(null)}
                                 placeholder={t('settings.general.email_placeholder')}
-                                className="h-11 bg-white/60 backdrop-blur-sm border-slate-200 transition-all duration-300 focus:bg-white focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
+                                className="h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 transition-all duration-300 focus:bg-white dark:focus:bg-slate-800 focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
                             />
                         </div>
                     </div>
                 </div>
 
-                <div className="flex justify-end pt-4 border-t border-slate-100 relative z-10">
+                <div className="flex justify-end pt-4 border-t border-slate-100 dark:border-slate-700 relative z-10">
                     <Button
                         onClick={onSave}
                         disabled={isSaving}
@@ -502,33 +502,33 @@ const StaffTab = () => {
     };
 
     const stats = [
-        { label: t('staff.form.roles.ADMIN'), value: users.filter(u => u.role === 'ADMIN').length, icon: UserCog, color: 'bg-purple-50/50 text-purple-700 border-purple-100/50' },
-        { label: t('staff.form.roles.CHEF'), value: users.filter(u => u.role === 'CHEF').length, icon: ChefHat, color: 'bg-indigo-50/50 text-indigo-700 border-indigo-100/50' },
-        { label: t('staff.form.roles.WAITER'), value: users.filter(u => u.role === 'WAITER').length, icon: Users, color: 'bg-emerald-50/50 text-emerald-700 border-emerald-100/50' },
-        { label: t('staff.form.roles.INVENTORY_MANAGER'), value: users.filter(u => u.role === 'INVENTORY_MANAGER').length, icon: Package, color: 'bg-amber-50/50 text-amber-700 border-amber-100/50' }
+        { label: t('staff.form.roles.ADMIN'), value: users.filter(u => u.role === 'ADMIN').length, icon: UserCog, color: 'bg-purple-50/50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-100/50 dark:border-purple-800/50' },
+        { label: t('staff.form.roles.CHEF'), value: users.filter(u => u.role === 'CHEF').length, icon: ChefHat, color: 'bg-indigo-50/50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 border-indigo-100/50 dark:border-indigo-800/50' },
+        { label: t('staff.form.roles.WAITER'), value: users.filter(u => u.role === 'WAITER').length, icon: Users, color: 'bg-emerald-50/50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-100/50 dark:border-emerald-800/50' },
+        { label: t('staff.form.roles.INVENTORY_MANAGER'), value: users.filter(u => u.role === 'INVENTORY_MANAGER').length, icon: Package, color: 'bg-amber-50/50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-amber-100/50 dark:border-amber-800/50' }
     ];
 
     return (
-        <Card className="relative border border-purple-100/50 bg-purple-50/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500 ring-1 ring-slate-900/5 shadow-[#16213e]/5">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+        <Card className="relative border border-purple-100/50 dark:border-slate-700 bg-purple-50/60 dark:bg-slate-900/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500 ring-1 ring-slate-900/5 shadow-[#16213e]/5">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
             <div className="h-1 w-full bg-gradient-to-r from-[#16213e] via-[#1c2b50] to-[#16213e] relative z-20" />
-            <CardHeader className="relative z-10 border-b border-slate-100 bg-white/40 backdrop-blur-sm">
-                <CardTitle className="flex items-center gap-2 text-slate-800">
-                    <div className="p-2 bg-blue-50/50 rounded-lg">
+            <CardHeader className="relative z-10 border-b border-slate-100 dark:border-slate-700 bg-white/40 dark:bg-slate-800/40 backdrop-blur-sm">
+                <CardTitle className="flex items-center gap-2 text-slate-800 dark:text-slate-200">
+                    <div className="p-2 bg-blue-50/50 dark:bg-slate-700/50 rounded-lg">
                         <Users className="h-5 w-5 text-[#16213e]" />
                     </div>
                     {t('settings.tabs.staff')}
                 </CardTitle>
-                <CardDescription className="text-slate-500">{t('staff.description')}</CardDescription>
+                <CardDescription className="text-slate-500 dark:text-slate-400">{t('staff.description')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6 pt-6 relative z-10">
-                <div className="bg-white/40 backdrop-blur-md border border-purple-100/30 rounded-xl p-8 text-center relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-purple-100/10 pointer-events-none" />
-                    <div className="bg-white p-4 rounded-full w-20 h-20 mx-auto mb-4 shadow-sm flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-500">
-                        <Users className="h-10 w-10 text-[#16213e]" />
+                <div className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-purple-100/30 dark:border-slate-700/30 rounded-xl p-8 text-center relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-purple-100/10 dark:from-slate-800/40 dark:to-slate-700/10 pointer-events-none" />
+                    <div className="bg-white dark:bg-slate-700 p-4 rounded-full w-20 h-20 mx-auto mb-4 shadow-sm flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-500">
+                        <Users className="h-10 w-10 text-[#16213e] dark:text-purple-300" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2 relative z-10">{t('settings.staff_portal.title')}</h3>
-                    <p className="text-slate-500 mb-6 max-w-md mx-auto relative z-10">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2 relative z-10">{t('settings.staff_portal.title')}</h3>
+                    <p className="text-slate-500 dark:text-slate-400 mb-6 max-w-md mx-auto relative z-10">
                         {t('settings.staff_portal.description')}
                     </p>
                     <Button
@@ -541,11 +541,11 @@ const StaffTab = () => {
                 </div>
 
                 <div className="space-y-4">
-                    <h4 className="font-medium text-slate-900">Quick Stats</h4>
+                    <h4 className="font-medium text-slate-900 dark:text-slate-100">Quick Stats</h4>
                     {isLoadingUsers ? (
                         <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
                             {[1, 2, 3, 4, 5].map(i => (
-                                <div key={i} className="h-24 bg-slate-100 rounded-xl animate-pulse" />
+                                <div key={i} className="h-24 bg-slate-100 dark:bg-slate-800 rounded-xl animate-pulse" />
                             ))}
                         </div>
                     ) : (
@@ -594,12 +594,12 @@ const SecurityTab = ({
     ];
 
     return (
-        <Card className="relative border border-purple-100/50 bg-purple-50/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500 ring-1 ring-slate-900/5 shadow-[#16213e]/5">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+        <Card className="relative border border-purple-100/50 dark:border-slate-700 bg-purple-50/60 dark:bg-slate-900/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500 ring-1 ring-slate-900/5 shadow-[#16213e]/5">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
             <div className="h-1 w-full bg-gradient-to-r from-[#16213e] via-[#1c2b50] to-[#16213e] relative z-20" />
-            <CardHeader className="relative z-10 border-b border-slate-100 bg-white/40 backdrop-blur-sm">
-                <CardTitle className="flex items-center gap-2 text-slate-800">
-                    <div className="p-2 bg-blue-50/50 rounded-lg">
+            <CardHeader className="relative z-10 border-b border-slate-100 dark:border-slate-700 bg-white/40 dark:bg-slate-800/40 backdrop-blur-sm">
+                <CardTitle className="flex items-center gap-2 text-slate-800 dark:text-slate-200">
+                    <div className="p-2 bg-blue-50/50 dark:bg-slate-700/50 rounded-lg">
                         <Shield className="h-5 w-5 text-[#16213e]" />
                     </div>
                     {t('settings.security.title')}
@@ -608,11 +608,11 @@ const SecurityTab = ({
             </CardHeader>
             <CardContent className="space-y-6 pt-6 relative z-10">
                 <div className="space-y-4 max-w-2xl">
-                    <h4 className="font-medium text-slate-900">Change Password</h4>
+                    <h4 className="font-medium text-slate-900 dark:text-slate-100">Change Password</h4>
 
                     {/* Current Password */}
                     <div className="space-y-2">
-                        <Label htmlFor="currentPassword" className="text-slate-700 font-medium">{t('settings.security.current_password')}</Label>
+                        <Label htmlFor="currentPassword" className="text-slate-700 dark:text-slate-300 font-medium">{t('settings.security.current_password')}</Label>
                         <div className="relative group">
                             <Input
                                 id="currentPassword"
@@ -620,12 +620,12 @@ const SecurityTab = ({
                                 value={passwordForm.currentPassword}
                                 onChange={(e) => onPasswordChange('currentPassword', e.target.value)}
                                 placeholder={t('settings.security.current_password_placeholder')}
-                                className="pr-10 h-11 bg-white/60 backdrop-blur-sm border-slate-200 transition-all focus:bg-white focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
+                                className="pr-10 h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 transition-all focus:bg-white dark:focus:bg-slate-800 focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
                             />
                             <button
                                 type="button"
                                 onClick={() => onTogglePassword('current')}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#16213e] transition-colors"
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 hover:text-[#16213e] dark:hover:text-slate-200 transition-colors"
                             >
                                 {showPasswords.current ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                             </button>
@@ -634,7 +634,7 @@ const SecurityTab = ({
 
                     {/* New Password */}
                     <div className="space-y-2">
-                        <Label htmlFor="newPassword" className="text-slate-700 font-medium">{t('settings.security.new_password')}</Label>
+                        <Label htmlFor="newPassword" className="text-slate-700 dark:text-slate-300 font-medium">{t('settings.security.new_password')}</Label>
                         <div className="relative">
                             <Input
                                 id="newPassword"
@@ -642,12 +642,12 @@ const SecurityTab = ({
                                 value={passwordForm.newPassword}
                                 onChange={(e) => onPasswordChange('newPassword', e.target.value)}
                                 placeholder={t('settings.security.new_password_placeholder')}
-                                className="pr-10 h-11 bg-white/60 backdrop-blur-sm border-slate-200 transition-all focus:bg-white focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
+                                className="pr-10 h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 transition-all focus:bg-white dark:focus:bg-slate-800 focus:ring-[#16213e] focus:ring-2 focus-visible:ring-offset-0"
                             />
                             <button
                                 type="button"
                                 onClick={() => onTogglePassword('new')}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#16213e] transition-colors"
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 hover:text-[#16213e] dark:hover:text-slate-200 transition-colors"
                             >
                                 {showPasswords.new ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                             </button>
@@ -658,14 +658,14 @@ const SecurityTab = ({
 
                         {/* Requirements with animation */}
                         {passwordForm.newPassword && (
-                            <div className="mt-3 space-y-1.5 p-3 bg-slate-50 rounded-lg border border-slate-100">
+                            <div className="mt-3 space-y-1.5 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-700">
                                 {requirements.map((req, index) => (
                                     <div
                                         key={req.id}
-                                        className={`flex items-center gap-2 text-sm transition-all duration-300 ${req.valid ? 'text-emerald-600' : 'text-slate-400'}`}
+                                        className={`flex items-center gap-2 text-sm transition-all duration-300 ${req.valid ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400 dark:text-slate-500'}`}
                                         style={{ transitionDelay: `${index * 50}ms` }}
                                     >
-                                        <div className={`flex items-center justify-center w-4 h-4 rounded-full transition-all duration-300 ${req.valid ? 'bg-emerald-100' : 'bg-slate-200'}`}>
+                                        <div className={`flex items-center justify-center w-4 h-4 rounded-full transition-all duration-300 ${req.valid ? 'bg-emerald-100 dark:bg-emerald-900/50' : 'bg-slate-200 dark:bg-slate-700'}`}>
                                             {req.valid ? (
                                                 <Check className="h-3 w-3 text-emerald-600" />
                                             ) : (
@@ -683,7 +683,7 @@ const SecurityTab = ({
 
                     {/* Confirm Password */}
                     <div className="space-y-2">
-                        <Label htmlFor="confirmPassword" className="text-slate-700 font-medium">{t('settings.security.confirm_password')}</Label>
+                        <Label htmlFor="confirmPassword" className="text-slate-700 dark:text-slate-300 font-medium">{t('settings.security.confirm_password')}</Label>
                         <div className="relative">
                             <Input
                                 id="confirmPassword"
@@ -695,13 +695,13 @@ const SecurityTab = ({
                                     ? 'border-red-300 focus:border-red-500 focus:ring-red-200 bg-red-50/50 backdrop-blur-sm'
                                     : passwordsMatch
                                         ? 'border-emerald-300 focus:border-emerald-500 focus:ring-emerald-200 bg-emerald-50/30 backdrop-blur-sm'
-                                        : 'bg-white/60 backdrop-blur-sm border-slate-200 focus:bg-white focus:ring-[#16213e]'
+                                        : 'bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 focus:bg-white dark:focus:bg-slate-800 focus:ring-[#16213e]'
                                     }`}
                             />
                             <button
                                 type="button"
                                 onClick={() => onTogglePassword('confirm')}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#16213e] transition-colors"
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 hover:text-[#16213e] dark:hover:text-slate-200 transition-colors"
                             >
                                 {showPasswords.confirm ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                             </button>
@@ -719,7 +719,7 @@ const SecurityTab = ({
                     </div>
                 </div>
 
-                <div className="flex justify-end pt-4 border-t border-slate-100">
+                <div className="flex justify-end pt-4 border-t border-slate-100 dark:border-slate-700">
                     <Button
                         onClick={onSubmit}
                         disabled={isChangingPassword || passwordErrors.length > 0 || !passwordsMatch || !passwordForm.currentPassword}
@@ -754,12 +754,12 @@ const LocalizationTab = ({ settings, onChange, onSave, isSaving }: LocalizationT
     const { t } = useTranslation();
 
     return (
-        <Card className="relative border border-purple-100/50 bg-purple-50/60 shadow-lg overflow-hidden rounded-xl ring-1 ring-slate-900/5 shadow-blue-900/5 transition-all duration-500">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+        <Card className="relative border border-purple-100/50 dark:border-slate-700 bg-purple-50/60 dark:bg-slate-900/60 shadow-lg overflow-hidden rounded-xl ring-1 ring-slate-900/5 shadow-blue-900/5 transition-all duration-500">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
             <div className="h-1 w-full bg-gradient-to-r from-[#16213e] via-[#1c2b50] to-[#16213e] relative z-20" />
-            <CardHeader className="border-b border-slate-100 bg-slate-50/50">
-                <CardTitle className="flex items-center gap-2 text-slate-800">
-                    <div className="p-2 bg-blue-50 rounded-lg">
+            <CardHeader className="border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
+                <CardTitle className="flex items-center gap-2 text-slate-800 dark:text-slate-200">
+                    <div className="p-2 bg-blue-50 dark:bg-slate-700/50 rounded-lg">
                         <Globe className="h-5 w-5 text-[#16213e]" />
                     </div>
                     {t('settings.localization.title')}
@@ -770,33 +770,33 @@ const LocalizationTab = ({ settings, onChange, onSave, isSaving }: LocalizationT
                 <div className="grid gap-6 sm:grid-cols-2">
                     {/* Currency */}
                     <div className="space-y-2 group">
-                        <Label className="text-slate-700 font-medium">{t('settings.localization.currency')}</Label>
+                        <Label className="text-slate-700 dark:text-slate-300 font-medium">{t('settings.localization.currency')}</Label>
                         <Select value={settings.currency} onValueChange={(value) => onChange('currency', value)}>
-                            <SelectTrigger className="w-full h-11 bg-slate-50 border-slate-200 transition-all duration-300 focus:bg-white focus:ring-[#16213e] focus:ring-2 disabled:opacity-50">
+                            <SelectTrigger className="w-full h-11 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-600 transition-all duration-300 focus:bg-white dark:focus:bg-slate-800 focus:ring-[#16213e] focus:ring-2 disabled:opacity-50">
                                 <SelectValue placeholder={t('settings.localization.select_currency')} />
                             </SelectTrigger>
                             <SelectContent>
                                 {CURRENCIES.map(currency => (
                                     <SelectItem key={currency.value} value={currency.value} className="cursor-pointer">
                                         <span className="flex items-center gap-2">
-                                            <span className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-600 border border-slate-200">{currency.symbol}</span>
+                                            <span className="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600">{currency.symbol}</span>
                                             {currency.label}
                                         </span>
                                     </SelectItem>
                                 ))}
                             </SelectContent>
                         </Select>
-                        <p className="text-xs text-slate-500">{t('settings.localization.currency_help')}</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">{t('settings.localization.currency_help')}</p>
                     </div>
 
                     {/* Timezone */}
                     <div className="space-y-2 group">
-                        <Label className="text-slate-700 font-medium flex items-center gap-2">
+                        <Label className="text-slate-700 dark:text-slate-300 font-medium flex items-center gap-2">
                             <Clock className="h-4 w-4" />
                             Timezone
                         </Label>
                         <Select value={settings.timezone} onValueChange={(value) => onChange('timezone', value)}>
-                            <SelectTrigger className="w-full h-11 bg-slate-50 border-slate-200 transition-all duration-300 focus:bg-white focus:ring-[#7C3176] focus:ring-2 disabled:opacity-50">
+                            <SelectTrigger className="w-full h-11 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-600 transition-all duration-300 focus:bg-white dark:focus:bg-slate-800 focus:ring-[#7C3176] focus:ring-2 disabled:opacity-50">
                                 <SelectValue placeholder="Select timezone" />
                             </SelectTrigger>
                             <SelectContent>
@@ -807,26 +807,26 @@ const LocalizationTab = ({ settings, onChange, onSave, isSaving }: LocalizationT
                                 ))}
                             </SelectContent>
                         </Select>
-                        <p className="text-xs text-slate-500">{t('settings.localization.timezone_help')}</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">{t('settings.localization.timezone_help')}</p>
                     </div>
                 </div>
 
                 {/* Preview Card with animation */}
-                <div className="bg-gradient-to-r from-slate-50 via-white to-slate-50 rounded-xl p-6 border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-md">
-                    <h4 className="font-medium text-slate-900 mb-4 flex items-center gap-2">
+                <div className="bg-gradient-to-r from-slate-50 via-white to-slate-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition-all duration-300 hover:shadow-md">
+                    <h4 className="font-medium text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
                         <Sparkles className="h-4 w-4 text-[#7C3176]" />
                         {t('settings.localization.preview')}
                     </h4>
                     <div className="grid gap-4 sm:grid-cols-2 text-sm">
-                        <div className="flex items-center justify-between p-3 bg-white rounded-lg border border-slate-100 shadow-sm">
-                            <span className="text-slate-500">{t('settings.localization.currency_example')}</span>
-                            <span className="font-bold text-slate-900 bg-slate-50 px-3 py-1 rounded-md border border-slate-200 font-mono">
+                        <div className="flex items-center justify-between p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 shadow-sm">
+                            <span className="text-slate-500 dark:text-slate-400">{t('settings.localization.currency_example')}</span>
+                            <span className="font-bold text-slate-900 dark:text-slate-100 bg-slate-50 dark:bg-slate-700 px-3 py-1 rounded-md border border-slate-200 dark:border-slate-600 font-mono">
                                 {CURRENCIES.find(c => c.value === settings.currency)?.symbol}1,234.56
                             </span>
                         </div>
-                        <div className="flex items-center justify-between p-3 bg-white rounded-lg border border-slate-100 shadow-sm">
-                            <span className="text-slate-500">{t('settings.localization.timezone')}</span>
-                            <span className="font-medium text-slate-900 bg-slate-50 px-3 py-1 rounded-md border border-slate-200">
+                        <div className="flex items-center justify-between p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 shadow-sm">
+                            <span className="text-slate-500 dark:text-slate-400">{t('settings.localization.timezone')}</span>
+                            <span className="font-medium text-slate-900 dark:text-slate-100 bg-slate-50 dark:bg-slate-700 px-3 py-1 rounded-md border border-slate-200 dark:border-slate-600">
                                 {TIMEZONES.find(tz => tz.value === settings.timezone)?.label}
                             </span>
                         </div>
@@ -835,7 +835,7 @@ const LocalizationTab = ({ settings, onChange, onSave, isSaving }: LocalizationT
 
                 <Separator />
 
-                <div className="flex justify-end pt-4">
+                <div className="flex justify-end pt-4 border-t border-slate-100 dark:border-slate-700">
                     <Button
                         onClick={onSave}
                         disabled={isSaving}

@@ -90,22 +90,22 @@ const StatCard = ({ title, value, icon, trend, trendType, delay = 0 }: StatCardP
   return (
     <Card
       className={cn(
-        "relative overflow-hidden border border-purple-100/50 bg-purple-50/60 shadow-sm transition-all duration-500 hover:shadow-md hover:border-purple-200 group",
+        "relative overflow-hidden border border-purple-100/50 dark:border-slate-700 bg-purple-50/60 dark:bg-slate-900/60 shadow-sm transition-all duration-500 hover:shadow-md hover:border-purple-200 dark:hover:border-slate-600 group",
         "animate-in fade-in slide-in-from-bottom-4 duration-700"
       )}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
 
       <CardContent className="p-5 relative z-10">
         <div className="flex justify-between items-start mb-2">
-          <div className="p-2 rounded-lg bg-white shadow-sm text-[#7c3176] ring-1 ring-purple-100 group-hover:scale-110 transition-transform duration-300">
+          <div className="p-2 rounded-lg bg-white dark:bg-slate-800 shadow-sm text-[#7c3176] dark:text-purple-300 ring-1 ring-purple-100 dark:ring-slate-700 group-hover:scale-110 transition-transform duration-300">
             {icon}
           </div>
           {trend && (
             <div className={cn(
               "flex items-center text-xs font-bold px-2 py-1 rounded-full",
-              "text-[#16213e] bg-blue-50 border border-blue-100/50"
+              "text-[#16213e] dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 border border-blue-100/50 dark:border-blue-800/50"
             )}>
               {trendType === 'down' ? <TrendingDown className="h-3 w-3 mr-1" /> : <TrendingUp className="h-3 w-3 mr-1" />}
               {trend}
@@ -114,8 +114,8 @@ const StatCard = ({ title, value, icon, trend, trendType, delay = 0 }: StatCardP
         </div>
 
         <div className="mt-4">
-          <h3 className="text-2xl font-bold text-[#2d1b2d]">{value}</h3>
-          <p className="text-sm font-medium text-slate-500 mt-1">{title}</p>
+          <h3 className="text-2xl font-bold text-[#2d1b2d] dark:text-slate-100">{value}</h3>
+          <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1">{title}</p>
         </div>
       </CardContent>
     </Card>
@@ -144,8 +144,8 @@ const WasteAnalyticsSection = () => {
             <TrendingDown className="h-6 w-6 text-[#7c3176]" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">{t('waste_management.analytics.title')}</h2>
-            <p className="text-gray-500 text-sm">{t('waste_management.analytics.description')}</p>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-slate-100">{t('waste_management.analytics.title')}</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm">{t('waste_management.analytics.description')}</p>
           </div>
         </div>
 
@@ -185,10 +185,10 @@ const WasteAnalyticsSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           {/* Bar Chart - Top Waste Costs */}
-          <Card className="relative border border-purple-100/50 bg-purple-50/60 shadow-sm hover:shadow-md transition-all duration-500 overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
-            <CardHeader className="pb-2 border-b border-slate-50">
-              <CardTitle className="text-slate-800 text-lg flex items-center gap-2">
+          <Card className="relative border border-purple-100/50 dark:border-slate-700 bg-purple-50/60 dark:bg-slate-900/60 shadow-sm hover:shadow-md transition-all duration-500 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
+            <CardHeader className="pb-2 border-b border-slate-50 dark:border-slate-700">
+              <CardTitle className="text-slate-800 dark:text-slate-200 text-lg flex items-center gap-2">
                 <Euro className="h-5 w-5 text-[#7c3176]" />
                 {t('waste_management.charts.top_waste_costs')}
               </CardTitle>
@@ -229,10 +229,10 @@ const WasteAnalyticsSection = () => {
           </Card>
 
           {/* Pie Chart - Waste Categories */}
-          <Card className="relative border border-purple-100/50 bg-purple-50/60 shadow-sm hover:shadow-md transition-all duration-500 overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
-            <CardHeader className="pb-2 border-b border-slate-50">
-              <CardTitle className="text-slate-800 text-lg flex items-center gap-2">
+          <Card className="relative border border-purple-100/50 dark:border-slate-700 bg-purple-50/60 dark:bg-slate-900/60 shadow-sm hover:shadow-md transition-all duration-500 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
+            <CardHeader className="pb-2 border-b border-slate-50 dark:border-slate-700">
+              <CardTitle className="text-slate-800 dark:text-slate-200 text-lg flex items-center gap-2">
                 <AlertTriangle className="h-5 w-5 text-[#7c3176]" />
                 {t('waste_management.charts.waste_categories')}
               </CardTitle>
@@ -266,7 +266,7 @@ const WasteAnalyticsSection = () => {
                     <Legend
                       verticalAlign="bottom"
                       height={36}
-                      formatter={(value) => <span className="text-slate-600 text-sm font-medium ml-1">{t(`waste_management.categories.${value.toLowerCase().replace(' ', '_')}`)}</span>}
+                      formatter={(value) => <span className="text-slate-600 dark:text-slate-400 text-sm font-medium ml-1">{t(`waste_management.categories.${value.toLowerCase().replace(' ', '_')}`)}</span>}
                       iconType="circle"
                       iconSize={8}
                     />
@@ -280,22 +280,22 @@ const WasteAnalyticsSection = () => {
         {/* Premium Insight Card */}
         <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#7c3176] to-[#4a1d46] p-[1px] shadow-lg shadow-purple-900/10">
           <div className="absolute inset-0 bg-white/10 opacity-50" />
-          <div className="relative bg-purple-50/90 backdrop-blur-md rounded-[11px] p-6 flex flex-col sm:flex-row items-center gap-5 overflow-hidden group">
+          <div className="relative bg-purple-50/90 dark:bg-slate-900/90 backdrop-blur-md rounded-[11px] p-6 flex flex-col sm:flex-row items-center gap-5 overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-purple-100/20 pointer-events-none" />
 
             {/* Background Decoration */}
-            <div className="absolute -right-10 -top-10 h-40 w-40 bg-purple-50 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute -right-10 -top-10 h-40 w-40 bg-purple-50 dark:bg-purple-900/30 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity" />
 
-            <div className="h-12 w-12 shrink-0 rounded-full bg-purple-50 flex items-center justify-center text-[#7c3176] shadow-sm ring-4 ring-purple-50/50">
+            <div className="h-12 w-12 shrink-0 rounded-full bg-purple-50 dark:bg-slate-800 flex items-center justify-center text-[#7c3176] dark:text-purple-300 shadow-sm ring-4 ring-purple-50/50 dark:ring-slate-700/50">
               <Sparkles className="h-6 w-6" />
             </div>
 
             <div className="flex-1 text-center sm:text-left z-10">
-              <h3 className="text-lg font-bold text-slate-800 mb-1">{t('waste_management.ai_recommendation.title')}</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 dark:text-slate-100 mb-1">{t('waste_management.ai_recommendation.title')}</h3>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                 <Trans i18nKey="waste_management.ai_recommendation.text" values={{ product: 'Kalbfleisch', percent: 82, reduction: 20 }}>
-                  <span className="font-bold text-[#7c3176]">Kalbfleisch</span> accounts for <span className="font-bold text-slate-800">82%</span> of total waste costs.
-                  Consider checking storage temperature and reducing order quantity by <span className="font-bold text-slate-800">20%</span>.
+                  <span className="font-bold text-[#7c3176]">Kalbfleisch</span> accounts for <span className="font-bold text-slate-800 dark:text-slate-100">82%</span> of total waste costs.
+                  Consider checking storage temperature and reducing order quantity by <span className="font-bold text-slate-800 dark:text-slate-100">20%</span>.
                 </Trans>
               </p>
             </div>

@@ -54,11 +54,11 @@ const LoginPage = () => {
         <LanguageSwitcher />
       </div>
 
-      <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-100 relative z-10 transition-colors duration-500">
+      <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-100 dark:bg-slate-950 relative z-10 transition-colors duration-500">
         <div className="mx-auto grid w-full max-w-[450px] gap-6 relative">
           {/* Form Card */}
-          <div className="relative bg-slate-100/20 backdrop-blur-xl p-8 sm:p-12 rounded-[2rem] border border-purple-100/20 shadow-xl overflow-hidden group transition-all duration-500 hover:shadow-purple-900/5">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-purple-100/5 pointer-events-none" />
+          <div className="relative bg-slate-100/20 dark:bg-slate-900/40 backdrop-blur-xl p-8 sm:p-12 rounded-[2rem] border border-purple-100/20 dark:border-slate-700/30 shadow-xl overflow-hidden group transition-all duration-500 hover:shadow-purple-900/5">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-purple-100/5 dark:from-slate-800/10 dark:to-slate-700/5 pointer-events-none" />
 
             <div className="relative z-10 grid gap-6">
               <div className="flex flex-col items-center mb-4">
@@ -79,7 +79,7 @@ const LoginPage = () => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                    className="h-11 bg-white/60 backdrop-blur-sm border-slate-200 focus-visible:ring-[#7c3176] transition-all duration-300 focus:bg-white"
+                    className="h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 focus-visible:ring-[#7c3176] transition-all duration-300 focus:bg-white dark:focus:bg-slate-800"
                     disabled={isLoading}
                   />
                 </div>
@@ -101,13 +101,13 @@ const LoginPage = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
-                      className="h-11 bg-white/60 backdrop-blur-sm border-slate-200 focus-visible:ring-[#7c3176] transition-all duration-300 focus:bg-white"
+                      className="h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 focus-visible:ring-[#7c3176] transition-all duration-300 focus:bg-white dark:focus:bg-slate-800"
                       disabled={isLoading}
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600"
+                      className="absolute right-3 top-2.5 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
                       tabIndex={-1}
                       disabled={isLoading}
                     >
@@ -160,7 +160,7 @@ const LoginPage = () => {
                 className="relative"
               >
                 {/* Glassmorphism Card */}
-                <div className="relative bg-white/95 backdrop-blur-xl p-12 rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
+                <div className="relative bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-12 rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/20 overflow-hidden">
                   {/* Animated gradient background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-transparent to-teal-50/30 animate-pulse" />
 
@@ -223,7 +223,7 @@ const LoginPage = () => {
                       <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-2">
                         {t('auth.welcome_back')}
                       </h2>
-                      <p className="text-slate-500 text-sm font-medium">
+                      <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
                         {t('auth.redirecting')}
                       </p>
                     </motion.div>
@@ -301,7 +301,7 @@ const LoginPage = () => {
                 className="relative"
               >
                 {/* Glassmorphism Card */}
-                <div className="relative bg-white/95 backdrop-blur-xl p-12 rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
+                <div className="relative bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-12 rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/20 overflow-hidden">
                   {/* Animated gradient background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-50/50 via-transparent to-red-50/30" />
 
@@ -365,7 +365,7 @@ const LoginPage = () => {
                       <h2 className="text-3xl font-bold bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent mb-2">
                         {t('auth.access_denied')}
                       </h2>
-                      <p className="text-slate-500 text-sm font-medium">
+                      <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
                         {t('auth.check_credentials')}
                       </p>
                     </motion.div>
