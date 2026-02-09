@@ -55,9 +55,9 @@ interface HeaderProps {
 }
 
 const kitchens = [
-  { id: 'main', name: 'Main Kitchen', avatar: '/kitchen-main.png' },
-  { id: 'prep', name: 'Prep Kitchen', avatar: '/kitchen-prep.png' },
-  { id: 'pastry', name: 'Pastry Kitchen', avatar: '/kitchen-pastry.png' },
+  { id: 'main', name: 'Main Kitchen', emoji: '🔥' },
+  { id: 'prep', name: 'Prep Kitchen', emoji: '🥗' },
+  { id: 'pastry', name: 'Pastry Kitchen', emoji: '🍰' },
 ];
 
 // Helper function to format relative time
@@ -194,9 +194,8 @@ export const Header = ({ className, onToggleSidebar }: HeaderProps) => {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="flex items-center gap-2 h-10 px-3 rounded-full hover:bg-white/60 transition-all">
               <Avatar className="h-6 w-6 ring-2 ring-white shadow-sm">
-                <AvatarImage src={selectedKitchen.avatar} />
-                <AvatarFallback className="bg-gradient-to-br from-blue-100 to-indigo-100 text-[#16213e] text-xs font-bold">
-                  {selectedKitchen.name[0]}
+                <AvatarFallback className="bg-gradient-to-br from-blue-100 to-indigo-100 text-sm">
+                  {selectedKitchen.emoji}
                 </AvatarFallback>
               </Avatar>
               <div className="text-left hidden md:block">
@@ -222,9 +221,8 @@ export const Header = ({ className, onToggleSidebar }: HeaderProps) => {
                 onClick={() => setSelectedKitchen(kitchen)}
               >
                 <Avatar className="h-8 w-8 ring-1 ring-slate-100">
-                  <AvatarImage src={kitchen.avatar} />
-                  <AvatarFallback className="bg-slate-100 text-slate-600 text-xs font-bold">
-                    {kitchen.name[0]}
+                  <AvatarFallback className="bg-slate-100 text-base">
+                    {kitchen.emoji}
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex-1">
@@ -428,7 +426,7 @@ export const Header = ({ className, onToggleSidebar }: HeaderProps) => {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" className="rounded-full h-10 w-10 p-0.5 border border-slate-200 hover:border-[#7C3176] transition-colors focus:ring-2 focus:ring-[#7C3176]/20">
               <Avatar className="h-full w-full">
-                <AvatarImage src="/avatar.png" />
+                <AvatarImage src={user?.username ? `https://ui-avatars.com/api/?name=${encodeURIComponent(user.username)}&background=16213e&color=fff&size=40` : undefined} />
                 <AvatarFallback className="bg-[#16213e] text-white text-xs font-bold">
                   {getInitials(user?.username || '')}
                 </AvatarFallback>

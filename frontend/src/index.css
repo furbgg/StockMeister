@@ -50,6 +50,24 @@ body {
   background: #777;
 }
 
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #c4b5fd;
+  border-radius: 4px;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #c4b5fd transparent;
+}
+
 
 .Toastify__toast {
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;

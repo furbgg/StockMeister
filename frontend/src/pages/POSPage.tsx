@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 import {
   Dialog,
@@ -572,53 +572,17 @@ const POSPage = () => {
   return (
     <div className="h-[calc(100dvh-64px)] flex overflow-hidden">
       {/* LEFT SIDE - Menu Products */}
-      <div className="flex-1 flex flex-col min-w-0 min-h-0 p-4 lg:p-6 gap-6">
+      <div className="flex-1 flex flex-col min-w-0 min-h-0 p-3 sm:p-4 lg:p-6 gap-3 sm:gap-4 lg:gap-6">
 
         {/* Top Section with Cinematic Style */}
-        <div className="relative rounded-xl bg-purple-50/60 backdrop-blur-md border border-purple-100/50 shadow-sm overflow-hidden ring-1 ring-slate-900/5">
+        <div className="relative rounded-xl bg-purple-50/60 backdrop-blur-md border border-purple-100/50 shadow-sm overflow-hidden ring-1 ring-slate-900/5 shrink-0">
           <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
           <div className="h-1 w-full bg-gradient-to-r from-purple-400 via-fuchsia-500 to-indigo-600 opacity-80" />
-          <div className="relative p-4 flex flex-col sm:flex-row gap-4 justify-between items-center">
+          <div className="relative p-3 sm:p-4 space-y-3">
 
-            {/* Category Tabs embedded in header */}
-            <ScrollArea className="w-full sm:w-auto sm:flex-1 whitespace-nowrap pb-2 sm:pb-0 text-left min-w-0">
-              <div className="flex gap-5 px-1 py-1">
-                <button
-                  onClick={() => setActiveCategory('all')}
-                  className={cn(
-                    'flex items-center gap-2 px-4 py-2 rounded-lg transition-all border text-sm font-bold whitespace-nowrap',
-                    activeCategory === 'all'
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                      : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
-                  )}
-                >
-                  <span>🍽️</span>
-                  <span>{t('pos.all_items')}</span>
-                </button>
-
-                {categories.map((cat) => (
-                  <button
-                    key={cat.category}
-                    onClick={() => setActiveCategory(cat.category)}
-                    className={cn(
-                      'flex items-center gap-2 px-4 py-2 rounded-lg transition-all border text-sm font-bold whitespace-nowrap',
-                      activeCategory === cat.category
-                        ? 'bg-[#16213e] text-white border-[#16213e] shadow-md shadow-blue-900/20'
-                        : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-blue-200'
-                    )}
-                  >
-                    <span>{cat.icon}</span>
-                    <span>{cat.category}</span>
-                    <span className={cn("ml-1 text-[10px] py-0.5 px-1.5 rounded-full", activeCategory === cat.category ? "bg-white/20 text-white" : "bg-slate-100 text-slate-400")}>{cat.products.length}</span>
-                  </button>
-                ))}
-              </div>
-              <ScrollBar orientation="horizontal" className="h-2.5" />
-            </ScrollArea>
-
-            {/* Search & Pagination */}
-            <div className="flex items-center gap-3 w-full sm:w-auto shrink-0">
-              <div className="relative w-full sm:w-64 group">
+            {/* Search Bar - always on top for mobile */}
+            <div className="flex items-center gap-3">
+              <div className="relative flex-1 group">
                 <Input
                   placeholder={t('pos.search_placeholder')}
                   value={searchTerm}
@@ -630,7 +594,7 @@ const POSPage = () => {
 
               {/* Numbered Pagination */}
               {filteredProducts.length > 0 && totalPages > 1 && (
-                <div className="flex items-center gap-1 bg-slate-50 p-1 rounded-lg border border-slate-200">
+                <div className="flex items-center gap-1 bg-slate-50 p-1 rounded-lg border border-slate-200 shrink-0">
                   <Button
                     variant="ghost"
                     size="icon-xs"
@@ -641,7 +605,7 @@ const POSPage = () => {
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
 
-                  <div className="flex items-center gap-1 px-1">
+                  <div className="hidden sm:flex items-center gap-1 px-1">
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                       <Button
                         key={page}
@@ -660,6 +624,9 @@ const POSPage = () => {
                     ))}
                   </div>
 
+                  {/* Mobile: show current/total */}
+                  <span className="sm:hidden text-xs font-bold text-slate-600 px-1">{currentPage}/{totalPages}</span>
+
                   <Button
                     variant="ghost"
                     size="icon-xs"
@@ -672,12 +639,47 @@ const POSPage = () => {
                 </div>
               )}
             </div>
+
+            {/* Category Tabs - horizontal scroll */}
+            <div className="overflow-x-auto scrollbar-thin -mx-3 sm:-mx-4 px-3 sm:px-4">
+              <div className="flex gap-2 pb-1" style={{ minWidth: 'max-content' }}>
+                <button
+                  onClick={() => setActiveCategory('all')}
+                  className={cn(
+                    'flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all border text-sm font-bold whitespace-nowrap',
+                    activeCategory === 'all'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-md'
+                      : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
+                  )}
+                >
+                  <span>🍽️</span>
+                  <span>{t('pos.all_items')}</span>
+                </button>
+
+                {categories.map((cat) => (
+                  <button
+                    key={cat.category}
+                    onClick={() => setActiveCategory(cat.category)}
+                    className={cn(
+                      'flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all border text-sm font-bold whitespace-nowrap',
+                      activeCategory === cat.category
+                        ? 'bg-[#16213e] text-white border-[#16213e] shadow-md shadow-blue-900/20'
+                        : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-blue-200'
+                    )}
+                  >
+                    <span>{cat.icon}</span>
+                    <span>{cat.category}</span>
+                    <span className={cn("ml-1 text-[10px] py-0.5 px-1.5 rounded-full", activeCategory === cat.category ? "bg-white/20 text-white" : "bg-slate-100 text-slate-400")}>{cat.products.length}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Products Grid */}
-        <ScrollArea className="flex-1 -mx-2 px-2">
-          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 pb-20">
+        <div className="flex-1 overflow-y-auto -mx-2 px-2 overscroll-contain">
+          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 pb-24 lg:pb-6">
             {paginatedProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -695,7 +697,7 @@ const POSPage = () => {
               <p className="text-sm">{t('staff.try_adjusting')}</p>
             </div>
           )}
-        </ScrollArea>
+        </div>
       </div>
 
       {/* RIGHT SIDE - Desktop Sidebar */}
