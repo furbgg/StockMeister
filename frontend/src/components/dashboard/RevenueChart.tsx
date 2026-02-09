@@ -56,9 +56,9 @@ const useCountUp = (end: number, duration: number = 1500, delay: number = 0) => 
 const RevenueTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="rounded-xl border border-white/20 bg-[#16213e] px-4 py-3 shadow-xl backdrop-blur-md animate-in fade-in-0 zoom-in-95 duration-200">
-        <p className="text-xs text-slate-300 mb-1">{label}</p>
-        <p className="text-lg font-bold text-white">
+      <div className="rounded-xl border border-white/20 bg-[#16213e] px-5 py-4 shadow-2xl backdrop-blur-md animate-in fade-in-0 zoom-in-95 duration-200 min-w-[140px]">
+        <p className="text-sm text-slate-300 mb-1.5">{label}</p>
+        <p className="text-xl font-bold text-white">
           €{payload[0].value.toLocaleString()}
         </p>
       </div>
@@ -71,9 +71,9 @@ const RevenueTooltip = ({ active, payload, label }: any) => {
 const NetProfitTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="rounded-xl border border-white/20 bg-[#16213e] px-4 py-3 shadow-xl backdrop-blur-md animate-in fade-in-0 zoom-in-95 duration-200">
-        <p className="text-xs text-slate-300 mb-1">{label}</p>
-        <p className="text-lg font-bold text-white">
+      <div className="rounded-xl border border-white/20 bg-[#16213e] px-5 py-4 shadow-2xl backdrop-blur-md animate-in fade-in-0 zoom-in-95 duration-200 min-w-[130px]">
+        <p className="text-sm text-slate-300 mb-1.5">{label}</p>
+        <p className="text-xl font-bold text-white">
           €{payload[0].value}
         </p>
       </div>
@@ -106,19 +106,19 @@ export const NetProfitChart = () => {
   return (
     <Card
       className={cn(
-        "h-full border border-purple-100/50 bg-purple-50/60 shadow-sm transition-all duration-500 cursor-default overflow-hidden relative rounded-lg",
+        "h-full border border-purple-100/50 dark:border-slate-700 bg-purple-50/60 dark:bg-slate-900/60 shadow-sm transition-all duration-500 cursor-default overflow-hidden relative rounded-lg",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-        isHovered ? "shadow-md scale-[1.01] border-blue-200" : "hover:shadow-md"
+        isHovered ? "shadow-md scale-[1.01] border-blue-200 dark:border-slate-600" : "hover:shadow-md"
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
 
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4 pt-6 px-6 relative z-10">
         <CardTitle className={cn(
-          "text-base font-bold transition-colors duration-300 text-slate-800",
-          isHovered ? "text-[#16213e]" : ""
+          "text-base font-bold transition-colors duration-300 text-slate-800 dark:text-slate-200",
+          isHovered ? "text-[#16213e] dark:text-blue-300" : ""
         )}>{t('dashboard.net_profit')}</CardTitle>
 
         <DropdownMenu>
@@ -126,7 +126,7 @@ export const NetProfitChart = () => {
             <Button
               variant="outline"
               size="sm"
-              className="h-8 gap-1.5 text-xs font-normal bg-white/50 border-blue-100 text-[#16213e] transition-all duration-300 hover:scale-105 hover:bg-blue-100/50 hover:border-blue-200"
+              className="h-8 gap-1.5 text-xs font-normal bg-white/50 dark:bg-slate-800/50 border-blue-100 dark:border-slate-600 text-[#16213e] dark:text-slate-300 transition-all duration-300 hover:scale-105 hover:bg-blue-100/50 dark:hover:bg-slate-700/50 hover:border-blue-200 dark:hover:border-slate-500"
             >
               <Calendar className="h-3.5 w-3.5" />
               {timeframe === 'ThisWeek' ? t('dashboard.this_week') : t('dashboard.last_week')}
@@ -286,19 +286,19 @@ export const RevenueChart = () => {
   return (
     <Card
       className={cn(
-        "h-full border border-purple-100/50 bg-purple-50/60 shadow-sm transition-all duration-500 cursor-default overflow-hidden relative rounded-lg",
+        "h-full border border-purple-100/50 dark:border-slate-700 bg-purple-50/60 dark:bg-slate-900/60 shadow-sm transition-all duration-500 cursor-default overflow-hidden relative rounded-lg",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-        isHovered ? "shadow-md scale-[1.01] border-blue-200" : "hover:shadow-md"
+        isHovered ? "shadow-md scale-[1.01] border-blue-200 dark:border-slate-600" : "hover:shadow-md"
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
 
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 pt-6 px-6 relative z-10">
         <CardTitle className={cn(
-          "text-base font-bold transition-colors duration-300 text-slate-800",
-          isHovered ? "text-[#16213e]" : ""
+          "text-base font-bold transition-colors duration-300 text-slate-800 dark:text-slate-200",
+          isHovered ? "text-[#16213e] dark:text-blue-300" : ""
         )}>{t('dashboard.revenue')}</CardTitle>
 
         <DropdownMenu>
@@ -306,7 +306,7 @@ export const RevenueChart = () => {
             <Button
               variant="outline"
               size="sm"
-              className="h-8 gap-1.5 text-xs font-normal bg-white/50 border-blue-100 text-[#16213e] transition-all duration-300 hover:scale-105 hover:bg-blue-100/50 hover:border-blue-200"
+              className="h-8 gap-1.5 text-xs font-normal bg-white/50 dark:bg-slate-800/50 border-blue-100 dark:border-slate-600 text-[#16213e] dark:text-slate-300 transition-all duration-300 hover:scale-105 hover:bg-blue-100/50 dark:hover:bg-slate-700/50 hover:border-blue-200 dark:hover:border-slate-500"
             >
               <Calendar className="h-3.5 w-3.5" />
               {timeframe}
@@ -330,7 +330,7 @@ export const RevenueChart = () => {
           <div className="flex items-baseline gap-2">
             <span className={cn(
               "text-3xl font-bold tabular-nums transition-all duration-300",
-              isHovered ? "text-[#16213e] scale-105 origin-left" : "text-gray-900"
+              isHovered ? "text-[#16213e] dark:text-blue-300 scale-105 origin-left" : "text-gray-900 dark:text-slate-100"
             )}>
               €{animatedTotal.toLocaleString()}
             </span>
@@ -365,7 +365,7 @@ export const RevenueChart = () => {
                   <stop offset="95%" stopColor="#16213e" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="currentColor" className="text-slate-200 dark:text-slate-700" />
               <XAxis
                 dataKey="month"
                 axisLine={false}

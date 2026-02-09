@@ -10,7 +10,7 @@ import {
 
 const DashboardPage = () => {
   return (
-    <div className="flex flex-col gap-12 p-8 pt-6 w-full overflow-y-auto pb-20">
+    <div className="flex flex-col gap-12 p-8 pt-6 pr-10 w-full overflow-y-auto overflow-x-visible pb-20">
       <div className="w-full">
         <WelcomeBanner />
       </div>
@@ -20,7 +20,7 @@ const DashboardPage = () => {
         <StatsCards />
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-7 w-full">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-7 w-full overflow-visible">
         <div className="col-span-2 flex flex-col">
           <NetProfitChart />
         </div>

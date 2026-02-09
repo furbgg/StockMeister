@@ -169,20 +169,20 @@ export const TopSellingChart = () => {
   return (
     <Card
       className={cn(
-        "h-full border border-purple-100 bg-purple-50 shadow-sm transition-all duration-500 cursor-default rounded-lg relative overflow-hidden",
-        isHovered ? "shadow-md scale-[1.01] border-purple-200" : "hover:shadow-md"
+        "h-full border border-purple-100 dark:border-slate-700 bg-purple-50 dark:bg-slate-900/60 shadow-sm transition-all duration-500 cursor-default rounded-lg relative overflow-visible",
+        isHovered ? "shadow-md scale-[1.01] border-purple-200 dark:border-slate-600" : "hover:shadow-md"
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 pt-6 px-6 relative z-10">
         <div>
           <CardTitle className={cn(
-            "text-base font-bold transition-colors duration-300 text-slate-800",
-            isHovered ? "text-[#16213e]" : ""
+            "text-base font-bold transition-colors duration-300 text-slate-800 dark:text-slate-200",
+            isHovered ? "text-[#16213e] dark:text-blue-300" : ""
           )}>{t('dashboard.top_selling')}</CardTitle>
-          <p className="text-xs text-slate-500 mt-1 font-medium">{t('dashboard.recipes_by_category')}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">{t('dashboard.recipes_by_category')}</p>
         </div>
 
         <DropdownMenu>
@@ -264,8 +264,8 @@ export const TopSellingChart = () => {
               {/* Center Label */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className={cn(
-                  "text-xl font-bold text-slate-700 tabular-nums transition-all duration-300",
-                  (isHovered || activeIndex !== null || hoveredLegend !== null) ? "scale-125 text-[#16213e]" : ""
+                  "text-xl font-bold text-slate-700 dark:text-slate-300 tabular-nums transition-all duration-300",
+                  (isHovered || activeIndex !== null || hoveredLegend !== null) ? "scale-125 text-[#16213e] dark:text-blue-300" : ""
                 )}>
                   {displayPercentage}%
                 </span>
@@ -279,7 +279,7 @@ export const TopSellingChart = () => {
                   key={recipe.name}
                   className={cn(
                     "flex items-center justify-between p-2 -mx-2 rounded-lg transition-all duration-300 cursor-pointer",
-                    (hoveredLegend === index || activeIndex === index) ? "bg-gray-50 scale-[1.02]" : "hover:bg-gray-50/50"
+                    (hoveredLegend === index || activeIndex === index) ? "bg-gray-50 dark:bg-slate-800/50 scale-[1.02]" : "hover:bg-gray-50/50 dark:hover:bg-slate-800/30"
                   )}
                   onMouseEnter={() => setHoveredLegend(index)}
                   onMouseLeave={() => setHoveredLegend(null)}
@@ -294,7 +294,7 @@ export const TopSellingChart = () => {
                     />
                     <span className={cn(
                       "text-sm text-muted-foreground transition-colors duration-300",
-                      (hoveredLegend === index || activeIndex === index) ? "text-gray-900 font-medium" : ""
+                      (hoveredLegend === index || activeIndex === index) ? "text-gray-900 dark:text-slate-100 font-medium" : ""
                     )}>
                       {recipe.name}
                     </span>

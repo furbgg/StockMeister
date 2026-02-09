@@ -38,7 +38,7 @@ const StatCard = ({ data, index, realLowStockData }: StatCardProps) => {
   // Unified Lacivert Blue Theme for all cards
   const getCardStyle = () => {
     return {
-      wrapper: "bg-purple-50/60 border-purple-100/50 hover:border-[#16213e]/20",
+      wrapper: "bg-purple-50/60 dark:bg-slate-900/60 border-purple-100/50 dark:border-slate-700 hover:border-[#16213e]/20 dark:hover:border-slate-600",
       iconBox: "bg-[#16213e] text-white shadow-lg shadow-blue-900/20",
       barColor: "#16213e",
       hoverText: "text-[#16213e]",
@@ -159,16 +159,16 @@ const StatCard = ({ data, index, realLowStockData }: StatCardProps) => {
             }
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/10 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/10 pointer-events-none" />
           <CardContent className="p-5 relative z-20">
             {/* Top Row: Title and Badge */}
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center gap-2">
                 <Icon className={cn(
                   "h-4 w-4 transition-all duration-500",
-                  isHovered ? "text-[#16213e] scale-110" : "text-slate-400"
+                  isHovered ? "text-[#16213e] dark:text-blue-300 scale-110" : "text-slate-400 dark:text-slate-500"
                 )} />
-                <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500/80">{t(`dashboard.${data.id.replace(/-/g, '_')}`)}</p>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500/80 dark:text-slate-400">{t(`dashboard.${data.id.replace(/-/g, '_')}`)}</p>
               </div>
               <Badge
                 className={cn(
@@ -184,7 +184,7 @@ const StatCard = ({ data, index, realLowStockData }: StatCardProps) => {
             {/* Middle Row: Balanced Value */}
             <div className="flex flex-col mb-1">
               <div className={cn(
-                "text-2xl font-bold tracking-tight text-slate-900 leading-none tabular-nums transition-all duration-500",
+                "text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 leading-none tabular-nums transition-all duration-500",
                 isHovered ? "scale-105 transform-gpu" : ""
               )}>
                 <CountUp

@@ -83,11 +83,11 @@ export const WelcomeBanner = () => {
 
   return (
     <div className={cn(
-      "relative bg-purple-50 rounded-xl p-6 shadow-sm border border-purple-100 transition-all duration-700 overflow-hidden",
+      "relative bg-purple-50 dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-purple-100 dark:border-slate-700 transition-all duration-700 overflow-hidden",
       isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
     )}>
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
 
       <div className="relative z-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-5">
