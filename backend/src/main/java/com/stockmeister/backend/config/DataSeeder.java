@@ -50,6 +50,10 @@ public class DataSeeder implements CommandLineRunner {
         @Override
         @Transactional
         public void run(String... args) throws Exception {
+                if (userRepository.count() > 0) {
+                        return;
+                }
+
                 try {
                         deleteAllDataNative();
 
