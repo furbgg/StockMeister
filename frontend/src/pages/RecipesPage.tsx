@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   Table,
   TableBody,
@@ -285,17 +286,16 @@ const RecipesPage = () => {
                 </TableHeader>
                 <TableBody>
                   {isLoading ? (
-                    <TableRow>
-                      <TableCell colSpan={6} className="h-96 text-center">
-                        <div className="flex flex-col items-center justify-center gap-3">
-                          <Loader2 className={cn(
-                            "h-10 w-10 animate-spin",
-                            activeTab === 'recipes' ? "text-[#16213e]" : "text-[#16213e]"
-                          )} />
-                          <p className="text-muted-foreground animate-pulse">{t('recipes.messages.loading')}</p>
-                        </div>
-                      </TableCell>
-                    </TableRow>
+                    Array.from({ length: 5 }).map((_, i) => (
+                      <TableRow key={`skel-${i}`} className="border-b border-slate-50 dark:border-slate-800">
+                        <TableCell className="pl-6 py-4"><Skeleton className="h-14 w-14 rounded-xl" /></TableCell>
+                        <TableCell><div className="space-y-2"><Skeleton className="h-4 w-[130px]" /><Skeleton className="h-3 w-[80px]" /></div></TableCell>
+                        <TableCell className="hidden md:table-cell"><Skeleton className="h-3 w-[180px]" /></TableCell>
+                        <TableCell><Skeleton className="h-4 w-[70px]" /></TableCell>
+                        <TableCell><Skeleton className="h-6 w-[50px] rounded-full" /></TableCell>
+                        <TableCell className="pr-6"><div className="flex justify-center gap-2"><Skeleton className="h-8 w-8 rounded-md" /><Skeleton className="h-8 w-8 rounded-md" /><Skeleton className="h-8 w-8 rounded-md" /></div></TableCell>
+                      </TableRow>
+                    ))
                   ) : displayedRecipes.length === 0 ? (
                     <TableRow>
                       <TableCell colSpan={6} className="h-96 text-center">

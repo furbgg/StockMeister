@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   Table,
   TableBody,
@@ -198,14 +199,16 @@ const StockCountPage = () => {
                 </TableHeader>
                 <TableBody>
                   {isLoading ? (
-                    <TableRow>
-                      <TableCell colSpan={6} className="h-96 text-center">
-                        <div className="flex flex-col items-center justify-center gap-3">
-                          <Loader2 className="h-10 w-10 animate-spin text-blue-500" />
-                          <p className="text-muted-foreground animate-pulse">Loading inventory data...</p>
-                        </div>
-                      </TableCell>
-                    </TableRow>
+                    Array.from({ length: 5 }).map((_, i) => (
+                      <TableRow key={`skel-${i}`} className="border-b border-slate-50">
+                        <TableCell className="pl-6 py-3"><Skeleton className="h-10 w-10 rounded-lg" /></TableCell>
+                        <TableCell><Skeleton className="h-4 w-[130px]" /></TableCell>
+                        <TableCell><Skeleton className="h-4 w-[90px]" /></TableCell>
+                        <TableCell><Skeleton className="h-4 w-[70px]" /></TableCell>
+                        <TableCell><Skeleton className="h-10 w-[140px] rounded-md" /></TableCell>
+                        <TableCell><Skeleton className="h-6 w-[80px] rounded-full" /></TableCell>
+                      </TableRow>
+                    ))
                   ) : filteredIngredients.length === 0 ? (
                     <TableRow>
                       <TableCell colSpan={6} className="h-96 text-center">

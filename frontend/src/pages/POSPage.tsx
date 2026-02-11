@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-
+import { Skeleton } from '@/components/ui/skeleton';
 
 import { ScrollArea } from '@/components/ui/scroll-area';
 
@@ -563,8 +563,26 @@ const POSPage = () => {
 
   if (isLoading) {
     return (
-      <div className="h-full flex items-center justify-center bg-slate-50 dark:bg-slate-900">
-        <Loader2 className="h-8 w-8 animate-spin text-[#16213e]" />
+      <div className="h-full flex flex-col p-4 lg:p-6 gap-4 bg-slate-50 dark:bg-slate-900">
+        <div className="rounded-xl border border-slate-200 dark:border-slate-700 p-4 space-y-3">
+          <Skeleton className="h-10 w-full rounded-lg" />
+          <div className="flex gap-2">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <Skeleton key={`cat-${i}`} className="h-8 w-[80px] rounded-full" />
+            ))}
+          </div>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={`skel-${i}`} className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+              <Skeleton className="aspect-[4/3] w-full" />
+              <div className="p-3 space-y-2">
+                <Skeleton className="h-4 w-[80%]" />
+                <Skeleton className="h-5 w-[60px]" />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

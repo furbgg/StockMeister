@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -426,8 +427,30 @@ const OrdersPage = () => {
 
   if (isLoading) {
     return (
-      <div className="h-full flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-[#7c3176]" />
+      <div className="h-full flex flex-col p-4 space-y-4">
+        <div className="flex items-center justify-between bg-purple-50/60 p-4 rounded-xl border border-purple-100/50">
+          <Skeleton className="h-10 w-[300px] rounded-lg" />
+          <Skeleton className="h-10 w-[200px] rounded-lg" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={`skel-${i}`} className="rounded-xl border border-slate-200 p-5 space-y-4">
+              <div className="flex justify-between items-center">
+                <Skeleton className="h-5 w-[100px]" />
+                <Skeleton className="h-6 w-[80px] rounded-full" />
+              </div>
+              <Skeleton className="h-4 w-[150px]" />
+              <div className="space-y-2">
+                <Skeleton className="h-3 w-full" />
+                <Skeleton className="h-3 w-[80%]" />
+              </div>
+              <div className="flex justify-between items-center pt-2">
+                <Skeleton className="h-5 w-[70px]" />
+                <Skeleton className="h-9 w-[100px] rounded-md" />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

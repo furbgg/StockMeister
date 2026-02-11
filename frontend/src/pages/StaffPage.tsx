@@ -4,6 +4,7 @@ import StaffFormSheet from '@/components/staff/StaffFormSheet';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Skeleton } from '@/components/ui/skeleton';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Plus, Pencil, Trash2, ArrowUpDown, ArrowUp, ArrowDown, Users, Mail, Phone, CalendarClock, DollarSign } from 'lucide-react';
 import { toast } from 'sonner';
@@ -215,14 +216,16 @@ const StaffPage = () => {
                                 </TableHeader>
                                 <TableBody>
                                     {loading ? (
-                                        <TableRow>
-                                            <TableCell colSpan={6} className="h-96 text-center text-slate-500">
-                                                <div className="flex flex-col items-center justify-center gap-3">
-                                                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#16213e]"></div>
-                                                    {t('staff.loading')}
-                                                </div>
-                                            </TableCell>
-                                        </TableRow>
+                                        Array.from({ length: 5 }).map((_, i) => (
+                                            <TableRow key={`skel-${i}`} className="border-b border-slate-100 dark:border-slate-800">
+                                                <TableCell className="pl-6"><Skeleton className="h-4 w-[30px]" /></TableCell>
+                                                <TableCell><div className="flex items-center gap-3"><Skeleton className="h-10 w-10 rounded-full" /><div className="space-y-2"><Skeleton className="h-4 w-[110px]" /><Skeleton className="h-4 w-[70px] rounded-full" /></div></div></TableCell>
+                                                <TableCell><div className="space-y-2"><Skeleton className="h-3 w-[160px]" /><Skeleton className="h-3 w-[120px]" /></div></TableCell>
+                                                <TableCell><Skeleton className="h-4 w-[80px]" /></TableCell>
+                                                <TableCell><Skeleton className="h-4 w-[100px]" /></TableCell>
+                                                <TableCell className="pr-6"><Skeleton className="h-8 w-8 rounded-md ml-auto" /></TableCell>
+                                            </TableRow>
+                                        ))
                                     ) : processedUsers.length === 0 ? (
                                         <TableRow>
                                             <TableCell colSpan={6} className="h-96 text-center text-slate-500">

@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   Table,
   TableBody,
@@ -261,14 +262,18 @@ const LowStocksPage = () => {
                 </TableHeader>
                 <TableBody>
                   {isLoading ? (
-                    <TableRow>
-                      <TableCell colSpan={8} className="h-80 text-center">
-                        <div className="flex flex-col items-center justify-center gap-3">
-                          <Loader2 className="h-10 w-10 animate-spin text-[#16213e]" />
-                          <p className="text-muted-foreground animate-pulse">{t('stock_alerts.loading')}</p>
-                        </div>
-                      </TableCell>
-                    </TableRow>
+                    Array.from({ length: 5 }).map((_, i) => (
+                      <TableRow key={`skel-${i}`} className="border-b border-slate-50 dark:border-slate-800">
+                        <TableCell className="pl-6 py-3"><Skeleton className="h-5 w-5 rounded" /></TableCell>
+                        <TableCell><Skeleton className="h-10 w-10 rounded-lg" /></TableCell>
+                        <TableCell><Skeleton className="h-4 w-[120px]" /></TableCell>
+                        <TableCell><Skeleton className="h-4 w-[90px]" /></TableCell>
+                        <TableCell><Skeleton className="h-6 w-[100px] rounded-full" /></TableCell>
+                        <TableCell><Skeleton className="h-4 w-[60px]" /></TableCell>
+                        <TableCell><Skeleton className="h-6 w-[70px] rounded-full" /></TableCell>
+                        <TableCell className="pr-6"><div className="flex justify-center"><Skeleton className="h-8 w-[90px] rounded-md" /></div></TableCell>
+                      </TableRow>
+                    ))
                   ) : filteredData.length === 0 ? (
                     <TableRow>
                       <TableCell colSpan={8} className="h-80 text-center">
