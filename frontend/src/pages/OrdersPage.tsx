@@ -311,7 +311,6 @@ const OrdersPage = () => {
   const { data: orders = [], isLoading } = useQuery({
     queryKey: ['pos-orders'],
     queryFn: posService.getAllOrders,
-    refetchInterval: 10000, // Refetch every 10 seconds
   });
 
   // Filter orders based on tab

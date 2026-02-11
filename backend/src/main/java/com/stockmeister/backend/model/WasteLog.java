@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class WasteLog extends BaseEntity {
 

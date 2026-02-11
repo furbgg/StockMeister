@@ -18,7 +18,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = { "recipe", "ingredient" })
-@EqualsAndHashCode(callSuper = false, exclude = { "recipe", "ingredient" })
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class RecipeIngredient extends BaseEntity {
 

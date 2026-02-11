@@ -17,7 +17,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Ingredient extends BaseEntity {
 

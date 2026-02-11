@@ -18,7 +18,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = "ingredients")
-@EqualsAndHashCode(callSuper = true, exclude = "ingredients")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Recipe extends BaseEntity {
 

@@ -16,7 +16,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = { "order", "recipe" })
-@EqualsAndHashCode(callSuper = true, exclude = { "order", "recipe" })
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class OrderItem extends BaseEntity {
 

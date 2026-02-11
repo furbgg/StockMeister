@@ -18,7 +18,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = "orderItems")
-@EqualsAndHashCode(callSuper = true, exclude = "orderItems")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Order extends BaseEntity {
 
