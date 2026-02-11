@@ -120,8 +120,23 @@ export const Header = ({ className, onToggleSidebar }: HeaderProps) => {
   };
 
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && searchQuery.trim()) {
+      const q = searchQuery.trim().toLowerCase();
 
+      const staffKeywords = ['admin', 'chef', 'waiter', 'manager', 'user', 'mitarbeiter', 'personal', 'kullanıcı'];
+      const recipeKeywords = ['recipe', 'rezept', 'tarif', 'menü', 'menu', 'schnitzel', 'gericht'];
+      const orderKeywords = ['order', 'bestellung', 'sipariş', 'tisch', 'table'];
+
+      if (staffKeywords.some(k => q.includes(k))) {
+        navigate('/staff');
+      } else if (recipeKeywords.some(k => q.includes(k))) {
+        navigate('/recipes');
+      } else if (orderKeywords.some(k => q.includes(k))) {
+        navigate('/orders');
+      } else {
+        navigate('/ingredients');
+      }
+      setSearchQuery('');
     }
   };
 
