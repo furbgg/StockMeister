@@ -18,10 +18,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.Map;
 
 /**
@@ -40,8 +36,6 @@ public class AuthController {
     private final UserService userService;
     private final TotpService totpService;
 
-    @PersistenceContext
-    private EntityManager entityManager;
 
     /**
      * POST /api/auth/login
@@ -272,26 +266,6 @@ public class AuthController {
         } catch (Exception e) {
             log.error("2FA verification failed: {}", e.getMessage());
             return ResponseEntity.status(401).body(Map.of("message", "2FA verification failed"));
-        }
-    }
-
-    // TEMP: DB Reset endpoint - nach Nutzung entfernen
-    @DeleteMapping("/reset-db")
-    @Transactional
-    public ResponseEntity<?> resetDatabase() {
-        try {
-            entityManager.createNativeQuery("DELETE FROM order_items").executeUpdate();
-            entityManager.createNativeQuery("DELETE FROM orders").executeUpdate();
-            entityManager.createNativeQuery("DELETE FROM waste_logs").executeUpdate();
-            entityManager.createNativeQuery("DELETE FROM recipe_ingredients").executeUpdate();
-            entityManager.createNativeQuery("DELETE FROM recipes").executeUpdate();
-            entityManager.createNativeQuery("DELETE FROM ingredients").executeUpdate();
-            entityManager.createNativeQuery("DELETE FROM users").executeUpdate();
-            log.info("DB reset: all tables cleared");
-            return ResponseEntity.ok(Map.of("message", "DB cleared. Restart backend to re-seed."));
-        } catch (Exception e) {
-            log.error("DB reset failed: {}", e.getMessage());
-            return ResponseEntity.status(500).body(Map.of("message", "Reset failed: " + e.getMessage()));
         }
     }
 
