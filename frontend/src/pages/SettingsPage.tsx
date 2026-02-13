@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import QRCode from 'qrcode';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
@@ -592,7 +593,7 @@ const SecurityTab = ({
 
     const [twoFactorEnabled, setTwoFactorEnabled] = useState(false);
     const [twoFactorLoading, setTwoFactorLoading] = useState(true);
-    const [setupData, setSetupData] = useState<{ secret: string; qrUrl: string } | null>(null);
+    const [setupData, setSetupData] = useState<{ secret: string; qrUrl: string; qrDataUrl: string } | null>(null);
     const [totpCode, setTotpCode] = useState('');
     const [isConfirming, setIsConfirming] = useState(false);
     const [isDisabling, setIsDisabling] = useState(false);
@@ -607,7 +608,8 @@ const SecurityTab = ({
     const handleSetup2FA = async () => {
         try {
             const data = await settingsService.setup2FA();
-            setSetupData(data);
+            const qrDataUrl = await QRCode.toDataURL(data.qrUrl, { width: 200, margin: 2 });
+            setSetupData({ ...data, qrDataUrl });
         } catch {
             toast.error(t('settings.security.two_factor_setup_failed'));
         }
@@ -858,7 +860,7 @@ const SecurityTab = ({
                             <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('settings.security.two_factor_scan_qr')}</p>
                             <div className="bg-white p-3 rounded-xl shadow-md">
                                 <img
-                                    src={setupData.qrUrl}
+                                    src={setupData.qrDataUrl}
                                     alt="2FA QR Code"
                                     className="w-48 h-48"
                                 />
