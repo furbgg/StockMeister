@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Menu,
@@ -97,6 +97,8 @@ export const Header = ({ className, onToggleSidebar }: HeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedKitchen, setSelectedKitchen] = useState(kitchens[0]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchFocused, setSearchFocused] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
 
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -114,29 +116,54 @@ export const Header = ({ className, onToggleSidebar }: HeaderProps) => {
 
   const unreadCount = getUnreadCount();
 
+  // Close search dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setSearchFocused(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const handleLogout = () => {
     logout();
     navigate('/login');
   };
 
-  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && searchQuery.trim()) {
-      const q = searchQuery.trim().toLowerCase();
+  // Search items
+  const searchItems = [
+    { label: t('sidebar.dashboard'), path: '/', keywords: ['dashboard', 'home', 'anasayfa', 'übersicht', 'startseite'], icon: '📊' },
+    { label: t('sidebar.recipes'), path: '/recipes', keywords: ['recipe', 'rezept', 'tarif', 'menü', 'menu', 'schnitzel', 'gericht', 'yemek'], icon: '🍳' },
+    { label: t('sidebar.ingredients'), path: '/ingredients', keywords: ['ingredient', 'zutat', 'malzeme', 'bestand', 'envanter', 'stok'], icon: '🥕' },
+    { label: t('sidebar.low-stock'), path: '/low-stock', keywords: ['low', 'stock', 'alert', 'warnung', 'düşük', 'niedrig', 'uyarı'], icon: '⚠️' },
+    { label: t('sidebar.stock-count'), path: '/stock-count', keywords: ['count', 'inventur', 'sayım', 'zählung', 'kontrol'], icon: '📋' },
+    { label: t('sidebar.waste'), path: '/waste', keywords: ['waste', 'abfall', 'atık', 'israf', 'müll'], icon: '🗑️' },
+    { label: t('sidebar.pos'), path: '/pos', keywords: ['pos', 'order', 'kasse', 'bestellung', 'sipariş', 'tisch', 'table', 'masa'], icon: '💳' },
+    { label: t('sidebar.staff'), path: '/staff', keywords: ['staff', 'personal', 'user', 'admin', 'chef', 'waiter', 'mitarbeiter', 'kullanıcı', 'personel'], icon: '👥' },
+    { label: t('sidebar.settings'), path: '/settings', keywords: ['settings', 'einstellung', 'ayar', 'config', 'sicherheit', 'güvenlik', '2fa'], icon: '⚙️' },
+  ];
 
-      const staffKeywords = ['admin', 'chef', 'waiter', 'manager', 'user', 'mitarbeiter', 'personal', 'kullanıcı'];
-      const recipeKeywords = ['recipe', 'rezept', 'tarif', 'menü', 'menu', 'schnitzel', 'gericht'];
-      const orderKeywords = ['order', 'bestellung', 'sipariş', 'tisch', 'table'];
+  const filteredItems = searchQuery.trim()
+    ? searchItems.filter(item => {
+        const q = searchQuery.trim().toLowerCase();
+        return item.label.toLowerCase().includes(q) || item.keywords.some(k => k.includes(q));
+      })
+    : searchItems;
 
-      if (staffKeywords.some(k => q.includes(k))) {
-        navigate('/staff');
-      } else if (recipeKeywords.some(k => q.includes(k))) {
-        navigate('/recipes');
-      } else if (orderKeywords.some(k => q.includes(k))) {
-        navigate('/orders');
-      } else {
-        navigate('/ingredients');
-      }
-      setSearchQuery('');
+  const handleSearchNavigate = (path: string) => {
+    navigate(path);
+    setSearchQuery('');
+    setSearchFocused(false);
+  };
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && filteredItems.length > 0) {
+      handleSearchNavigate(filteredItems[0].path);
+    }
+    if (e.key === 'Escape') {
+      setSearchFocused(false);
     }
   };
 
@@ -189,16 +216,40 @@ export const Header = ({ className, onToggleSidebar }: HeaderProps) => {
           <Menu className="h-5 w-5" />
         </Button>
 
-        {/* Search Bar */}
-        <div className="relative hidden md:flex w-full max-w-md group">
+        {/* Search Bar with Dropdown */}
+        <div ref={searchRef} className="relative hidden md:flex w-full max-w-md group">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 group-focus-within:text-[#7C3176] transition-colors z-10" />
           <Input
             placeholder={t('header.search_placeholder')}
             className="w-full !pl-10 pr-4 h-10 bg-blue-50 border-blue-100 focus:bg-white focus:ring-[#7C3176]/20 focus:border-[#7C3176]/50 transition-all duration-300 rounded-xl shadow-sm"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyDown={handleSearch}
+            onChange={(e) => { setSearchQuery(e.target.value); setSearchFocused(true); }}
+            onFocus={() => setSearchFocused(true)}
+            onKeyDown={handleSearchKeyDown}
           />
+          {searchFocused && (
+            <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50 overflow-hidden z-50">
+              <div className="max-h-[320px] overflow-y-auto py-1">
+                {filteredItems.length > 0 ? (
+                  filteredItems.map((item) => (
+                    <button
+                      key={item.path}
+                      className="w-full flex items-center gap-3 px-4 py-2.5 text-left hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                      onMouseDown={() => handleSearchNavigate(item.path)}
+                    >
+                      <span className="text-lg flex-shrink-0">{item.icon}</span>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-200">{item.label}</span>
+                      <ChevronRight className="ml-auto h-3.5 w-3.5 text-slate-300 dark:text-slate-500" />
+                    </button>
+                  ))
+                ) : (
+                  <div className="px-4 py-6 text-center text-sm text-slate-400">
+                    {t('common.noData')}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
