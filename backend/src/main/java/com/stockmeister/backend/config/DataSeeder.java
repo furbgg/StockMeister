@@ -203,6 +203,19 @@ public class DataSeeder implements CommandLineRunner {
                                 .address("Musterstraße 4, 1030 Wien")
                                 .build();
                 userRepository.save(waiter);
+
+                User demoAdmin = User.builder()
+                                .username("demoAdmin")
+                                .password(passwordEncoder.encode("StockMeister2026!"))
+                                .email("demoadmin@example.com")
+                                .role(Role.ADMIN)
+                                .isActive(true)
+                                .phone("+43 1 512 0005")
+                                .salary(new BigDecimal("5500.00"))
+                                .timings("Flexible")
+                                .address("Musterstraße 5, 1010 Wien")
+                                .build();
+                userRepository.save(demoAdmin);
         }
 
         private void seedIngredients() {

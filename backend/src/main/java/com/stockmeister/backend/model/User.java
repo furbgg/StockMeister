@@ -39,4 +39,11 @@ public class User extends BaseEntity {
 
     @Column(length = 255)
     private String address;
+
+    @Column(name = "totp_secret")
+    private String totpSecret;
+
+    @Column(name = "two_factor_enabled")
+    @Builder.Default
+    private boolean twoFactorEnabled = false;
 }

@@ -3,9 +3,11 @@ package com.stockmeister.backend.controller;
 import com.stockmeister.backend.dto.ChangePasswordRequest;
 import com.stockmeister.backend.dto.LoginRequest;
 import com.stockmeister.backend.dto.LoginResponse;
+import com.stockmeister.backend.dto.TotpVerifyRequest;
 import com.stockmeister.backend.model.User;
 import com.stockmeister.backend.repository.UserRepository;
 import com.stockmeister.backend.security.JwtUtil;
+import com.stockmeister.backend.service.TotpService;
 import com.stockmeister.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +34,7 @@ public class AuthController {
     private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
     private final UserService userService;
+    private final TotpService totpService;
 
     /**
      * POST /api/auth/login
@@ -52,6 +55,13 @@ public class AuthController {
 
             User user = userRepository.findByUsername(loginRequest.getUsername())
                     .orElseThrow(() -> new RuntimeException("User not found"));
+
+            if (user.isTwoFactorEnabled() && user.getTotpSecret() != null) {
+                log.info("2FA required for user: {}", user.getUsername());
+                return ResponseEntity.ok(Map.of(
+                        "twoFactorRequired", true,
+                        "username", user.getUsername()));
+            }
 
             String role = user.getRole().name();
             String token = jwtUtil.generateToken(user.getUsername(), role);
@@ -113,6 +123,148 @@ public class AuthController {
 
         } catch (Exception e) {
             return ResponseEntity.status(401).body("Invalid token");
+        }
+    }
+
+    /**
+     * GET /api/auth/2fa/status
+     * Returns the 2FA status for the authenticated user.
+     */
+    @GetMapping("/2fa/status")
+    public ResponseEntity<?> get2FAStatus(@RequestHeader("Authorization") String authHeader) {
+        try {
+            String token = authHeader.substring(7);
+            String username = jwtUtil.extractUsername(token);
+
+            User user = userRepository.findByUsername(username)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+
+            return ResponseEntity.ok(Map.of("enabled", user.isTwoFactorEnabled()));
+
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(Map.of("message", "Failed to get 2FA status"));
+        }
+    }
+
+    /**
+     * POST /api/auth/2fa/setup
+     * Generates TOTP secret and QR code URL. Does NOT enable 2FA yet.
+     */
+    @PostMapping("/2fa/setup")
+    public ResponseEntity<?> setup2FA(@RequestHeader("Authorization") String authHeader) {
+        try {
+            String token = authHeader.substring(7);
+            String username = jwtUtil.extractUsername(token);
+
+            User user = userRepository.findByUsername(username)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+
+            String secret = totpService.generateSecret();
+            String qrUrl = totpService.getQrCodeUrl(secret, username);
+
+            user.setTotpSecret(secret);
+            userRepository.save(user);
+
+            log.info("2FA setup initiated for user: {}", username);
+
+            return ResponseEntity.ok(Map.of(
+                    "secret", secret,
+                    "qrUrl", qrUrl));
+
+        } catch (Exception e) {
+            log.error("2FA setup failed: {}", e.getMessage());
+            return ResponseEntity.status(500).body(Map.of("message", "2FA setup failed"));
+        }
+    }
+
+    /**
+     * POST /api/auth/2fa/confirm-setup
+     * Verifies the TOTP code and enables 2FA for the user.
+     */
+    @PostMapping("/2fa/confirm-setup")
+    public ResponseEntity<?> confirmSetup2FA(
+            @RequestHeader("Authorization") String authHeader,
+            @RequestBody TotpVerifyRequest request) {
+        try {
+            String token = authHeader.substring(7);
+            String username = jwtUtil.extractUsername(token);
+
+            User user = userRepository.findByUsername(username)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+
+            if (user.getTotpSecret() == null) {
+                return ResponseEntity.badRequest().body(Map.of("message", "2FA setup not initiated"));
+            }
+
+            if (!totpService.verifyCode(user.getTotpSecret(), request.getCode())) {
+                return ResponseEntity.status(401).body(Map.of("message", "Invalid code"));
+            }
+
+            user.setTwoFactorEnabled(true);
+            userRepository.save(user);
+
+            log.info("2FA enabled for user: {}", username);
+
+            return ResponseEntity.ok(Map.of("message", "2FA enabled successfully"));
+
+        } catch (Exception e) {
+            log.error("2FA confirm failed: {}", e.getMessage());
+            return ResponseEntity.status(500).body(Map.of("message", "2FA confirmation failed"));
+        }
+    }
+
+    /**
+     * POST /api/auth/2fa/disable
+     * Disables 2FA for the authenticated user.
+     */
+    @PostMapping("/2fa/disable")
+    public ResponseEntity<?> disable2FA(@RequestHeader("Authorization") String authHeader) {
+        try {
+            String token = authHeader.substring(7);
+            String username = jwtUtil.extractUsername(token);
+
+            User user = userRepository.findByUsername(username)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+
+            user.setTwoFactorEnabled(false);
+            user.setTotpSecret(null);
+            userRepository.save(user);
+
+            log.info("2FA disabled for user: {}", username);
+
+            return ResponseEntity.ok(Map.of("message", "2FA disabled successfully"));
+
+        } catch (Exception e) {
+            log.error("2FA disable failed: {}", e.getMessage());
+            return ResponseEntity.status(500).body(Map.of("message", "Failed to disable 2FA"));
+        }
+    }
+
+    /**
+     * POST /api/auth/2fa/verify
+     * Verifies TOTP code during login and returns JWT token.
+     */
+    @PostMapping("/2fa/verify")
+    public ResponseEntity<?> verify2FA(@RequestBody TotpVerifyRequest request) {
+        try {
+            User user = userRepository.findByUsername(request.getUsername())
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+
+            if (!totpService.verifyCode(user.getTotpSecret(), request.getCode())) {
+                log.warn("Invalid 2FA code for user: {}", request.getUsername());
+                return ResponseEntity.status(401).body(Map.of("message", "Invalid 2FA code"));
+            }
+
+            String role = user.getRole().name();
+            String jwtToken = jwtUtil.generateToken(user.getUsername(), role);
+
+            log.info("2FA verified for user: {}", user.getUsername());
+
+            return ResponseEntity.ok(new LoginResponse(jwtToken, user.getUsername(), role));
+
+        } catch (Exception e) {
+            log.error("2FA verification failed: {}", e.getMessage());
+            return ResponseEntity.status(401).body(Map.of("message", "2FA verification failed"));
         }
     }
 

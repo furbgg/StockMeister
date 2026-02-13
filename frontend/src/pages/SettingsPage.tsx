@@ -14,6 +14,8 @@ import { toast } from 'sonner';
 import {
     Building2,
     Shield,
+    ShieldCheck,
+    ShieldOff,
     Globe,
     Users,
     Loader2,
@@ -26,7 +28,9 @@ import {
     ChefHat,
     UserCog,
     Package,
-    Sparkles
+    Sparkles,
+    KeyRound,
+    Copy
 } from 'lucide-react';
 import { PageHeader } from '@/components/layout/PageHeader';
 
@@ -586,6 +590,60 @@ const SecurityTab = ({
     const passwordsMatch = passwordForm.newPassword === passwordForm.confirmPassword && passwordForm.confirmPassword !== '';
     const passwordsDoNotMatch = passwordForm.confirmPassword !== '' && !passwordsMatch;
 
+    const [twoFactorEnabled, setTwoFactorEnabled] = useState(false);
+    const [twoFactorLoading, setTwoFactorLoading] = useState(true);
+    const [setupData, setSetupData] = useState<{ secret: string; qrUrl: string } | null>(null);
+    const [totpCode, setTotpCode] = useState('');
+    const [isConfirming, setIsConfirming] = useState(false);
+    const [isDisabling, setIsDisabling] = useState(false);
+
+    useEffect(() => {
+        settingsService.get2FAStatus()
+            .then(data => setTwoFactorEnabled(data.enabled))
+            .catch(() => {})
+            .finally(() => setTwoFactorLoading(false));
+    }, []);
+
+    const handleSetup2FA = async () => {
+        try {
+            const data = await settingsService.setup2FA();
+            setSetupData(data);
+        } catch {
+            toast.error(t('settings.security.two_factor_setup_failed'));
+        }
+    };
+
+    const handleConfirm2FA = async () => {
+        if (totpCode.length !== 6) return;
+        setIsConfirming(true);
+        try {
+            await settingsService.confirm2FA(parseInt(totpCode));
+            setTwoFactorEnabled(true);
+            setSetupData(null);
+            setTotpCode('');
+            toast.success(t('settings.security.two_factor_enabled_success'));
+        } catch {
+            toast.error(t('settings.security.two_factor_invalid_code'));
+        } finally {
+            setIsConfirming(false);
+        }
+    };
+
+    const handleDisable2FA = async () => {
+        setIsDisabling(true);
+        try {
+            await settingsService.disable2FA();
+            setTwoFactorEnabled(false);
+            setSetupData(null);
+            setTotpCode('');
+            toast.success(t('settings.security.two_factor_disabled_success'));
+        } catch {
+            toast.error(t('settings.security.two_factor_disable_failed'));
+        } finally {
+            setIsDisabling(false);
+        }
+    };
+
     const requirements = [
         { id: 'min8', text: 'At least 8 characters', valid: passwordForm.newPassword.length >= 8 },
         { id: 'uppercase', text: 'One uppercase letter', valid: /[A-Z]/.test(passwordForm.newPassword) },
@@ -594,6 +652,8 @@ const SecurityTab = ({
     ];
 
     return (
+        <div className="space-y-6">
+        {/* Password Change Card */}
         <Card className="relative border border-purple-100/50 dark:border-slate-700 bg-purple-50/60 dark:bg-slate-900/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500 ring-1 ring-slate-900/5 shadow-[#16213e]/5">
             <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
             <div className="h-1 w-full bg-gradient-to-r from-[#16213e] via-[#1c2b50] to-[#16213e] relative z-20" />
@@ -740,6 +800,148 @@ const SecurityTab = ({
                 </div>
             </CardContent>
         </Card>
+
+        {/* Two-Factor Authentication Card */}
+        <Card className="relative border border-purple-100/50 dark:border-slate-700 bg-purple-50/60 dark:bg-slate-900/60 shadow-lg overflow-hidden rounded-xl transition-all duration-500 ring-1 ring-slate-900/5 shadow-[#16213e]/5">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-purple-100/20 dark:from-slate-800/40 dark:via-slate-800/20 dark:to-slate-700/20 pointer-events-none" />
+            <div className="h-1 w-full bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-600 relative z-20" />
+            <CardHeader className="relative z-10 border-b border-slate-100 dark:border-slate-700 bg-white/40 dark:bg-slate-800/40 backdrop-blur-sm">
+                <CardTitle className="flex items-center gap-2 text-slate-800 dark:text-slate-200">
+                    <div className="p-2 bg-emerald-50/50 dark:bg-emerald-900/30 rounded-lg">
+                        <KeyRound className="h-5 w-5 text-emerald-600" />
+                    </div>
+                    {t('settings.security.two_factor_title')}
+                    {twoFactorEnabled && (
+                        <span className="ml-2 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-400">
+                            <ShieldCheck className="h-3 w-3" />
+                            {t('settings.security.two_factor_active')}
+                        </span>
+                    )}
+                </CardTitle>
+                <CardDescription className="text-slate-500">{t('settings.security.two_factor_description')}</CardDescription>
+            </CardHeader>
+            <CardContent className="pt-6 relative z-10">
+                {twoFactorLoading ? (
+                    <div className="flex items-center gap-2 text-slate-400">
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        <span>{t('common.loading')}</span>
+                    </div>
+                ) : twoFactorEnabled ? (
+                    /* 2FA is enabled */
+                    <div className="space-y-4 max-w-2xl">
+                        <div className="flex items-center gap-3 p-4 bg-emerald-50/50 dark:bg-emerald-900/20 rounded-lg border border-emerald-200/50 dark:border-emerald-800/30">
+                            <ShieldCheck className="h-8 w-8 text-emerald-500 flex-shrink-0" />
+                            <div>
+                                <p className="font-medium text-emerald-700 dark:text-emerald-400">{t('settings.security.two_factor_active_message')}</p>
+                                <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">{t('settings.security.two_factor_active_desc')}</p>
+                            </div>
+                        </div>
+                        <div className="flex justify-end pt-2">
+                            <Button
+                                variant="outline"
+                                onClick={handleDisable2FA}
+                                disabled={isDisabling}
+                                className="border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700 dark:border-red-800 dark:text-red-400 dark:hover:bg-red-900/20"
+                            >
+                                {isDisabling ? (
+                                    <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t('settings.security.two_factor_disabling')}</>
+                                ) : (
+                                    <><ShieldOff className="mr-2 h-4 w-4" /> {t('settings.security.two_factor_disable')}</>
+                                )}
+                            </Button>
+                        </div>
+                    </div>
+                ) : setupData ? (
+                    /* QR code + confirm step */
+                    <div className="space-y-5 max-w-2xl">
+                        <div className="flex flex-col items-center gap-4 p-6 bg-white/60 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-600">
+                            <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('settings.security.two_factor_scan_qr')}</p>
+                            <div className="bg-white p-3 rounded-xl shadow-md">
+                                <img
+                                    src={setupData.qrUrl}
+                                    alt="2FA QR Code"
+                                    className="w-48 h-48"
+                                />
+                            </div>
+                            <div className="w-full space-y-2">
+                                <p className="text-xs text-slate-500 dark:text-slate-400 text-center">{t('settings.security.two_factor_manual_key')}</p>
+                                <div className="flex items-center gap-2 p-2.5 bg-slate-100 dark:bg-slate-700 rounded-lg">
+                                    <code className="flex-1 text-sm font-mono text-center text-slate-700 dark:text-slate-300 tracking-widest select-all">
+                                        {setupData.secret}
+                                    </code>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(setupData.secret);
+                                            toast.success('Copied!');
+                                        }}
+                                        className="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                                    >
+                                        <Copy className="h-4 w-4" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="space-y-3">
+                            <Label className="text-slate-700 dark:text-slate-300 font-medium">{t('settings.security.two_factor_enter_code')}</Label>
+                            <Input
+                                type="text"
+                                inputMode="numeric"
+                                maxLength={6}
+                                placeholder="000000"
+                                value={totpCode}
+                                onChange={(e) => setTotpCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                                className="h-14 text-center text-2xl tracking-[0.5em] font-mono bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 focus-visible:ring-emerald-500 transition-all duration-300 focus:bg-white dark:focus:bg-slate-800"
+                                autoFocus
+                            />
+                        </div>
+
+                        <div className="flex gap-3 justify-end pt-2">
+                            <Button
+                                variant="outline"
+                                onClick={() => { setSetupData(null); setTotpCode(''); }}
+                                className="border-slate-200 dark:border-slate-600"
+                            >
+                                {t('common.cancel')}
+                            </Button>
+                            <Button
+                                onClick={handleConfirm2FA}
+                                disabled={isConfirming || totpCode.length !== 6}
+                                className="bg-emerald-600 hover:bg-emerald-700 text-white disabled:opacity-50"
+                            >
+                                {isConfirming ? (
+                                    <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t('settings.security.two_factor_confirming')}</>
+                                ) : (
+                                    <><ShieldCheck className="mr-2 h-4 w-4" /> {t('settings.security.two_factor_confirm')}</>
+                                )}
+                            </Button>
+                        </div>
+                    </div>
+                ) : (
+                    /* 2FA disabled, show enable button */
+                    <div className="space-y-4 max-w-2xl">
+                        <div className="flex items-center gap-3 p-4 bg-slate-50/50 dark:bg-slate-800/30 rounded-lg border border-slate-200/50 dark:border-slate-700/30">
+                            <Shield className="h-8 w-8 text-slate-400 flex-shrink-0" />
+                            <div>
+                                <p className="font-medium text-slate-700 dark:text-slate-300">{t('settings.security.two_factor_disabled_message')}</p>
+                                <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">{t('settings.security.two_factor_disabled_desc')}</p>
+                            </div>
+                        </div>
+                        <div className="flex justify-end pt-2">
+                            <Button
+                                onClick={handleSetup2FA}
+                                className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-md hover:shadow-lg transition-all duration-300"
+                            >
+                                <ShieldCheck className="mr-2 h-4 w-4" />
+                                {t('settings.security.two_factor_enable')}
+                            </Button>
+                        </div>
+                    </div>
+                )}
+            </CardContent>
+        </Card>
+        </div>
     );
 };
 

@@ -19,7 +19,13 @@
         "check_email": "Provjerite svoju e-poštu!",
         "email_sent_desc": "Poslali smo upute za resetiranje lozinke na <0>{{email}}</0>.",
         "redirecting_login": "Preusmjeravanje na prijavu...",
-        "return_login": "Povratak na prijavu"
+        "return_login": "Povratak na prijavu",
+        "two_factor_title": "Dvofaktorska autentikacija",
+        "two_factor_subtitle": "Unesite 6-cifreni kod iz vaše autentikator aplikacije.",
+        "verification_code": "Verifikacijski kod",
+        "verifying": "Provjera...",
+        "verify": "Potvrdi",
+        "back_to_login": "Nazad na prijavu"
     },
     "header": {
         "search_placeholder": "Pretraži recepte, sastojke...",
@@ -499,7 +505,27 @@
             "fair": "Srednje",
             "good": "Dobro",
             "strong": "Jako",
-            "very_strong": "Vrlo jako"
+            "very_strong": "Vrlo jako",
+            "two_factor_title": "Dvofaktorska autentikacija",
+            "two_factor_description": "Dodajte dodatni sloj sigurnosti s Google Authenticatorom.",
+            "two_factor_enable": "Omogući 2FA",
+            "two_factor_disable": "Onemogući 2FA",
+            "two_factor_disabling": "Onemogućavanje...",
+            "two_factor_active": "Aktivno",
+            "two_factor_active_message": "Dvofaktorska autentikacija je omogućena",
+            "two_factor_active_desc": "Vaš račun je zaštićen Google Authenticatorom.",
+            "two_factor_disabled_message": "Dvofaktorska autentikacija je onemogućena",
+            "two_factor_disabled_desc": "Omogućite 2FA za dodatnu sigurnost vašeg računa.",
+            "two_factor_scan_qr": "Skenirajte ovaj QR kod s Google Authenticatorom",
+            "two_factor_manual_key": "Ili unesite ovaj ključ ručno:",
+            "two_factor_enter_code": "Unesite 6-cifreni kod iz vaše aplikacije",
+            "two_factor_confirm": "Potvrdi i Omogući",
+            "two_factor_confirming": "Provjera...",
+            "two_factor_enabled_success": "2FA uspješno omogućena!",
+            "two_factor_disabled_success": "2FA je onemogućena.",
+            "two_factor_invalid_code": "Nevažeći kod. Pokušajte ponovo.",
+            "two_factor_setup_failed": "Postavljanje 2FA nije uspjelo.",
+            "two_factor_disable_failed": "Onemogućavanje 2FA nije uspjelo."
         },
         "localization": {
             "title": "Postavke lokalizacije",

@@ -12,7 +12,8 @@ export interface User {
 interface AuthContextType {
   isAuthenticated: boolean;
   user: User | null;
-  login: (username: string, password: string) => Promise<void>;
+  login: (username: string, password: string) => Promise<any>;
+  verifyTotp: (username: string, code: string) => Promise<void>;
   logout: () => void;
   loading: boolean;
 }
@@ -49,48 +50,62 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     initAuth();
   }, []);
 
+  const completeLogin = (token: string, username: string, role: string) => {
+    if (role.startsWith('ROLE_')) {
+      role = role.replace('ROLE_', '');
+    }
+
+    const userData: User = { username, role, token };
+
+    localStorage.setItem('authToken', token);
+    localStorage.setItem('user', JSON.stringify(userData));
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+    setUser(userData);
+    setIsAuthenticated(true);
+
+    toast.success('Login successful!');
+  };
+
   const login = async (username: string, password: string) => {
     try {
-      const response = await axios.post('/api/auth/login', {
-        username,
-        password
-      });
+      const response = await axios.post('/api/auth/login', { username, password });
 
-
+      if (response.data.twoFactorRequired) {
+        return response.data;
+      }
 
       if (!response.data.token) {
         throw new Error("No token received from server");
       }
 
-      const token = response.data.token;
-      let role = response.data.role || 'WAITER';
-      if (role.startsWith('ROLE_')) {
-        role = role.replace('ROLE_', '');
-      }
-
-      const userData: User = {
-        username: username,
-        role: role,
-        token: token
-      };
-
-      // Save data
-      localStorage.setItem('authToken', token);
-      localStorage.setItem('user', JSON.stringify(userData));
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
-      // Update state
-      setUser(userData);
-      setIsAuthenticated(true);
-
-      toast.success('Login successful!');
-
+      completeLogin(response.data.token, username, response.data.role || 'WAITER');
       return response.data;
 
     } catch (error: any) {
       setIsAuthenticated(false);
       setUser(null);
       const msg = error.response?.data?.message || 'Login failed. Please check your credentials.';
+      toast.error(msg);
+      throw error;
+    }
+  };
+
+  const verifyTotp = async (username: string, code: string) => {
+    try {
+      const response = await axios.post('/api/auth/2fa/verify', {
+        username,
+        code: parseInt(code)
+      });
+
+      if (!response.data.token) {
+        throw new Error("No token received from server");
+      }
+
+      completeLogin(response.data.token, username, response.data.role || 'ADMIN');
+
+    } catch (error: any) {
+      const msg = error.response?.data?.message || '2FA verification failed.';
       toast.error(msg);
       throw error;
     }
@@ -107,7 +122,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, login, logout, loading }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, login, verifyTotp, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

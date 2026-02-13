@@ -19,7 +19,13 @@
         "check_email": "Check your email!",
         "email_sent_desc": "We've sent password reset instructions to <0>{{email}}</0>.",
         "redirecting_login": "Redirecting to login...",
-        "return_login": "Return to Login"
+        "return_login": "Return to Login",
+        "two_factor_title": "Two-Factor Authentication",
+        "two_factor_subtitle": "Enter the 6-digit code from your authenticator app.",
+        "verification_code": "Verification Code",
+        "verifying": "Verifying...",
+        "verify": "Verify",
+        "back_to_login": "Back to Login"
     },
     "header": {
         "search_placeholder": "Search recipes, ingredients...",
@@ -446,7 +452,27 @@
             "fair": "Fair",
             "good": "Good",
             "strong": "Strong",
-            "very_strong": "Very Strong"
+            "very_strong": "Very Strong",
+            "two_factor_title": "Two-Factor Authentication",
+            "two_factor_description": "Add an extra layer of security with Google Authenticator.",
+            "two_factor_enable": "Enable 2FA",
+            "two_factor_disable": "Disable 2FA",
+            "two_factor_disabling": "Disabling...",
+            "two_factor_active": "Active",
+            "two_factor_active_message": "Two-factor authentication is enabled",
+            "two_factor_active_desc": "Your account is protected with Google Authenticator.",
+            "two_factor_disabled_message": "Two-factor authentication is disabled",
+            "two_factor_disabled_desc": "Enable 2FA to add an extra security layer to your account.",
+            "two_factor_scan_qr": "Scan this QR code with Google Authenticator",
+            "two_factor_manual_key": "Or enter this key manually:",
+            "two_factor_enter_code": "Enter the 6-digit code from your app",
+            "two_factor_confirm": "Verify & Enable",
+            "two_factor_confirming": "Verifying...",
+            "two_factor_enabled_success": "2FA enabled successfully!",
+            "two_factor_disabled_success": "2FA has been disabled.",
+            "two_factor_invalid_code": "Invalid verification code. Please try again.",
+            "two_factor_setup_failed": "Failed to set up 2FA.",
+            "two_factor_disable_failed": "Failed to disable 2FA."
         },
         "localization": {
             "title": "Localization Settings",

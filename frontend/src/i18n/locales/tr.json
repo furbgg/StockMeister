@@ -19,7 +19,13 @@
         "check_email": "E-postanızı kontrol edin!",
         "email_sent_desc": "<0>{{email}}</0> adresine şifre sıfırlama talimatlarını gönderdik.",
         "redirecting_login": "Giriş sayfasına yönlendiriliyorsunuz...",
-        "return_login": "Giriş Yap'a Dön"
+        "return_login": "Giriş Yap'a Dön",
+        "two_factor_title": "İki Faktörlü Doğrulama",
+        "two_factor_subtitle": "Authenticator uygulamanızdaki 6 haneli kodu girin.",
+        "verification_code": "Doğrulama Kodu",
+        "verifying": "Doğrulanıyor...",
+        "verify": "Doğrula",
+        "back_to_login": "Girişe Dön"
     },
     "header": {
         "search_placeholder": "Tarif, malzeme ara...",
@@ -446,7 +452,27 @@
             "fair": "Orta",
             "good": "İyi",
             "strong": "Güçlü",
-            "very_strong": "Çok Güçlü"
+            "very_strong": "Çok Güçlü",
+            "two_factor_title": "İki Faktörlü Doğrulama",
+            "two_factor_description": "Google Authenticator ile ekstra güvenlik katmanı ekleyin.",
+            "two_factor_enable": "2FA'yı Etkinleştir",
+            "two_factor_disable": "2FA'yı Devre Dışı Bırak",
+            "two_factor_disabling": "Devre dışı bırakılıyor...",
+            "two_factor_active": "Aktif",
+            "two_factor_active_message": "İki faktörlü doğrulama etkin",
+            "two_factor_active_desc": "Hesabınız Google Authenticator ile korunuyor.",
+            "two_factor_disabled_message": "İki faktörlü doğrulama devre dışı",
+            "two_factor_disabled_desc": "Hesabınıza ekstra güvenlik katmanı eklemek için 2FA'yı etkinleştirin.",
+            "two_factor_scan_qr": "Bu QR kodu Google Authenticator ile tarayın",
+            "two_factor_manual_key": "Veya bu anahtarı manuel olarak girin:",
+            "two_factor_enter_code": "Uygulamadaki 6 haneli kodu girin",
+            "two_factor_confirm": "Doğrula ve Etkinleştir",
+            "two_factor_confirming": "Doğrulanıyor...",
+            "two_factor_enabled_success": "2FA başarıyla etkinleştirildi!",
+            "two_factor_disabled_success": "2FA devre dışı bırakıldı.",
+            "two_factor_invalid_code": "Geçersiz doğrulama kodu. Tekrar deneyin.",
+            "two_factor_setup_failed": "2FA kurulumu başarısız.",
+            "two_factor_disable_failed": "2FA devre dışı bırakma başarısız."
         },
         "localization": {
             "title": "Yerelleştirme Ayarları",

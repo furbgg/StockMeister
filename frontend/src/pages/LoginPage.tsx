@@ -4,7 +4,7 @@ import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Eye, EyeOff, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, Loader2, ShieldCheck, ArrowLeft } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from '@/components/common/LanguageSwitcher';
@@ -17,18 +17,28 @@ const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [totpCode, setTotpCode] = useState('');
+  const [twoFactorRequired, setTwoFactorRequired] = useState(false);
+  const [twoFactorUsername, setTwoFactorUsername] = useState('');
 
   const [loginStatus, setLoginStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, verifyTotp } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoginStatus('loading');
 
     try {
-      await login(username, password);
+      const result = await login(username, password);
+
+      if (result?.twoFactorRequired) {
+        setTwoFactorRequired(true);
+        setTwoFactorUsername(result.username);
+        setLoginStatus('idle');
+        return;
+      }
 
       setLoginStatus('success');
 
@@ -43,6 +53,32 @@ const LoginPage = () => {
 
       setTimeout(() => setLoginStatus('idle'), 2000);
     }
+  };
+
+  const handleTotpSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoginStatus('loading');
+
+    try {
+      await verifyTotp(twoFactorUsername, totpCode);
+
+      setLoginStatus('success');
+
+      setTimeout(() => {
+        navigate('/', { replace: true });
+      }, 1500);
+
+    } catch (err: any) {
+      setLoginStatus('error');
+      setTimeout(() => setLoginStatus('idle'), 2000);
+    }
+  };
+
+  const handleBackToLogin = () => {
+    setTwoFactorRequired(false);
+    setTotpCode('');
+    setTwoFactorUsername('');
+    setLoginStatus('idle');
   };
 
   const isLoading = loginStatus === 'loading' || loginStatus === 'success';
@@ -61,68 +97,118 @@ const LoginPage = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-purple-100/5 dark:from-slate-800/10 dark:to-slate-700/5 pointer-events-none" />
 
             <div className="relative z-10 grid gap-6">
-              <div className="flex flex-col items-center mb-4">
-                <img src="/logo.png" alt="StockMeister Logo" className="h-16 w-auto mb-4 object-contain" />
-                <h1 className="text-3xl font-bold text-[#7c3176]">{t('auth.sign_in')}</h1>
-                <p className="text-balance text-muted-foreground mt-2 text-center">
-                  {t('auth.subtitle')}
-                </p>
-              </div>
-
-              <form onSubmit={handleSubmit} className="grid gap-4">
-                <div className="grid gap-2">
-                  <Label htmlFor="username">{t('auth.username_email')}</Label>
-                  <Input
-                    id="username"
-                    type="text"
-                    placeholder="admin"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                    className="h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 focus-visible:ring-[#7c3176] transition-all duration-300 focus:bg-white dark:focus:bg-slate-800"
-                    disabled={isLoading}
-                  />
-                </div>
-
-                <div className="grid gap-2">
-                  <div className="flex items-center">
-                    <Label htmlFor="password">{t('auth.password')}</Label>
-                    <Link
-                      to="/forgot-password"
-                      className="ml-auto inline-block text-sm underline text-[#7c3176] hover:text-[#60265b]"
-                    >
-                      {t('auth.forgot_password')}
-                    </Link>
+              {!twoFactorRequired ? (
+                <>
+                  <div className="flex flex-col items-center mb-4">
+                    <img src="/logo.png" alt="StockMeister Logo" className="h-16 w-auto mb-4 object-contain" />
+                    <h1 className="text-3xl font-bold text-[#7c3176]">{t('auth.sign_in')}</h1>
+                    <p className="text-balance text-muted-foreground mt-2 text-center">
+                      {t('auth.subtitle')}
+                    </p>
                   </div>
-                  <div className="relative">
-                    <Input
-                      id="password"
-                      type={showPassword ? 'text' : 'password'}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                      className="h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 focus-visible:ring-[#7c3176] transition-all duration-300 focus:bg-white dark:focus:bg-slate-800"
-                      disabled={isLoading}
-                    />
+
+                  <form onSubmit={handleSubmit} className="grid gap-4">
+                    <div className="grid gap-2">
+                      <Label htmlFor="username">{t('auth.username_email')}</Label>
+                      <Input
+                        id="username"
+                        type="text"
+                        placeholder="admin"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                        className="h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 focus-visible:ring-[#7c3176] transition-all duration-300 focus:bg-white dark:focus:bg-slate-800"
+                        disabled={isLoading}
+                      />
+                    </div>
+
+                    <div className="grid gap-2">
+                      <div className="flex items-center">
+                        <Label htmlFor="password">{t('auth.password')}</Label>
+                        <Link
+                          to="/forgot-password"
+                          className="ml-auto inline-block text-sm underline text-[#7c3176] hover:text-[#60265b]"
+                        >
+                          {t('auth.forgot_password')}
+                        </Link>
+                      </div>
+                      <div className="relative">
+                        <Input
+                          id="password"
+                          type={showPassword ? 'text' : 'password'}
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          required
+                          className="h-11 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 focus-visible:ring-[#7c3176] transition-all duration-300 focus:bg-white dark:focus:bg-slate-800"
+                          disabled={isLoading}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-3 top-2.5 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
+                          tabIndex={-1}
+                          disabled={isLoading}
+                        >
+                          {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                        </button>
+                      </div>
+                    </div>
+
+                    <Button type="submit" className="w-full bg-[#7c3176] hover:bg-[#60265b] text-white" disabled={isLoading}>
+                      {loginStatus === 'loading' ? (
+                        <> <Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t('auth.signing_in')} </>
+                      ) : (t('auth.sign_in'))}
+                    </Button>
+                  </form>
+                </>
+              ) : (
+                <>
+                  <div className="flex flex-col items-center mb-4">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#7c3176] to-[#60265b] flex items-center justify-center mb-4">
+                      <ShieldCheck className="w-8 h-8 text-white" />
+                    </div>
+                    <h1 className="text-3xl font-bold text-[#7c3176]">{t('auth.two_factor_title')}</h1>
+                    <p className="text-balance text-muted-foreground mt-2 text-center">
+                      {t('auth.two_factor_subtitle')}
+                    </p>
+                  </div>
+
+                  <form onSubmit={handleTotpSubmit} className="grid gap-4">
+                    <div className="grid gap-2">
+                      <Label htmlFor="totp-code">{t('auth.verification_code')}</Label>
+                      <Input
+                        id="totp-code"
+                        type="text"
+                        inputMode="numeric"
+                        maxLength={6}
+                        placeholder="000000"
+                        value={totpCode}
+                        onChange={(e) => setTotpCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                        required
+                        autoFocus
+                        className="h-14 text-center text-2xl tracking-[0.5em] font-mono bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-600 focus-visible:ring-[#7c3176] transition-all duration-300 focus:bg-white dark:focus:bg-slate-800"
+                        disabled={isLoading}
+                      />
+                    </div>
+
+                    <Button type="submit" className="w-full bg-[#7c3176] hover:bg-[#60265b] text-white" disabled={isLoading || totpCode.length !== 6}>
+                      {loginStatus === 'loading' ? (
+                        <> <Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t('auth.verifying')} </>
+                      ) : (t('auth.verify'))}
+                    </Button>
+
                     <button
                       type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-2.5 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
-                      tabIndex={-1}
+                      onClick={handleBackToLogin}
+                      className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-[#7c3176] transition-colors"
                       disabled={isLoading}
                     >
-                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                      <ArrowLeft size={16} />
+                      {t('auth.back_to_login')}
                     </button>
-                  </div>
-                </div>
-
-                <Button type="submit" className="w-full bg-[#7c3176] hover:bg-[#60265b] text-white" disabled={isLoading}>
-                  {loginStatus === 'loading' ? (
-                    <> <Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t('auth.signing_in')} </>
-                  ) : (t('auth.sign_in'))}
-                </Button>
-              </form>
-
+                  </form>
+                </>
+              )}
             </div>
           </div>
         </div>
