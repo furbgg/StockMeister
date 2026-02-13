@@ -206,7 +206,7 @@ public class DataSeeder implements CommandLineRunner {
 
                 User demoAdmin = User.builder()
                                 .username("demoAdmin")
-                                .password(passwordEncoder.encode("StockMeister2026!"))
+                                .password(passwordEncoder.encode(seedPassword))
                                 .email("demoadmin@example.com")
                                 .role(Role.ADMIN)
                                 .isActive(true)
